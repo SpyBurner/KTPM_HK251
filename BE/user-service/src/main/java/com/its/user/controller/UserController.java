@@ -1,6 +1,6 @@
 package com.its.user.controller;
 
-import com.its.common.dto.ApiResponse;
+import com.its.user.dto.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.ArrayList;

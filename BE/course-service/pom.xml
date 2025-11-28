@@ -13,12 +13,6 @@
 	<description>Course management microservice for Intelligent Tutoring System</description>
 
 	<dependencies>
-		<!-- Common Library -->
-		<dependency>
-			<groupId>com.its</groupId>
-			<artifactId>common-lib</artifactId>
-		</dependency>
-		
 		<!-- Spring Boot Starters -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
