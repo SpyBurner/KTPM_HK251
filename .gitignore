@@ -2,3 +2,7 @@
 *.zip
 *.log
 *.jar
+*.log
+*.pid
+*.log
+*.log

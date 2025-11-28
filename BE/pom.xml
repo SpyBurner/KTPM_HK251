@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0</version>
+        <version>3.5.8</version>
         <relativePath/>
     </parent>
 
@@ -21,7 +21,6 @@
 
     <modules>
         <module>eureka-server</module>
-        <module>common-lib</module>
         <module>user-service</module>
         <module>course-service</module>
     </modules>
@@ -43,13 +42,6 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            
-            <!-- Common Library -->
-            <dependency>
-                <groupId>com.its</groupId>
-                <artifactId>common-lib</artifactId>
-                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
