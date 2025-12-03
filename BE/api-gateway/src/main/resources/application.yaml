@@ -1,0 +1,26 @@
+server:
+  port: 8765
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/api/user/**
+              filters:
+                - RewritePath=/api/user/(?<segment>.*), /${segment}
+
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
+
+
+jwt:
+  signerKey: "0624249bd4352f1eae8da29618f84a6c82ccc324ec0ed43d3490a9bf72d78d06"
+  internalKey: "0e809e23fe0bfed50b77db2a56d1116b58226fa860232e2f1536300197cedf65"
+  internalExpirationMs: 600000
