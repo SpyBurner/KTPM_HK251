@@ -1,0 +1,25 @@
+server:
+  port: 8765
+  application:
+    name: api-gateway
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: iam-service
+              uri: lb://iam-service
+              predicates:
+                - Path=/api/iam-service/**
+              filters:
+                - RewritePath=/api/iam-service/(?<segment>.*), /${segment}
+
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
+
+jwt:
+  secret: ${JWT_SECRET}
