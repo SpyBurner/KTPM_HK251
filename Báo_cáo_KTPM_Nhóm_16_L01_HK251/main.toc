@@ -1,0 +1,22 @@
+\thispagestyle {empty}
+\contentsline {section}{\numberline {1}Giới thiệu}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Đặt vấn đề}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Các hướng giải quyết liên quan}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Cơ sở lý thuyết và công nghệ}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Cơ sở lý thuyết}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Công nghệ}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Yêu cầu về hệ thống}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Yêu cầu chức năng}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Yêu cầu phi chức năng}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Đặc tả chi tiết các use-case}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Đăng nhập/Đăng xuất}{4}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Kịch bản}{4}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Đặc tả chi tiết}{4}{subsubsection.4.1.2}%
+\contentsline {section}{\numberline {5}Phân tích \& Thiết kế hệ thống}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Entity Relationship Diagram (ERD)}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{5}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Tổng kết}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Nhận xét}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Hướng phát triển}{6}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Tài liệu tham khảo}{6}{section.7}%
+\contentsline {section}{\numberline {8}Phụ lục}{7}{section.8}%
