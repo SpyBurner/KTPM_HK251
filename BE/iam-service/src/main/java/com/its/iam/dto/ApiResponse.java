@@ -1,4 +1,4 @@
-package com.its.user.dto;
+package com.its.iam.dto;
 
 /**
  * Standard API Response wrapper
