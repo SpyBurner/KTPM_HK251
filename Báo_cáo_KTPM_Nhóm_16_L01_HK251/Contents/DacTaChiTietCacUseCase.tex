@@ -1,0 +1,39 @@
+\section{Đặc tả chi tiết các use-case}
+\subsection{Đăng nhập/Đăng xuất}
+\subsubsection{Kịch bản}
+\subsubsection{Đặc tả chi tiết}
+\begin{usecase}{Tải file lên hệ thống}
+    \addrow{Use-case ID}{ST.02}
+    \addrow{Tổng quan}{Sinh viên tải file cần in lên hệ thống trước khi thực hiện thao tác in.}
+    \addrow{Actor}{Sinh viên.}
+    \addcondition{Tiền điều kiện}{
+        \item Hệ thống SSPS đang hoạt động.
+        \item Sinh viên đã đăng nhập.
+    }
+    \addrow{Điều kiện kích hoạt}{Sinh viên ấn vào nút "Tải lên file".}
+    \addmulrow{Các bước}{
+        \item Hệ thống hiển thị giao diện chọn file từ máy sinh viên.
+        \item \label{ST.02_FileChoice} Sinh viên chọn file và ấn Chọn.
+        \item \label{ST.02_Valid} Hệ thống kiểm tra loại file hợp lệ.
+        \item \label{ST.02_Save} Hệ thống lưu file.
+    }
+    \addcondition{Hậu điều kiện}{
+        \item File sinh viên chọn được tải lên hệ thống.
+        \item Hệ thống lưu trữ file thành công.
+    }
+    \addexception{Xử lý ngoại lệ}{
+        \item Bước \ref{ST.02_Valid} - Nếu file được chọn không thuộc một trong các định dạng đã được SPSO chỉ định:
+        \begin{enumerate}
+            \item Hệ thống hiển thị thông báo lỗi "Sai định dạng file".
+            \item Hệ thống hiển thị danh sách các loại file được phép tải lên.
+            \item Sinh viên chọn hủy thao tác.
+            \item Use-case trở lại bước \ref{ST.02_FileChoice}.
+        \end{enumerate}
+        \item Bước \ref{ST.02_Save} - Hệ thống không thể lưu trữ file do các lỗi hệ thống như thiếu bộ nhớ, hoặc đường truyền không ổn định gây lỗi file tải lên không nguyên vẹn:
+        \begin{enumerate}
+            \item Hệ thống hiển thị thông báo lỗi "Không thể tải lên file, vui lòng thử lại sau".
+            \item Sinh viên chọn hủy thao tác.
+            \item Use-case kết thúc.
+        \end{enumerate}
+    }
+\end{usecase}
