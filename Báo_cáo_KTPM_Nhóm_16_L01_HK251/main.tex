@@ -23,6 +23,7 @@
 \usepackage[lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage{enumerate}
 \usepackage{color}
+\usepackage{float}
 \usepackage{graphicx}							% Standard graphics package
 \usepackage{array}
 \usepackage{tabularx, caption}
@@ -202,7 +203,7 @@ morekeywords={}
 \everymath{\color{black}}%make in-line maths symbols blue to read/check easily
 
 \sloppy
-\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=5pt}
 %space remove between caption, figure, and text
 \captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
 \setlength{\floatsep}{5pt plus 2pt minus 2pt}
@@ -288,9 +289,9 @@ morekeywords={}
 %\thispagestyle{empty}
 \newpage
 %%%%%%%%%%%%%%%%%INTRO%%%%%%%%%%%%%%%%%%%
-\input{Intro/LoiCamOn}
-\input{Intro/LoiCamDoan}
-\input{Intro/TomTat}
+\input{Intro/2. LoiCamOn.tex}
+\input{Intro/1. LoiCamDoan.tex}
+\input{Intro/3. TomTat.tex}
 \newpage
 \tableofcontents
 \newpage
@@ -301,21 +302,25 @@ morekeywords={}
 \setcounter{page}{1}
 
 %%%%%%%%%%%%%%%%%CONTENTS%%%%%%%%%%%%%%%%%%%
-\input{Contents/GioiThieu}
+\input{Contents/1. GioiThieu.tex}
 \newpage
-\input{Contents/CoSoLyThuyet}
+\input{Contents/2. CoSoLyThuyet.tex}
 \newpage
-\input{Contents/YeuCauHeThong}
+\input{Contents/3. YeuCauHeThong.tex}
 \newpage
-\input{Contents/DacTaChiTietCacUseCase}
+\input{Contents/4. DacTaChiTietCacUseCase.tex}
 \newpage
-\input{Contents/PhanTichThietKeHeThong}
+\input{Contents/5. PhanTichThietKeHeThong.tex}
 \newpage
-\input{Contents/TongKet}
+\input{Contents/6. HienThuc.tex}
+\newpage
+\input{Contents/7. TrienKhai.tex}
+\newpage
+\input{Contents/8. TongKet.tex}
 %%%%%%%%%%%%%%%%%OUTRO%%%%%%%%%%%%%%%%%%%
-\input{Outro/TaiLieuThamKhao}
+\input{Outro/1. TaiLieuThamKhao.tex}
 \newpage
-\input{Outro/PhuLuc}
+\input{Outro/2. PhuLuc.tex}
 \end{document}
 
 
