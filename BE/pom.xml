@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.8</version>
+        <version>3.5.7</version>
         <relativePath/>
     </parent>
 
@@ -16,26 +16,21 @@
     <artifactId>intelligent-tutoring-system</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>Intelligent Tutoring System</name>
-    <description>Learning Management System with Service-Based Architecture</description>
 
     <modules>
-        <module>eureka-server</module>
+        <module>service-registry</module>
         <module>user-service</module>
         <module>course-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>
         <java.version>21</java.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
     </properties>
-    
+
     <dependencyManagement>
         <dependencies>
-            <!-- Spring Cloud BOM -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -45,7 +40,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <build>
         <plugins>
             <plugin>
