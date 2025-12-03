@@ -1,4 +1,4 @@
-package com.its.user;
+package com.its.iam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @ComponentScan(basePackages = {"com.its.user", "com.its.common"})
-public class UserServiceApplication {
+public class IamServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserServiceApplication.class, args);
+		SpringApplication.run(IamServiceApplication.class, args);
 	}
 
 }

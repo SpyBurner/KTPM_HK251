@@ -1,6 +1,6 @@
-package com.its.user.controller;
+package com.its.iam.controller;
 
-import com.its.user.dto.ApiResponse;
+import com.its.iam.dto.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * User management REST controller
  */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
     
     @GetMapping

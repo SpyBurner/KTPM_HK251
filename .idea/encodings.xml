@@ -4,9 +4,9 @@
     <file url="file://$PROJECT_DIR$/BE/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BE/course-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BE/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BE/iam-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BE/service-registry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BE/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BE/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/BE/user-service/src/main/java" charset="UTF-8" />
   </component>
 </project>
