@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Course management REST controller
  */
 @RestController
-@RequestMapping("/api/courses")
+@RequestMapping("/courses")
 public class CourseController {
     
     @GetMapping
@@ -33,7 +33,7 @@ public class CourseController {
         return ApiResponse.success("Course created successfully", "Course created");
     }
     
-    @GetMapping("/health")
+    @GetMapping("/hehe")
     public ApiResponse<String> healthCheck() {
         return ApiResponse.success("Course service is running", "Health check passed");
     }

@@ -15,7 +15,12 @@ spring:
                 - Path=/api/iam-service/**
               filters:
                 - RewritePath=/api/iam-service/(?<segment>.*), /${segment}
-
+            - id: course-service
+              uri: lb://course-service
+              predicates:
+                - Path=/api/course-service/**
+              filters:
+                - RewritePath=/api/course-service/(?<segment>.*), /${segment}
           discovery:
             locator:
               enabled: false
@@ -23,3 +28,10 @@ spring:
 
 jwt:
   secret: ${JWT_SECRET}
+  algorithm: ${JWT_ALGORITHM}}
+
+cors:
+  allowed-origins: ${FE_HOST}
+
+gateway:
+  secret-key: ${GATEWAY_SECRET_KEY:super-secret-key-change-in-production-12345}

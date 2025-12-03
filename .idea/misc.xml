@@ -7,11 +7,13 @@
         <option value="$PROJECT_DIR$/BE/pom.xml" />
         <option value="$PROJECT_DIR$/BE/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/BE/service-registry/pom.xml" />
+        <option value="$PROJECT_DIR$/BE/iam-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/BE/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/BE/iam-service/pom.xml" />
       </set>
     </option>
   </component>
