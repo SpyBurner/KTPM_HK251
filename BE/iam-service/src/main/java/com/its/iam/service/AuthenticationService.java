@@ -31,6 +31,25 @@ public class AuthenticationService {
     private final UserMapper userMapper;
 
 
+    public IntrospectResponse introspect(IntrospectRequest request){
+        var token = request.getToken();
+        boolean isValid = true;
+        String username = jwtService.extractUsername(token);
+
+        try {
+            var user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new AuthenticationException("Nguoi dung khong ton tai"));
+            if (!jwtService.isTokenValid(token,user) || (tokenService.isInvalidToken(token))){
+                throw new BadRequestException("Token khong hop le");
+            }
+        } catch (BadRequestException | AuthenticationException e) {
+            isValid = false;
+        }
+        return IntrospectResponse.builder().valid(isValid).build();
+
+    }
+
+
     public AuthenticationResponse register(RegisterRequest request) {
         // Check if username already exists
         if (userRepository.existsByUsername(request.getUsername())) {
