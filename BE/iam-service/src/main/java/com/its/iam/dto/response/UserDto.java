@@ -1,7 +1,6 @@
-package com.its.iam.dto;
+package com.its.iam.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.its.iam.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -35,11 +35,9 @@ public class GatewaySecretKeyFilter extends OncePerRequestFilter {
             response.getWriter().write("Invalid or missing gateway secret key");
             return;
         }
-        log.error("djklsjfkdlsjfsdlkjdslkjsdflkjsdf");
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken("gateway", null, List.of())
         );
         filterChain.doFilter(request, response);
-        log.error("djklsjfkdlsjfsdlkjdslkjsdflkjsdf");
     }
 }

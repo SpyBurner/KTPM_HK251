@@ -1,3 +1,3 @@
-package com.its.iam.dto;
+package com.its.iam.dto.response;
 
 public record TokenPair(String accessToken, String refreshToken) {}

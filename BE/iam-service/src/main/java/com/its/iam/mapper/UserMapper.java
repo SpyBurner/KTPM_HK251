@@ -1,6 +1,6 @@
 package com.its.iam.mapper;
 
-import com.its.iam.dto.UserDto;
+import com.its.iam.dto.response.UserDto;
 import com.its.iam.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package com.its.iam.service;
 
-import com.its.iam.dto.TokenPair;
+import com.its.iam.dto.response.TokenPair;
 import com.its.iam.entity.InvalidToken;
 import com.its.iam.entity.User;
 import com.its.iam.repository.InvalidTokenRepository;

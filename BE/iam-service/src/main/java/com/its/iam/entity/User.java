@@ -11,12 +11,14 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
 @Builder
@@ -84,24 +86,29 @@ public class User implements UserDetails {
 
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        // 1. Role → ROLE_<ROLE_NAME>
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        // 1. Role
         SimpleGrantedAuthority roleAuthority =
                 new SimpleGrantedAuthority("ROLE_" + role.getName());
 
-        // 2. Privileges → type:name
-        List<SimpleGrantedAuthority> privilegeAuthorities = userPrivileges.stream()
-                .map(up -> {
-                    var p = up.getPrivilege();
-                    String value = p.getName() + ":" + p.getType();  // example: "MENU:READ"
-                    return new SimpleGrantedAuthority(value);
-                })
-                .toList();
+        // 2. Privileges safely
+        List<SimpleGrantedAuthority> privilegeAuthorities =
+                (userPrivileges == null)
+                        ? List.of()
+                        : userPrivileges.stream()
+                        .map(up -> {
+                            var p = up.getPrivilege();
+                            return new SimpleGrantedAuthority(p.getName() + ":" + p.getType());
+                        })
+                        .toList();
 
-        // Combine role + privileges
-        List<GrantedAuthority> authorities = new java.util.ArrayList<>(List.of(roleAuthority));
+        // 3. Combine safely
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(roleAuthority);
         authorities.addAll(privilegeAuthorities);
 
         return authorities;
     }
+
 }
