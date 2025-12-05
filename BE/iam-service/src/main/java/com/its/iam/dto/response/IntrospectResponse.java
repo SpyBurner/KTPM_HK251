@@ -1,4 +1,4 @@
-package com.its.iam.dto;
+package com.its.iam.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -10,4 +10,6 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class IntrospectResponse {
     boolean valid;
+    String username;
+    Long roleId;
 }

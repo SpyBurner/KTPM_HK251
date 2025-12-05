@@ -24,22 +24,17 @@ public class GatewaySecretKeyFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+            HttpServletResponse response,
+            FilterChain filterChain) throws ServletException, IOException {
 
         String headerValue = request.getHeader(GATEWAY_HEADER);
-
-        log.error(headerValue);
         if (headerValue == null || !headerValue.equals(expectedSecretKey)) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             response.getWriter().write("Invalid or missing gateway secret key");
             return;
         }
-        log.error("djklsjfkdlsjfsdlkjdslkjsdflkjsdf");
         SecurityContextHolder.getContext().setAuthentication(
-                new UsernamePasswordAuthenticationToken("gateway", null, List.of())
-        );
+                new UsernamePasswordAuthenticationToken("gateway", null, List.of()));
         filterChain.doFilter(request, response);
-        log.error("djklsjfkdlsjfsdlkjdslkjsdflkjsdf");
     }
 }

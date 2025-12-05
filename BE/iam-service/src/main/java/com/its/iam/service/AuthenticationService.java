@@ -1,27 +1,37 @@
 package com.its.iam.service;
 
-import com.its.iam.dto.*;
+import com.its.iam.dto.request.AuthenticationRequest;
+import com.its.iam.dto.request.IntrospectRequest;
+import com.its.iam.dto.request.RegisterRequest;
+import com.its.iam.dto.response.AuthenticationResponse;
+import com.its.iam.dto.response.IntrospectResponse;
+import com.its.iam.dto.response.TokenPair;
+import com.its.iam.dto.response.UserDto;
+import com.its.iam.entity.Role;
 import com.its.iam.entity.User;
-import com.its.iam.exception.AuthenticationException;
-import com.its.iam.exception.InvalidTokenException;
+import com.its.iam.exception.AppException;
+import com.its.iam.exception.ErrorCode;
 import com.its.iam.mapper.UserMapper;
+import com.its.iam.repository.RoleRepository;
 import com.its.iam.repository.UserRepository;
 import com.its.iam.security.IJwtService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.ws.rs.BadRequestException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
-
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -29,55 +39,80 @@ public class AuthenticationService {
     private final IJwtService jwtService;
     private final ITokenService tokenService;
     private final UserMapper userMapper;
+    private final RoleRepository roleRepository;
 
-
-    public IntrospectResponse introspect(IntrospectRequest request){
-        var token = request.getToken();
+    public IntrospectResponse introspect(IntrospectRequest request) {
+        String token = request.getToken();
         boolean isValid = true;
-        String username = jwtService.extractUsername(token);
 
+        String username = "";
+        Long roleId = null;
         try {
-            var user = userRepository.findByUsername(username)
-                    .orElseThrow(() -> new AuthenticationException("Nguoi dung khong ton tai"));
-            if (!jwtService.isTokenValid(token,user) || (tokenService.isInvalidToken(token))){
-                throw new BadRequestException("Token khong hop le");
+            username = jwtService.extractUsername(token);
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
+
+            roleId = user.getRole() != null ? user.getRole().getId() : null;
+            if (!jwtService.isTokenValid(token, user)) {
+                throw new AppException(ErrorCode.INVALID_TOKEN);
             }
-        } catch (BadRequestException | AuthenticationException e) {
+
+            if (tokenService.isInvalidToken(token)) {
+                throw new AppException(ErrorCode.TOKEN_ALREADY_BLACKLISTED);
+            }
+
+        } catch (ExpiredJwtException e) {
+            log.warn("Token expired during introspection", e);
+            isValid = false;
+        } catch (JwtException e) {
+            log.warn("Invalid JWT token during introspection", e);
+            isValid = false;
+        } catch (AppException e) {
+            log.warn("Introspection failed: {}", e.getMessage());
             isValid = false;
         }
-        return IntrospectResponse.builder().valid(isValid).build();
-
+        return IntrospectResponse.builder()
+                .valid(isValid)
+                .username(username)
+                .roleId(roleId)
+                .build();
     }
 
-
+    @Transactional(rollbackFor = Exception.class)
     public AuthenticationResponse register(RegisterRequest request) {
         // Check if username already exists
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new AuthenticationException("Username already exists");
+            throw new AppException(ErrorCode.USERNAME_EXISTED);
         }
-        
-        // Check if email already exists
+
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new AuthenticationException("Email already exists");
+            throw new AppException(ErrorCode.EMAIL_EXISTED);
         }
-        
-        // Tạo User với mã hóa password
-        var user = User.builder()
+
+        Role role = null;
+
+        if (request.getRoleId() != null) {
+            role = roleRepository.findById(request.getRoleId())
+                    .orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));
+        }
+        User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
                 .passwordHash(passwordEncoder.encode(request.getPassword()))
                 .phone(request.getPhone())
                 .displayName(request.getDisplayName())
-                .role(request.getRole())
+                .role(role)
                 .active(true)
                 .createdAt(LocalDateTime.now())
                 .build();
-        var savedUser = userRepository.save(user);
+
+        User savedUser = userRepository.save(user);
+        log.info("User registered successfully: {}", savedUser.getUsername());
 
         // Generate JWT tokens
         TokenPair tokenPair = tokenService.generateToken(savedUser);
 
-        // Tạo response
+        // Build response
         return AuthenticationResponse.builder()
                 .accessToken(tokenPair.accessToken())
                 .refreshToken(tokenPair.refreshToken())
@@ -85,92 +120,114 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request){
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
-        var user = userRepository.findByUsername(request.getUsername())
-                .orElseThrow(() -> new AuthenticationException("Nguoi dung khong ton tai"));
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getUsername(),
+                            request.getPassword()));
+        } catch (BadCredentialsException e) {
+            log.warn("Invalid credentials for user: {}", request.getUsername());
+            throw new AppException(ErrorCode.INVALID_CREDENTIALS);
+        }
+
+        User user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
+
+        // Check if account is active (handle null case)
+        if (user.getActive() == null || !user.getActive()) {
+            throw new AppException(ErrorCode.ACCOUNT_INACTIVE);
+        }
+
+        log.info("User authenticated successfully: {}", user.getUsername());
+
         UserDto userDto = userMapper.mapToUserDto(user);
         TokenPair tokenPair = tokenService.generateToken(user);
 
         return AuthenticationResponse.builder()
                 .accessToken(tokenPair.accessToken())
                 .refreshToken(tokenPair.refreshToken())
-                .userDto(userDto).build();
-
-    }
-
-    public AuthenticationResponse refreshToken(String authHeader) {
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            throw new BadRequestException("Missing or invalid Authorization header");
-        }
-
-        String refreshToken = authHeader.substring(7);
-
-        // Validate token → your logic here
-        String username = jwtService.extractUsername(refreshToken);
-        var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new AuthenticationException("Nguoi dung khong ton tai"));
-
-        if (!jwtService.isTokenValid(refreshToken, user)) {
-            throw new AuthenticationException("Invalid refresh token");
-        }
-        UserDto userDto = userMapper.mapToUserDto(user);
-        TokenPair pair = tokenService.generateToken(user);
-
-        return AuthenticationResponse.builder()
-                .accessToken(pair.accessToken())
-                .refreshToken(pair.refreshToken())
                 .userDto(userDto)
                 .build();
     }
 
-    public String logout(HttpServletRequest request) {
-        // 1. Extract token from header
-        final String authHeader = request.getHeader("Authorization");
-
+    public AuthenticationResponse refreshToken(String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            throw new BadRequestException("Invalid token format");
+            throw new AppException(ErrorCode.MISSING_TOKEN);
         }
 
-        final String jwt = authHeader.substring(7);
-        String username = jwtService.extractUsername(jwt);
+        String refreshToken = authHeader.substring(7);
 
-
-        var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new AuthenticationException("Nguoi dung khong ton tai"));
-
-        // 2. Validate token before blacklisting
         try {
-            // Verify token is valid (not expired, valid signature)
+            String username = jwtService.extractUsername(refreshToken);
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
+
+            if (!jwtService.isTokenValid(refreshToken, user)) {
+                throw new AppException(ErrorCode.INVALID_TOKEN);
+            }
+
+            if (tokenService.isInvalidToken(refreshToken)) {
+                throw new AppException(ErrorCode.TOKEN_ALREADY_BLACKLISTED);
+            }
+
+            log.info("Token refreshed successfully for user: {}", username);
+
+            UserDto userDto = userMapper.mapToUserDto(user);
+            TokenPair pair = tokenService.generateToken(user);
+
+            return AuthenticationResponse.builder()
+                    .accessToken(pair.accessToken())
+                    .refreshToken(pair.refreshToken())
+                    .userDto(userDto)
+                    .build();
+
+        } catch (ExpiredJwtException e) {
+            log.warn("Expired refresh token", e);
+            throw new AppException(ErrorCode.EXPIRED_TOKEN);
+        } catch (JwtException e) {
+            log.warn("Invalid JWT refresh token", e);
+            throw new AppException(ErrorCode.INVALID_TOKEN);
+        }
+    }
+
+    public String logout(HttpServletRequest request) {
+        // Extract token from header
+        String authHeader = request.getHeader("Authorization");
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new AppException(ErrorCode.MISSING_TOKEN);
+        }
+
+        String jwt = authHeader.substring(7);
+
+        try {
+            String username = jwtService.extractUsername(jwt);
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
+
+            // Validate token before blacklisting
             if (!jwtService.isTokenValid(jwt, user)) {
-                throw new InvalidTokenException("Token is invalid or expired");
+                throw new AppException(ErrorCode.INVALID_TOKEN);
             }
 
-            // 3. Check if token is already blacklisted
+            // Check if token is already blacklisted
             if (tokenService.isInvalidToken(jwt)) {
-                return "Already logged out";
+                throw new AppException(ErrorCode.TOKEN_ALREADY_BLACKLISTED);
             }
 
-            // 5. Blacklist the token
+            // Blacklist the token
             tokenService.setTokenInvalid(jwt);
-
-            // Note: No need for SecurityContextHolder.clearContext()
-            // in stateless JWT auth - context is per-request
+            log.info("User logged out successfully: {}", username);
 
             return "Logged out successfully";
 
         } catch (ExpiredJwtException e) {
-            // Token already expired - no need to blacklist
-            throw new InvalidTokenException("Token has already expired");
+            log.warn("Attempted to logout with expired token", e);
+            throw new AppException(ErrorCode.EXPIRED_TOKEN);
         } catch (JwtException e) {
-            throw new InvalidTokenException("Invalid token");
+            log.warn("Invalid JWT token during logout", e);
+            throw new AppException(ErrorCode.INVALID_TOKEN);
         }
     }
-
-
 }
