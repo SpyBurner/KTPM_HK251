@@ -1,36 +1,45 @@
 \thispagestyle {empty}
 \contentsline {section}{\numberline {1}Giới thiệu}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Đặt vấn đề}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Các hướng giải quyết liên quan}{1}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Cơ sở lý thuyết và công nghệ}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Cơ sở lý thuyết}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Công nghệ}{2}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Yêu cầu về hệ thống}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Yêu cầu chức năng}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Yêu cầu phi chức năng}{3}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Đặc tả chi tiết các use-case}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Quản lý tài khoản}{4}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Kịch bản}{4}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Đặc tả chi tiết}{4}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Quản lý quyền chỉnh sửa khóa học}{5}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Kịch bản}{5}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Đặc tả chi tiết}{5}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Quản lý hệ thống}{5}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Kịch bản}{5}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Đặc tả chi tiết}{5}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Quản lý khóa học}{5}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Kịch bản}{5}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Đặc tả chi tiết}{5}{subsubsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.5}Học khóa học}{5}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Kịch bản}{5}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Đặc tả chi tiết}{5}{subsubsection.4.5.2}%
-\contentsline {section}{\numberline {5}Phân tích \& Thiết kế hệ thống}{6}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Entity Relationship Diagram (ERD)}{6}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{6}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Hiện thực}{7}{section.6}%
-\contentsline {section}{\numberline {7}Triển khai}{8}{section.7}%
-\contentsline {section}{\numberline {8}Tổng kết}{9}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Nhận xét}{9}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Hướng phát triển}{9}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Tài liệu tham khảo}{9}{section.9}%
-\contentsline {section}{\numberline {10}Phụ lục}{10}{section.10}%
+\contentsline {subsection}{\numberline {1.2}Mô tả ý tưởng}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Cơ sở lý thuyết và công nghệ}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Công nghệ Lõi và Backend }{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Công nghệ Frontend}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Nền tảng Cloud: Amazon Web Services (AWS)}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Docker và Amazon Elastic Container Service (ECS)}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Spring Cloud Gateway}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Spring Cloud Discovery và Eureka}{5}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Eureka Server – Service Registry}{5}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Eureka Client – Service Discovery}{6}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Giao tiếp giữa các Service: REST API trên mạng nội bộ ECS}{6}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}AWS Amplify}{6}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Yêu cầu về hệ thống}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Xác định người dùng}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Yêu cầu chức năng}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Yêu cầu phi chức năng}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Đặc tả chi tiết các use-case}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Quản lý tài khoản}{9}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Tổng quan}{9}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Đặc tả chi tiết}{9}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Quản lý quyền chỉnh sửa khóa học}{10}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Tổng quan}{10}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Đặc tả chi tiết}{11}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Quản lý hệ thống}{11}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Tổng quan}{11}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Đặc tả chi tiết}{11}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Quản lý khóa học}{11}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Tổng quan}{11}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Đặc tả chi tiết}{12}{subsubsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.5}Học khóa học}{12}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Tổng quan}{12}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Đặc tả chi tiết}{12}{subsubsection.4.5.2}%
+\contentsline {section}{\numberline {5}Phân tích \& Thiết kế hệ thống}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Entity Relationship Diagram (ERD)}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{13}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Hiện thực}{14}{section.6}%
+\contentsline {section}{\numberline {7}Triển khai}{15}{section.7}%
+\contentsline {section}{\numberline {8}Tổng kết}{16}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Nhận xét}{16}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Hướng phát triển}{16}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Tài liệu tham khảo}{16}{section.9}%
+\contentsline {section}{\numberline {10}Phụ lục}{17}{section.10}%
