@@ -1,6 +1,6 @@
-package com.its.iam.repository;
+package com.its.media.repository;
 
-import com.its.iam.entity.File;
+import com.its.media.entity.File;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +20,8 @@ public interface FileRepository extends JpaRepository<File, UUID> {
     boolean existsByName(String name);
     
     boolean existsByBucketId(String bucketId);
-    
-    void deleteByBucketId(String bucketId);
+
+    void deleteById(UUID id);
+
+    File findByUsernameAndProfilePictureTrue(String username);
 }
