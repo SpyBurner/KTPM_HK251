@@ -1,3 +1,165 @@
 \section{Cơ sở lý thuyết và công nghệ}
-\subsection{Cơ sở lý thuyết}
-\subsection{Công nghệ}
+Hệ thống được xây dựng trên nền tảng Java/Spring Boot kết hợp với kiến trúc phân tán Spring Cloud và giao diện người dùng React. Việc lựa chọn bộ công nghệ này nhằm tận dụng khả năng phát triển nhanh, tính ổn định cao và sự hỗ trợ mạnh mẽ cho kiến trúc Service-Based Architecture – SBA. 
+
+\subsection{Công nghệ Lõi và Backend }
+
+Các dịch vụ nghiệp vụ và hỗ trợ (Domain \& Infrastructure Services) đều sử dụng hệ sinh thái Spring. 
+
+\begin{itemize}
+	\item Spring Boot: Đây là framework phát triển lõi cho toàn bộ các dịch vụ backend, bao gồm Identity Access Management, Quiz, System, Learning, Course, AI, và Service Registry. Spring Boot cung cấp môi trường chạy độc lập và cấu hình tự động (auto-configuration), đảm bảo mỗi module là một đơn vị triển khai rời rạc và dễ dàng quản lý. 
+	\item Spring Cloud Gateway: Công nghệ này được sử dụng để triển khai module API Gateway. Nó đóng vai trò là điểm truy cập duy nhất cho client, chịu trách nhiệm chính trong việc định tuyến yêu cầu tới dịch vụ tương ứng và thực hiện lọc yêu cầu (filtering) trước khi đến các dịch vụ nghiệp vụ. 
+	\item Spring Cloud Discovery (Eureka Server): Đây là công nghệ nền tảng cho module Service Registry. Nó đóng vai trò là máy chủ đăng ký dịch vụ, lưu trữ metadata và danh sách các instance đang chạy của các dịch vụ.  
+	\item Spring Cloud Discovery (Eureka Client): Tất cả các Service nghiệp vụ (IAM, Quiz, System, Learning, Course, AI) và API Gateway đều được cấu hình là Eureka Client. Điều này cho phép chúng tự động đăng ký với Eureka Server và tận dụng cơ chế khám phá dịch vụ (Service Discovery) để xác định instance hợp lệ tại thời điểm chạy (runtime). 
+	\item Spring AI: Đây là thư viện được sử dụng trong AI Service. Nó hỗ trợ việc tích hợp các mô hình Trí tuệ Nhân tạo (AI Models) bên ngoài một cách dễ dàng. Spring AI giúp AI Service thực hiện các chức năng như phân tích hành vi và tiến trình học, cũng như đề xuất lộ trình học tập phù hợp dựa trên dữ liệu phân tích. 
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{"Images/2. CoSoLyThuyet/BE.png"}
+	\caption{Các công nghệ Back-end}
+	\label{fig:tech-be}
+\end{figure}
+
+\subsection{Công nghệ Frontend}
+React là một thư viện JavaScript mã nguồn mở do Facebook phát triển, được sử dụng rộng rãi để xây dựng giao diện người dùng (User Interface – UI), đặc biệt là các ứng dụng web có tính tương tác cao. React cho phép nhà phát triển xây dựng giao diện thông qua các thành phần (components) độc lập, có khả năng tái sử dụng, giúp tổ chức mã nguồn rõ ràng và dễ bảo trì hơn.
+
+Một trong những ưu điểm nổi bật của React là sử dụng Virtual DOM – một cấu trúc DOM ảo giúp tối ưu hóa hiệu năng. Khi giao diện thay đổi, React chỉ cập nhật những phần tử cần thiết thay vì render lại toàn bộ trang, nhờ đó cải thiện tốc độ xử lý và trải nghiệm của người dùng.
+
+React hỗ trợ mô hình lập trình declarative (khai báo), cho phép mô tả giao diện theo trạng thái của ứng dụng. Khi trạng thái thay đổi, React tự động cập nhật UI tương ứng, giảm thiểu lỗi và đơn giản hóa việc quản lý vòng đời giao diện.
+
+Ngoài ra, React có một hệ sinh thái phát triển rộng lớn bao gồm:
+
+\begin{itemize}
+	\item React Hooks: Cung cấp cách tiếp cận mới để quản lý state và vòng đời trong function components.
+	\item React Router: Hỗ trợ điều hướng nhiều trang trong ứng dụng single-page.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\linewidth]{"Images/2. CoSoLyThuyet/React.png"}
+	\caption{React}
+	\label{fig:tech-fe}
+\end{figure}
+
+Nhờ vào cấu trúc linh hoạt, hiệu năng cao và cộng đồng lớn mạnh, React trở thành một trong những công nghệ phổ biến nhất được lựa chọn trong phát triển các ứng dụng web hiện đại, đặc biệt trong các dự án cần giao diện tương tác, trải nghiệm mượt mà và khả năng mở rộng tốt
+
+\subsection{Nền tảng Cloud: Amazon Web Services (AWS)}
+
+Amazon Web Services (AWS) là nền tảng điện toán đám mây hàng đầu thế giới, cung cấp hơn 200 dịch vụ toàn diện bao phủ hầu hết mọi nhu cầu về hạ tầng và ứng dụng. Với các trung tâm dữ liệu được phân bố trên toàn cầu, AWS mang đến khả năng mở rộng linh hoạt, độ sẵn sàng cao, bảo mật nhiều lớp, cùng với mô hình chi phí tối ưu theo nhu cầu sử dụng.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\linewidth]{"Images/2. CoSoLyThuyet/AWS.png"}
+	\caption{Amazon Web Services}
+	\label{fig:tech-aws}
+\end{figure}
+
+AWS cung cấp đầy đủ bốn nhóm dịch vụ cốt lõi trong kiến trúc cloud hiện đại:
+
+\begin{itemize}
+	\item Compute: EC2, ECS, Lambda cho phép triển khai ứng dụng dưới nhiều mô hình từ máy ảo, container đến serverless.
+	\item Storage: S3, EBS, EFS hỗ trợ lưu trữ đối tượng, khối và file system với độ bền dữ liệu cao.
+	\item Networking: VPC, Elastic Load Balancing, Route 53 cho phép kiểm soát mạng nội bộ, định tuyến và phân phối tải.
+	\item Database: RDS, DynamoDB, Aurora cung cấp hệ quản trị cơ sở dữ liệu quan hệ và NoSQL hiệu năng cao.
+\end{itemize}
+
+Một điểm mạnh nổi bật của AWS là khả năng tự động mở rộng (auto scaling) và cân bằng tải (load balancing) giúp hệ thống đáp ứng linh hoạt khi lưu lượng tăng đột biến mà không gián đoạn hoạt động. Đồng thời, AWS áp dụng mô hình bảo mật theo nhiều lớp (multi-layer security) gồm mã hoá dữ liệu, kiểm soát truy cập theo IAM, network isolation qua VPC và giám sát liên tục với CloudWatch.
+
+Nhờ các đặc điểm này, việc triển khai hệ thống trên AWS giúp giảm tải phần vận hành hạ tầng, tăng độ tin cậy, đồng thời cho phép nhóm phát triển tập trung vào logic ứng dụng thay vì lo lắng về máy chủ hay cấu hình mạng. Đây là nền tảng phù hợp cho các hệ thống IoT, AI và xử lý dữ liệu theo thời gian thực, đặc biệt khi yêu cầu khả năng mở rộng cao và vận hành ổn định.
+
+\subsection{Docker và Amazon Elastic Container Service (ECS)}
+
+Để đảm bảo tính nhất quán trong quá trình phát triển và triển khai, toàn bộ các thành phần backend của hệ thống được đóng gói dưới dạng Docker container. Docker cho phép đóng gói mã nguồn kèm theo môi trường chạy (runtime, thư viện, cấu hình) vào một Docker image duy nhất. Nhờ vậy, ứng dụng có thể vận hành giống nhau ở mọi môi trường — từ máy lập trình viên, môi trường staging, cho đến môi trường production. Điều này giúp giảm thiểu xung đột phụ thuộc (dependency conflict), đơn giản hoá quá trình triển khai và tăng tốc độ phát hành phiên bản mới.
+
+Để quản lý và vận hành các container này, hệ thống sử dụng Amazon Elastic Container Service (ECS), một dịch vụ điều phối container (container orchestration) mạnh mẽ của AWS. ECS cho phép triển khai các container lên một ECS Cluster, theo dõi trạng thái của chúng và tự động khởi động lại khi xảy ra lỗi. ECS hỗ trợ hai mô hình chạy: EC2 (tự quản lý EC2 instances) và Fargate (serverless, không cần quản lý máy chủ), giúp linh hoạt tối ưu chi phí và hiệu năng.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"Images/2. CoSoLyThuyet/Docker_ECS.png"}
+	\caption{Docker và Amazon Elastic Container Service}
+	\label{fig:tech-docker-ecs}
+\end{figure}
+
+Thông qua ECS, hệ thống được hưởng các cơ chế vận hành tự động như:
+
+\begin{itemize}
+	\item Tự động mở rộng (Auto Scaling): tăng hoặc giảm số lượng container dựa trên tải.
+	\item Health Check và tự phục hồi: container lỗi sẽ được thay thế ngay lập tức để duy trì tính sẵn sàng.
+	\item Load Balancing: tích hợp với Elastic Load Balancer (ELB) để phân phối đều lưu lượng.
+	\item Triển khai phiên bản mới không gián đoạn: thông qua cơ chế rolling update.
+\end{itemize}
+
+Việc áp dụng Docker và ECS giúp hệ thống đạt được khả năng mở rộng linh hoạt, ổn định trong vận hành, dễ dàng bảo trì và phù hợp với kiến trúc microservices. Đồng thời, nền tảng cloud-native của ECS giúp giảm tối đa công sức quản lý hạ tầng, cho phép nhóm phát triển tập trung hoàn toàn vào logic ứng dụng.
+
+\subsection{Spring Cloud Gateway}
+
+Spring Cloud Gateway đóng vai trò là tầng định tuyến trung tâm (API Gateway) trong kiến trúc của hệ thống. Đây là một giải pháp hiện đại được xây dựng trên nền tảng Spring WebFlux và mô hình lập trình phản ứng (reactive programming), cho phép xử lý lượng lớn yêu cầu với hiệu năng cao và độ trễ thấp. Spring Cloud Gateway chịu trách nhiệm tiếp nhận toàn bộ lưu lượng từ người dùng hoặc từ API Gateway bên ngoài, sau đó định tuyến chúng đến đúng dịch vụ phía backend trong hệ thống.
+
+Về mặt chức năng, Spring Cloud Gateway cung cấp nhiều khả năng phù hợp cho hệ thống:
+
+\begin{itemize}
+	\item \textbf{Định tuyến linh hoạt (Dynamic Routing):} cho phép điều hướng yêu cầu tới các service khác nhau dựa trên URL, header, tham số truy vấn hoặc quy tắc tùy chỉnh.
+	\item \textbf{Cân bằng tải (Load Balancing):} tích hợp liền mạch với Spring Cloud LoadBalancer hoặc Service Discovery để phân phối yêu cầu đều giữa các bản sao container.
+	\item \textbf{Lọc và xử lý trước/sau (Pre/Post Filters):} hỗ trợ chèn logic xử lý như xác thực, ghi log, giới hạn tốc độ (rate limiting), sửa đổi header hoặc payload trước khi chuyển đến service đích.
+	\item \textbf{Hỗ trợ bảo mật:} dễ dàng tích hợp với Spring Security để triển khai cơ chế xác thực, phân quyền, JWT, OAuth2.
+	\item \textbf{Khả năng mở rộng:} được thiết kế theo kiến trúc phi đồng bộ, phù hợp cho phân tán tải cao trong môi trường container.
+\end{itemize}
+
+Với vai trò cổng vào duy nhất của hệ thống, Spring Cloud Gateway giúp đơn giản hóa giao tiếp, giảm độ phức tạp giữa client và các microservice, đồng thời tăng tính bảo mật bằng cách che giấu cấu trúc nội bộ. Nhờ hoạt động trên nền phản ứng (reactive), gateway đạt hiệu năng tốt ngay cả khi số lượng kết nối và yêu cầu tăng cao.
+
+\subsection{Spring Cloud Discovery và Eureka}
+
+Trong hệ thống, việc các dịch vụ có thể tìm thấy và giao tiếp với nhau một cách tự động là một yêu cầu quan trọng. Spring Cloud Discovery cùng với Eureka cung cấp một giải pháp hoàn chỉnh cho cơ chế Service Registry và Service Discovery, đảm bảo sự linh hoạt và khả năng mở rộng của hệ thống phân tán.
+
+\subsubsection{Eureka Server – Service Registry}
+
+Eureka Server hoạt động như một trung tâm đăng ký dịch vụ (Service Registry). Nó duy trì một danh sách động các service instance đang hoạt động trong hệ thống cùng với metadata liên quan (như địa chỉ, port, trạng thái…). Các dịch vụ khi khởi động sẽ gửi yêu cầu đăng ký (registration) đến Eureka Server và định kỳ gửi heartbeat để thông báo rằng chúng vẫn còn hoạt động.
+
+Nhờ đó, hệ thống có thể:
+
+\begin{itemize}
+	\item \textbf{Xóa bỏ cấu hình tĩnh}: Không cần khai báo cứng địa chỉ IP hay endpoint của từng service.
+	\item \textbf{Hỗ trợ mở rộng tự động}: Khi có service instance mới xuất hiện hoặc bị hỏng, registry sẽ phản ánh ngay lập tức.
+	\item \textbf{Tăng tính linh hoạt}: Cho phép dịch chuyển container, scaling theo tải mà không ảnh hưởng tới cấu trúc hệ thống.
+\end{itemize}
+
+\subsubsection{Eureka Client – Service Discovery}
+
+Các dịch vụ trong hệ thống đóng vai trò là Eureka Client, nghĩa là chúng sẽ:
+
+\begin{itemize}
+	\item \textbf{Tự động đăng ký} với Eureka Server khi khởi động.
+	\item \textbf{Lấy danh sách các service khác} từ registry để biết cách giao tiếp mà không cần cấu hình thêm.
+	\item \textbf{Cập nhật danh sách instance theo thời gian thực}, bảo đảm rằng mỗi yêu cầu được định tuyến đến service đang khả dụng.
+\end{itemize}
+
+Cơ chế Service Discovery giúp các dịch vụ giao tiếp theo kiểu “tên dịch vụ” thay vì địa chỉ cố định, tạo ra:
+
+\begin{itemize}
+	\item \textbf{Khả năng chịu lỗi cao}: Khi một instance ngừng hoạt động, client sẽ tự động chuyển sang instance khác.
+	\item \textbf{Tự động cân bằng tải}: Kết hợp với các công cụ như Spring Cloud LoadBalancer hoặc Gateway.
+	\item \textbf{Tối ưu hoá vận hành trong môi trường container}: Các địa chỉ container thay đổi liên tục nhưng không ảnh hưởng đến toàn hệ thống.
+\end{itemize}
+
+\subsection{Giao tiếp giữa các Service: REST API trên mạng nội bộ ECS}
+REST API (Representational State Transfer Application Programming Interface) là phương thức giao tiếp phổ biến nhờ tính đơn giản, linh hoạt và khả năng mở rộng. REST tuân theo các nguyên tắc của kiến trúc hướng tài nguyên, trong đó mỗi tài nguyên được biểu diễn bằng một định danh duy nhất (URI) và được thao tác thông qua các phương thức chuẩn của giao thức HTTP như \texttt{GET}, \texttt{POST}, \texttt{PUT} và \texttt{DELETE}. Cách tiếp cận này giúp các dịch vụ duy trì tính độc lập, giảm sự phụ thuộc lẫn nhau và tạo điều kiện thuận lợi cho việc phát triển và triển khai riêng biệt từng thành phần.
+
+Trong hệ thống, các dịch vụ giao tiếp với nhau thông qua REST API truyền qua mạng nội bộ của ECS Cluster. Giao tiếp nội bộ mang lại nhiều lợi ích: (1) tăng cường bảo mật do không cần công khai endpoint ra Internet, (2) giảm thiểu độ trễ vì dữ liệu truyền trong hạ tầng mạng tối ưu hoá của cụm container, và (3) đảm bảo tính nhất quán trong cách các dịch vụ trao đổi dữ liệu. Việc sử dụng REST trong môi trường tách biệt cũng giúp việc giám sát, kiểm thử và mở rộng dịch vụ trở nên dễ dàng hơn, đồng thời cho phép từng dịch vụ có thể phát triển bằng công nghệ hoặc ngôn ngữ lập trình khác nhau mà không ảnh hưởng đến tổng thể hệ thống.
+
+\subsection{AWS Amplify}
+
+AWS Amplify là một nền tảng phát triển ứng dụng web và di động được xây dựng nhằm đơn giản hóa quá trình triển khai, quản lý và vận hành frontend trong môi trường đám mây. Amplify cung cấp một tập hợp các công cụ và dịch vụ giúp tự động hóa toàn bộ vòng đời phát triển của ứng dụng, từ xây dựng (build), kiểm thử (test), đến triển khai (deploy) và phân phối (hosting).
+
+Một trong những điểm mạnh của Amplify là khả năng hỗ trợ CI/CD tích hợp, cho phép ứng dụng tự động được build và triển khai mỗi khi có thay đổi mới trên các nhánh mã nguồn. Điều này giảm thiểu sai sót thủ công, đồng thời đảm bảo rằng bản phát hành luôn nhất quán với mã nguồn mới nhất.
+
+Ngoài ra, Amplify cung cấp hạ tầng Hosting tĩnh với CDN phân tán toàn cầu, giúp tối ưu hóa tốc độ tải trang cho người dùng ở nhiều khu vực địa lý khác nhau. Bằng việc sử dụng mạng phân phối nội dung (Content Delivery Network), các tệp frontend có thể được truy xuất nhanh chóng, giảm độ trễ và cải thiện trải nghiệm người dùng.
+
+Về mặt bảo mật và vận hành, Amplify hỗ trợ cấu hình dễ dàng các domain tùy chỉnh, chứng chỉ HTTPS, ghi log, theo dõi hiệu năng và khả năng rollback về phiên bản trước khi gặp lỗi. Nhờ sự tích hợp chặt chẽ với các dịch vụ AWS khác, Amplify mang đến môi trường triển khai mạnh mẽ, linh hoạt và phù hợp cho các ứng dụng web hiện đại.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\linewidth]{"Images/2. CoSoLyThuyet/Amplify.png"}
+	\caption{AWS Amplify}
+	\label{fig:tech-amplify}
+\end{figure}
+

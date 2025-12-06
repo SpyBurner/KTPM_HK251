@@ -36,6 +36,8 @@
 \usepackage{epsfig}
 \usepackage{tikz}
 
+\usepackage{indentfirst} % Always indent paragraph
+
 \usetikzlibrary{arrows,snakes,backgrounds,calc}
 \usepackage[unicode]{hyperref}
 \hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
@@ -241,57 +243,57 @@ morekeywords={}
 
 \begin{center}
 \begin{tabular}{c}
-\multicolumn{1}{c}{\textbf{{\LARGE BÁO CÁO}}}\\
-\\{\textbf{{\LARGE ĐỒ ÁN CHUYÊN NGÀNH}}}
-\\{\textbf{{\LARGE ĐỒ ÁN KỸ THUẬT MÁY TÍNH}}}
-\\{\textbf{{\LARGE ĐỒ ÁN MÔN HỌC}}}
-\\ \textit{(SV chọn tên môn học cho phù hợp)}
+\multicolumn{1}{c}{\textbf{{\LARGE BÁO CÁO BÀI TẬP LỚN}}}\\
+\\{\textbf{{\LARGE KIẾN TRÚC PHẦN MỀM}}}
 \\
 \\
-\textbf{\LARGE TÊN ĐỀ TÀI}
-\\ \textit{(size tuỳ theo số lượng từ)}
+\textbf{\LARGE ĐỀ TÀI:}\\
+\textbf{\LARGE HỆ THỐNG GIA SƯ THÔNG MINH (ITS)}
 
-\\ \vspace{0.5cm} {\Large NGÀNH: ................................}
 \end{tabular}
 \end{center}
 \vspace{0.5cm}
 \begin{table}[h]
-\begin{tabular}{rll}
-\hspace{6 cm} &  \textbf{\Large HỘI ĐỒNG:} {\Large ................................}
-\\
-\\
-\hspace{6 cm} &   \textbf{\Large GVHD:} {\Large ................................}
-\\
-\\
-\hspace{6 cm}  &   \textbf{\Large TKHĐ:} {\Large ................................}
-\\
-\\
-% TKHĐ là THƯ KÝ HỘI ĐỒNG
-\hspace{6 cm} &     \textbf{$\;$ $\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$$\;$ \Large ---o0o---} 
-\\
-\\
-\hspace{6 cm} &   \textbf{\Large SVTH1:} {\Large .....Họ \& Tên...........(MSSV)}
-\\
-\\
-\hspace{6 cm}&   \textbf{\Large SVTH2:}  {\Large .....Họ \& Tên...........(MSSV)}
-\\
-\\
-\hspace{6 cm} &   \textbf{\Large SVTH3:}  {\Large .....Họ \& Tên...........(MSSV)}
-\\
-\\
-\end{tabular}
+	\centering
+	\begin{tabular}{lll} % Using 'c' for the first column (for better alignment of the empty cell)
+		\multicolumn{3}{l}{\textbf{\Large Giảng viên hướng dẫn:} {\Large Trần Trương Tuấn Phát}} % Center GVHD across 3 columns
+		\\
+		\\
+		\multicolumn{3}{l}{\textbf{\Large Sinh viên thực hiện:}} 
+		\\
+		\\
+		& {\Large Nguyễn Anh Khoa} & {\Large 2211614} % Removed parentheses
+		\\
+		\\
+		& {\Large Phạm Quang Minh} & {\Large 2212075} % Removed parentheses
+		\\
+		\\
+		& {\Large Đoàn Ngọc Hoàng Sơn} & {\Large 2212935} % Removed parentheses
+		\\
+		\\
+		& {\Large Nguyễn Văn Sơn} & {\Large 2212949} % Removed parentheses
+		\\
+		\\
+		& {\Large Trần Nam Sơn} & {\Large 2212956} % Removed parentheses
+		\\
+		\\
+		& {\Large Nguyễn Hiệp Tài} & {\Large 2212985} % Removed parentheses
+		\\
+		\\
+		& {\Large Huỳnh Cảnh Thịnh} & {\Large 2213272} % Removed parentheses
+	\end{tabular}
 \end{table}
 \vspace{0.5cm}
 \begin{center}
-{\Large TP. HỒ CHÍ MINH, THÁNG/NĂM (BẢO VỆ) }
+{\Large TP. HỒ CHÍ MINH, THÁNG 12 NĂM 2025 }
 \end{center}
 \end{titlepage}
 %\thispagestyle{empty}
 \newpage
 %%%%%%%%%%%%%%%%%INTRO%%%%%%%%%%%%%%%%%%%
-\input{Intro/2. LoiCamOn.tex}
-\input{Intro/1. LoiCamDoan.tex}
-\input{Intro/3. TomTat.tex}
+%\input{Intro/2. LoiCamOn.tex}
+%\input{Intro/1. LoiCamDoan.tex}
+%\input{Intro/3. TomTat.tex}
 \newpage
 \tableofcontents
 \newpage

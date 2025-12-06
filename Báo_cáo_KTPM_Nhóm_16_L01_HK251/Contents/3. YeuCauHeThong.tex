@@ -1,3 +1,88 @@
 \section{Yêu cầu về hệ thống}
+\subsection{Xác định người dùng}
+Do hệ thống sẽ được sử dụng trong môi trường đại học, các phân loại người dùng cũng sẽ dựa trên môi trường thực tế. Điều này đảm bảo hệ thống được vận hành trơn tru khi áp dụng vào một trường đại học bất kỳ, cũng như không phải thuê thêm người điều hành riêng. Phân loại người dùng bao gồm:
+\begin{itemize}
+	\item Admin: Người phụ trách vận hành, giám sát hệ thống sau khi triển khai. Nhiệm vụ của người dùng này còn bao gồm cài đặt, điều chỉnh cách vận hành của một số tính năng. Admin cũng có thể là một giảng viên trong trường.
+	\item Trưởng khoa: Người phụ trách quản lý một số môn học của một khoa. Vai trò chủ yếu của người dùng này là kiểm duyệt các yêu cầu về quyền hạn người dùng, nội dung của các khóa học.
+	\item Giảng viên: Là người phụ trách đăng tải tài liệu, xây dựng bài học, quiz,... Giảng viên cũng là người sẽ trả lời các câu hỏi trên diễn đàn của sinh viên, theo dõi tiến độ học tập,...
+	\item Trợ giảng (TA): Vai trò chủ yếu của người dùng này là trợ giúp các giảng viên về các vấn đề liên quan tới một khóa học, như đề xuất chỉnh sửa nội dung, thảo luân trên diễn đàn, theo dõi tiến độ sinh viên,...
+	\item Sinh viên: Là người dùng trực tiếp sử dụng các tài nguyên được đăng tải trên hệ thống. Sinh viên có quyền được truy cập các khóa học, xem nội dung khóa học, làm bài tập,...
+\end{itemize}
+
 \subsection{Yêu cầu chức năng}
+Biểu diễn các yêu cầu chức năng dưới dạng User story, ta có bảng sau:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|p{1.5cm}|p{6cm}|p{6cm}|}
+		\hline
+		\textbf{Mã} & \textbf{Ai} & \textbf{Muốn gì} & \textbf{Để làm gì} \\ \hline
+		
+		A-US01\label{us:A-US01} & Admin & Quản lý người dùng (tạo, xóa, sửa) & Đảm bảo hệ thống vận hành ổn định và đúng đối tượng sử dụng \\ \hline
+		A-US02\label{us:A-US02} & Admin & Quản lý quyền (thêm, xóa) & Đảm bảo hệ thống vận hành ổn định và đúng đối tượng sử dụng \\ \hline
+		A-US03\label{us:A-US03} & Admin & Cấu hình các tham số hệ thống & Tinh chỉnh hoạt động hệ thống theo yêu cầu thực tế \\ \hline
+		A-US04\label{us:A-US04} & Admin & Theo dõi hoạt động hệ thống (logs, thống kê) & Giám sát, phát hiện lỗi và tối ưu hiệu năng \\ \hline
+		
+		D-US01\label{us:D-US01} & Trưởng khoa & Xác thực yêu cầu cấp quyền cho giảng viên hoặc trợ giảng & Đảm bảo đúng người đúng vai trò trong khoa \\ \hline
+		D-US02\label{us:D-US02} & Trưởng khoa & Kiểm duyệt nội dung các khóa học của khoa & Đảm bảo chất lượng và tính phù hợp chuyên môn \\ \hline
+		
+		L-US01\label{us:L-US01} & Giảng viên & Tạo và quản lý nội dung khóa học (bài giảng, bài tập, quiz) & Xây dựng tài liệu giúp sinh viên học tập hiệu quả \\ \hline
+		L-US02\label{us:L-US02} & Giảng viên & Theo dõi tiến độ học tập của sinh viên & Đánh giá và hỗ trợ học tập kịp thời \\ \hline
+		L-US03\label{us:L-US03} & Giảng viên & Trả lời câu hỏi trên diễn đàn khóa học & Giải đáp thắc mắc cho sinh viên \\ \hline
+		
+		T-US01\label{us:T-US01} & Trợ giảng & Hỗ trợ giảng viên chỉnh sửa hoặc đề xuất nội dung khóa học & Giảm tải công việc và nâng cao chất lượng khóa học \\ \hline
+		T-US02\label{us:T-US02} & Trợ giảng & Tham gia thảo luận trên diễn đàn & Hỗ trợ giải đáp câu hỏi của sinh viên \\ \hline
+		T-US03\label{us:T-US03} & Trợ giảng & Theo dõi tiến độ sinh viên & Hỗ trợ giảng viên trong đánh giá và nhắc nhở sinh viên \\ \hline
+		
+		S-US01\label{us:S-US01} & Sinh viên & Truy cập và xem nội dung khóa học & Học tập theo chương trình giảng viên cung cấp \\ \hline
+		S-US02\label{us:S-US02} & Sinh viên & Làm bài tập, quiz và xem kết quả & Đánh giá mức độ hiểu bài và cải thiện kiến thức \\ \hline
+		S-US03\label{us:S-US03} & Sinh viên & Đặt câu hỏi và thảo luận trên diễn đàn & Trao đổi với giảng viên, trợ giảng và bạn học\\ \hline
+		S-US04\label{us:S-US04} & Sinh viên & Theo dõi tiến độ học tập của bản thân & Quản lý quá trình học tập và hoàn thành yêu cầu khóa học \\ \hline
+	\end{tabular}
+	\caption{Bảng User Stories}
+	\label{tab:user_stories} % Thêm label cho toàn bộ bảng
+\end{table}
+
 \subsection{Yêu cầu phi chức năng}
+Từ kết quả thăm dò ý kiến người dùng, kết hợp brainstorm trong các buổi họp nhóm, các yêu cầu phi chức năng của hệ thống được miêu tả như sau:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|p{13.5cm}|}
+		\hline
+		\textbf{Mã NFR} & \textbf{Mô tả yêu cầu phi chức năng} \\ \hline
+		
+		NFR01\label{nfr:01} & Hệ thống phải cho phép thay đổi hành vi vận hành mà không cần chỉnh sửa mã nguồn, bao gồm bật/tắt tính năng và điều chỉnh tham số hoạt động. \\ \hline
+		NFR02\label{nfr:02} & Hệ thống phải hỗ trợ thay đổi mô hình AI mà không gây gián đoạn dịch vụ (zero-downtime model update). \\ \hline
+		NFR03\label{nfr:03} & Hệ thống phải cho phép cấu hình loại tài liệu được phép đăng tải trong khóa học mà không cần triển khai lại. \\ \hline
+		NFR04\label{nfr:04} & Hệ thống phải cho phép chỉnh sửa layout hoặc cấu trúc giao diện khóa học thông qua cơ chế cấu hình. \\ \hline
+		NFR05\label{nfr:05} & Module tạo báo cáo phải hỗ trợ cấu hình layout của báo cáo. \\ \hline
+		NFR06\label{nfr:06} & Module tạo báo cáo phải cho phép cấu hình phạm vi dữ liệu được sử dụng trong báo cáo. \\ \hline
+		NFR07\label{nfr:07} & Module tạo quiz bằng AI phải hỗ trợ cấu hình số lượng câu hỏi, độ khó và phân bố độ khó. \\ \hline
+		NFR08\label{nfr:08} & Module gợi ý hint phải cho phép cấu hình tần suất và mức độ chi tiết của gợi ý. \\ \hline
+		NFR09\label{nfr:09} & Module gợi ý chủ đề phải cho phép thêm hoặc loại bỏ chủ đề quan tâm thông qua cấu hình. \\ \hline
+		
+		NFR10\label{nfr:10} & Hệ thống phải đảm bảo mức độ sẵn sàng không dưới 99\% trong thời gian có lưu lượng truy cập cao. \\ \hline
+		NFR11\label{nfr:11} & Khi xảy ra sự cố downtime, hệ thống phải tự phục hồi trong thời gian không vượt quá 5 phút. \\ \hline
+		NFR12\label{nfr:12} & Các thành phần quan trọng phải được triển khai theo mô hình nhiều vùng sẵn sàng (multi-AZ) hoặc tương đương. \\ \hline
+		
+		NFR13\label{nfr:13} & Dữ liệu bài giảng đăng tải phải được kiểm tra tính hợp lệ (định dạng, nội dung đầy đủ). \\ \hline
+		NFR14\label{nfr:14} & Mọi dữ liệu tải lên phải được lưu trữ an toàn, bao gồm mã hóa khi lưu trữ và khi truyền tải. \\ \hline
+		NFR15\label{nfr:15} & Mọi dữ liệu hiển thị phải đảm bảo nhất quán giữa các người dùng và các phiên xử lý. \\ \hline
+		NFR16\label{nfr:16} & Các thao tác quan trọng phải đảm bảo tính toàn vẹn giao dịch (transactional integrity). \\ \hline
+		NFR17\label{nfr:17} & Lịch sử chỉnh sửa nội dung khóa học phải được ghi lại để phục vụ truy vết. \\ \hline
+		
+		NFR18\label{nfr:18} & Các API liên quan đến AI phải có thời gian phản hồi trung bình dưới 2 giây. \\ \hline
+		NFR19\label{nfr:19} & Thời gian tải nội dung khóa học không vượt quá 1 giây trên kết nối mạng phổ thông. \\ \hline
+		NFR20\label{nfr:20} & Hệ thống phải sử dụng cơ chế caching để cải thiện tốc độ truy xuất dữ liệu. \\ \hline
+		
+		NFR21\label{nfr:21} & Hệ thống phải hỗ trợ ít nhất X sinh viên truy cập đồng thời (giá trị X được xác định sau khi ước tính tải). \\ \hline
+		NFR22\label{nfr:22} & Hệ thống phải tránh xung đột dữ liệu (race condition) khi nhiều người dùng thao tác song song. \\ \hline
+		
+		NFR23\label{nfr:23} & Hệ thống phải tự động mở rộng tài nguyên khi tải tăng cao, đặc biệt trong mùa thi. \\ \hline
+		NFR24\label{nfr:24} & Hệ thống phải tự động thu hẹp tài nguyên khi tải giảm để tối ưu chi phí vận hành. \\ \hline
+		NFR25\label{nfr:25} & Các dịch vụ AI và quiz phải hỗ trợ autoscaling dựa trên CPU/GPU hoặc số lượng yêu cầu mỗi giây. \\ \hline
+		
+	\end{tabular}
+	\caption{Danh sách yêu cầu phi chức năng (NFR)}
+	\label{tab:nfr_list_ref} % Đặt label cho toàn bộ bảng
+\end{table}
