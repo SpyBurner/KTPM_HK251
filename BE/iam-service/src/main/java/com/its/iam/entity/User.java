@@ -50,9 +50,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserHasPrivilege> userPrivileges;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fid")
-    private File file;
+    private String fileId;
 
     
     @Override
