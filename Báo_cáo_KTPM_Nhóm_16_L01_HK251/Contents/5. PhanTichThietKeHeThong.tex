@@ -135,3 +135,43 @@ Triển khai từ ERD ở phần trước, sơ đồ mapping bổ sung thêm cá
 
 
 \subsection{Kiến trúc hệ thống}
+\subsubsection{Đặc tính kiến trúc (Architecture characteristics)}
+Ứng dụng phương pháp \textbf{Architecture Katas} lên các yêu cầu hệ thống ở bảng \ref{tab:user_stories} và \ref{tab:nfr_list_ref}, nhóm đề xuất ra 3 đặc tính chính của hệ thống:
+
+\begin{enumerate}
+	\item \textbf{Configurability}, vì:
+	
+	\begin{itemize}
+		\item \textbf{Quản lý hệ thống:} Cho phép thay đổi cách thức vận hành của hệ thống mà không cần can thiệp hoặc chỉnh sửa trực tiếp vào mã nguồn. Đặc tính này bao gồm việc \textit{Đối với mô hình Trí tuệ nhân tạo (AI)} thì có khả năng thiết lập \textit{chu kỳ tự động bảo trì}. Tương ứng với: \ref{nfr:01}, \ref{nfr:02}.
+		
+		\item \textbf{Chỉnh sửa khóa học:} Cho phép cấu hình \textit{kiểu tài liệu} người dùng được phép đăng tải, cũng như chỉnh sửa \textit{layout (bố cục) giao diện khóa học} hiển thị cho người dùng. Tương ứng với: \ref{nfr:03}, \ref{nfr:04}.
+		
+		\item \textbf{Tạo báo cáo:} Người dùng có thể \textit{thay đổi layout} của báo cáo được tạo ra và \textit{thay đổi phạm vi dữ liệu} được sử dụng để lập báo cáo. Tương ứng với: \ref{nfr:05}, \ref{nfr:06}.
+		
+		\item \textbf{Tạo câu đố bằng AI:} Cho phép cấu hình các tham số tạo câu hỏi như \textit{số lượng câu}, \textit{độ khó} mong muốn, và \textit{phân bổ độ khó} giữa các câu hỏi. Tương ứng với: \ref{nfr:07}.
+		
+		\item \textbf{Hỏi gợi ý:} Có thể thiết lập \textit{tần suất} hiển thị gợi ý và \textit{mức độ chi tiết} của gợi ý. Tương ứng với: \ref{nfr:08}.
+		
+		\item \textbf{Đề xuất chủ đề liên quan:} Cho phép người dùng \textit{thêm} các chủ đề quan tâm hoặc \textit{bỏ} các chủ đề không quan tâm ra khỏi danh sách đề xuất.Tương ứng với: \ref{nfr:09}.
+	\end{itemize}
+	
+	\item \textbf{Availability}: Đặc tính này tập trung vào việc đảm bảo hệ thống luôn có thể được truy cập và sử dụng, đặc biệt là trong các tình huống \textit{thời gian sinh viên truy cập không ổn định} hoặc có sự tập trung người dùng lớn. Việc mất khả năng truy cập hệ thống sẽ ảnh hưởng đến chất lượng học tập của sinh viên - lớp người dùng luôn phải cân đối thời gian cho mọi việc, cũng như ảnh hưởng tiến độ xây dựng bài học của các giảng viên, trợ giảng,... Tương ứng với: \ref{nfr:10}, \ref{nfr:11}, \ref{nfr:12}.
+	
+	\item \textbf{Data consistency + integrity}, vì:
+	\begin{itemize}
+		\item Yêu cầu hệ thống phải \textit{đảm bảo tính đúng đắn} của các tài liệu bài giảng được đăng tải. Tương ứng với: \ref{nfr:13}.
+		\item Yêu cầu \textit{dữ liệu đăng tải phải được giữ an toàn} khỏi các truy cập trái phép hoặc mất mát. Tương ứng với: \ref{nfr:14}.
+		\item Đảm bảo \textit{mọi dữ liệu hiển thị phải đồng bộ} và nhất quán giữa tất cả các người dùng đang sử dụng hệ thống. Tương ứng với: \ref{nfr:15}.
+		\item Các thao tác quan trọng phải đảm bảo tính toàn vẹn giao dịch (transactional integrity) và lịch sử chỉnh sửa nội dung khóa học phải được ghi lại để phục vụ truy vết. Tương ứng với: \ref{nfr:16}, \ref{nfr:17}
+	\end{itemize}
+\end{enumerate}
+
+\textbf{Các đặc tính phụ liên quan}\\
+
+Các đặc tính sau đây mô tả các yêu cầu hiệu năng và khả năng mở rộng của hệ thống:
+
+\begin{itemize}
+	\item \textbf{Performance (Hiệu năng):} Yêu cầu \textit{tối ưu hóa hiệu năng} của các mô hình AI để đảm bảo phản hồi nhanh chóng. Tương ứng với: \ref{nfr:18}, \ref{nfr:19}, \ref{nfr:20}.
+	\item \textbf{Concurrency (Đồng thời):} Đảm bảo hệ thống có khả năng xử lý và phục vụ cho \textit{nhiều người dùng cùng lúc} mà không gặp lỗi hoặc giảm chất lượng dịch vụ. Tương ứng với: \ref{nfr:21}, \ref{nfr:22}.
+	\item \textbf{Elasticity (Đàn hồi/Co giãn):} Đảm bảo hệ thống có khả năng mở rộng hoặc thu hẹp tài nguyên để đối phó với \textit{thời gian sử dụng không đều}, đặc biệt là khi tải trọng hệ thống \textit{tập trung cao vào mùa thi}. Tương ứng với: \ref{nfr:23}, \ref{nfr:24}, \ref{nfr:25}.
+\end{itemize}

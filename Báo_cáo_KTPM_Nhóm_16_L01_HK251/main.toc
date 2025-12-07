@@ -38,6 +38,7 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Tổng quan}{24}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Mapping}{26}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{27}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Đặc tính kiến trúc (Architecture characteristics)}{27}{subsubsection.5.2.1}%
 \contentsline {section}{\numberline {6}Hiện thực}{28}{section.6}%
 \contentsline {section}{\numberline {7}Triển khai}{29}{section.7}%
 \contentsline {section}{\numberline {8}Tổng kết}{30}{section.8}%
