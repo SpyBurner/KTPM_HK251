@@ -36,13 +36,22 @@
 \contentsline {section}{\numberline {5}Phân tích \& Thiết kế hệ thống}{24}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Entity Relationship Diagram (ERD)}{24}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Tổng quan}{24}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Mapping}{26}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2}Mapping}{27}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{27}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Đặc tính kiến trúc (Architecture characteristics)}{27}{subsubsection.5.2.1}%
-\contentsline {section}{\numberline {6}Hiện thực}{28}{section.6}%
-\contentsline {section}{\numberline {7}Triển khai}{29}{section.7}%
-\contentsline {section}{\numberline {8}Tổng kết}{30}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Nhận xét}{30}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Hướng phát triển}{30}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Tài liệu tham khảo}{30}{section.9}%
-\contentsline {section}{\numberline {10}Phụ lục}{31}{section.10}%
+\contentsline {subsubsection}{\numberline {5.2.2}So sánh các phong cách kiến trúc khả thi}{28}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Thiết kế kiến trúc}{29}{subsubsection.5.2.3}%
+\contentsline {subsubsubsection}{\numberline {5.2.3.a}Module view}{29}{subsubsubsection.5.2.3.1}%
+\contentsline {subsubsubsection}{\numberline {5.2.3.b}Component \& Connector View }{32}{subsubsubsection.5.2.3.2}%
+\contentsline {subsubsubsection}{\numberline {5.2.3.c}Allocation view}{33}{subsubsubsection.5.2.3.3}%
+\contentsline {section}{\numberline {6}Hiện thực}{35}{section.6}%
+\contentsline {section}{\numberline {7}Triển khai}{36}{section.7}%
+\contentsline {section}{\numberline {8}Tổng kết}{37}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Nhận xét}{37}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Hướng phát triển}{37}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Phụ lục}{38}{section.9}%
+\contentsline {subsection}{\numberline {9.1}ADR}{38}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}ADR 00: Lựa chọn kiến trúc ban đầu: Microservices Architecture (MSA)}{38}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}ADR 01: Chuyển đổi kiến trúc từ Microservices (MSA) sang Service-Based Architecture (SBA)}{38}{subsubsection.9.1.2}%
+\contentsline {section}{\numberline {10}Tài liệu tham khảo}{39}{section.10}%
+\contentsline {section}{\numberline {11}Phụ lục}{40}{section.11}%

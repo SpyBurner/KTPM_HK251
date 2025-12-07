@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.3)  7 DEC 2025 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.3)  7 DEC 2025 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1431,33 +1431,33 @@ Package geometry Warning: Over-specification in `h'-direction.
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (682.86613pt) is ignored.
 
-LaTeX Font Info:    Trying to load font information for T5+ptm on input line 25
-3.
+LaTeX Font Info:    Trying to load font information for T5+ptm on input line 27
+7.
 (D:\MikTex\tex/latex/vntex\t5ptm.fd
 File: t5utm.fd 2005/08/24 Fontinst v1.929 font definitions for T5/ptm.
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
 
 (D:\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1521,77 +1521,82 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 253.
+Package hyperref Info: Link coloring ON on input line 277.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
 \c@lstlisting=\count403
-<Images/hcmut.png, id=194, 514.3215pt x 491.9178pt>
+<Images/hcmut.png, id=230, 514.3215pt x 491.9178pt>
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 276.
+Package pdftex.def Info: Images/hcmut.png  used on input line 300.
 (pdftex.def)             Requested size: 113.81102pt x 108.85275pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 281.
+ 305.
  (D:\MikTex\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 281.
+ 305.
 
 (D:\MikTex\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 281.
+ 305.
 
 (D:\MikTex\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 281.
+ 305.
 
 (D:\MikTex\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
-81.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+05.
  (D:\MikTex\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 305.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 305.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 28
-1.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 305.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 30
+5.
 (D:\MikTex\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
 
 {C:/Users/ACER/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/MikTex/font
-s/enc/dvips/vntex/t5.enc} <./Images/hcmut.png>] (main.toc)
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
-
+s/enc/dvips/vntex/t5.enc} <./Images/hcmut.png>] (main.toc
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.335 \newpage
-               [1] (main.lof)
+l.55 ...chitecture (SBA)}{38}{subsubsection.9.1.2}
+                                                  % [1])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 359.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [2] (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [2] (main.lot)
+
+[3] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [3] (Contents/1. GioiThieu.tex
+ [4] (Contents/1. GioiThieu.tex
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
 .
 
@@ -1602,7 +1607,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
-<Images/1. GioiThieu/Learning triangle.png, id=344, 718.685pt x 529.98pt>
+<Images/1. GioiThieu/Learning triangle.png, id=406, 718.685pt x 529.98pt>
 File: Images/1. GioiThieu/Learning triangle.png Graphic file (type png)
 <use Images/1. GioiThieu/Learning triangle.png>
 Package pdftex.def Info: Images/1. GioiThieu/Learning triangle.png  used on inp
@@ -1623,21 +1628,21 @@ l.37 	\item T
 gle.png>])
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 344.
+Package pdftex.def Info: Images/hcmut.png  used on input line 368.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.344 \newpage
+l.368 \newpage
                [2] (Contents/2. CoSoLyThuyet.tex
-<Images/2. CoSoLyThuyet/BE.png, id=358, 322.20375pt x 184.69pt>
+<Images/2. CoSoLyThuyet/BE.png, id=420, 322.20375pt x 184.69pt>
 File: Images/2. CoSoLyThuyet/BE.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/BE.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/BE.png  used on input line 18.
 (pdftex.def)             Requested size: 136.57462pt x 78.28789pt.
-<Images/2. CoSoLyThuyet/React.png, id=359, 303.1325pt x 167.62625pt>
+<Images/2. CoSoLyThuyet/React.png, id=421, 303.1325pt x 167.62625pt>
 File: Images/2. CoSoLyThuyet/React.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/React.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/React.png  used on input line 3
@@ -1655,13 +1660,13 @@ been already used, duplicate ignored
 l.45 
       [3 <./Images/2. CoSoLyThuyet/BE.png> <./Images/2. CoSoLyThuyet/React.png>
 ]
-<Images/2. CoSoLyThuyet/AWS.png, id=367, 276.03125pt x 183.68625pt>
+<Images/2. CoSoLyThuyet/AWS.png, id=428, 276.03125pt x 183.68625pt>
 File: Images/2. CoSoLyThuyet/AWS.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/AWS.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/AWS.png  used on input line 52.
 
 (pdftex.def)             Requested size: 91.04742pt x 60.58861pt.
-<Images/2. CoSoLyThuyet/Docker_ECS.png, id=368, 656.4525pt x 225.84375pt>
+<Images/2. CoSoLyThuyet/Docker_ECS.png, id=429, 656.4525pt x 225.84375pt>
 File: Images/2. CoSoLyThuyet/Docker_ECS.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/Docker_ECS.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/Docker_ECS.png  used on input l
@@ -1671,8 +1676,15 @@ File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 88.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [4 <./Images/2. CoSoLyThuyet/AWS.png> <./Images/2. CoSoLyThuyet/Docker_ECS.png
->]
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.88 	\item L
+             oad Balancing: tÃ­ch há»£p vá»›i Elastic Load Balancer (ELB) Ä‘...
+[4 <./Images/2. CoSoLyThuyet/AWS.png> <./Images/2. CoSoLyThuyet/Docker_ECS.png>
+]
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 134.
@@ -1683,7 +1695,7 @@ LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
  (D:\MikTex\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-<Images/2. CoSoLyThuyet/Amplify.png, id=381, 225.84375pt x 225.84375pt>
+<Images/2. CoSoLyThuyet/Amplify.png, id=441, 225.84375pt x 225.84375pt>
 File: Images/2. CoSoLyThuyet/Amplify.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/Amplify.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/Amplify.png  used on input line
@@ -1692,7 +1704,7 @@ Package pdftex.def Info: Images/2. CoSoLyThuyet/Amplify.png  used on input line
 )
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 346.
+Package pdftex.def Info: Images/hcmut.png  used on input line 370.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [6 <./Images/2. CoSoLyThuyet/Amplify.png>] (Contents/3. YeuCauHeThong.tex
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
@@ -1741,15 +1753,15 @@ Package pdftex.def Info: Images/hcmut.png  used on input line 48.
 [7])
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 348.
+Package pdftex.def Info: Images/hcmut.png  used on input line 372.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [8]
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 348.
+Package pdftex.def Info: Images/hcmut.png  used on input line 372.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [9] (Contents/4. DacTaChiTietCacUseCase.tex
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png, id=448, 4275.975pt x
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png, id=508, 4275.975pt x
  3300.33pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png Graphic file (ty
 pe png)
@@ -1757,7 +1769,7 @@ pe png)
 Package pdftex.def Info: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.p
 ng  used on input line 5.
 (pdftex.def)             Requested size: 318.66948pt x 245.95294pt.
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png, id=449, 1718.42pt
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png, id=509, 1718.42pt
  x 931.48pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png Graphic file 
 (type png)
@@ -1837,7 +1849,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 93.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [11]
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png, id=478, 2019.545p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png, id=538, 2019.545p
 t x 1047.915pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png Graphic file 
 (type png)
@@ -1961,7 +1973,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 227.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [14]
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png, id=530, 2083.785p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png, id=591, 2083.785p
 t x 1252.68pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png Graphic file 
 (type png)
@@ -2059,7 +2071,7 @@ Underfull \hbox (badness 1762) in paragraph at lines 345--345
 []|\T5/ptm/m/n/10 Xû lþ ngo¤i
  []
 
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png, id=570, 2059.695p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png, id=630, 2059.695p
 t x 1172.38pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png Graphic file 
 (type png)
@@ -2162,7 +2174,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 455.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [19]
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png, id=623, 2123.935p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png, id=683, 2123.935p
 t x 1610.015pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png Graphic file 
 (type png)
@@ -2308,10 +2320,10 @@ Underfull \hbox (badness 1762) in paragraph at lines 616--616
 )
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 350.
+Package pdftex.def Info: Images/hcmut.png  used on input line 374.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [23] (Contents/5. PhanTichThietKeHeThong.tex
-<Images/5. PhanTichThietKeHeThong/ERD.png, id=707, 4312.11pt x 3505.095pt>
+<Images/5. PhanTichThietKeHeThong/ERD.png, id=767, 4312.11pt x 3505.095pt>
 File: Images/5. PhanTichThietKeHeThong/ERD.png Graphic file (type png)
 <use Images/5. PhanTichThietKeHeThong/ERD.png>
 Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/ERD.png  used on inpu
@@ -2334,6 +2346,31 @@ Overfull \hbox (5.43726pt too wide) in paragraph at lines 59--59
 
 Underfull \hbox (badness 10000) in paragraph at lines 59--59
 []|\T5/ptm/b/n/10 T¶n Mèi
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 59--60
+[]|\T5/ptm/m/n/10 Y¶u c¦u li¶n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+[]|[][]\T5/ptm/m/n/10 L-US02[][],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+[][]\T5/ptm/m/n/10 T-US02[][],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+[][]\T5/ptm/m/n/10 NFR07[][],
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 66--66
+[]|\T5/ptm/m/n/10 N:1 - Nhi·u QuizAt-tempt
  []
 
 
@@ -2417,6 +2454,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--94
  []
 
 
+Underfull \hbox (badness 1377) in paragraph at lines 94--94
+[]|\T5/ptm/m/n/10 1:N - Mët User ^^_«ng t£i
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 96--96
 []|\T5/ptm/m/n/10 Course
  []
@@ -2424,6 +2466,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--96
 
 Underfull \hbox (badness 10000) in paragraph at lines 96--96
 []|\T5/ptm/m/n/10 Forum mes-
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 96--96
+[]|\T5/ptm/m/n/10 1:N - Mët User ^^_«ng t£i
  []
 
 
@@ -2472,8 +2519,18 @@ Underfull \hbox (badness 7186) in paragraph at lines 109--109
  []
 
 
+Underfull \hbox (badness 1137) in paragraph at lines 109--109
+\T5/ptm/m/n/10 quy·n h¤n thay ^^_êi nhi·u
+ []
+
+
 Overfull \hbox (0.58723pt too wide) in paragraph at lines 111--111
 []|\T5/ptm/m/n/10 System| 
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 111--111
+[]|\T5/ptm/m/n/10 1:N - Mët Sys-tem con-fig
  []
 
 ignored error: Infinite glue shrinkage found in box being split
@@ -2482,7 +2539,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 113.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [25]
-<Images/5. PhanTichThietKeHeThong/ERD(1).png, id=720, 3617.515pt x 3577.365pt>
+<Images/5. PhanTichThietKeHeThong/ERD(1).png, id=784, 3617.515pt x 3577.365pt>
 File: Images/5. PhanTichThietKeHeThong/ERD(1).png Graphic file (type png)
 <use Images/5. PhanTichThietKeHeThong/ERD(1).png>
 Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/ERD(1).png  used on i
@@ -2490,41 +2547,162 @@ nput line 122.
 (pdftex.def)             Requested size: 364.19667pt x 360.10466pt.
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 133.
+Package pdftex.def Info: Images/hcmut.png  used on input line 126.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [26 <./Images/5. PhanTichThietKeHeThong/ERD(1).png>]
+ [26]
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 152.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+
+[27 <./Images/5. PhanTichThietKeHeThong/ERD(1).png>]
 Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]|\T5/ptm/b/n/10 Service-Based Ar-chi-tec-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+[]|\T5/ptm/b/n/10 Microservices Ar-chi-tec-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+[]|\T5/ptm/b/n/10 T½nh nh§t qu¡n Dú li»u
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 194--195
+[]|\T5/ptm/m/n/10 Khâ kh«n (C¦n giao dàch ph¥n
+ []
+
+
+Underfull \hbox (badness 2088) in paragraph at lines 196--196
+[]|\T5/ptm/m/n/10 Tèt ð c§p ^^_ë dàch vö (Ser-vice
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 352.
+Package pdftex.def Info: Images/hcmut.png  used on input line 204.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [27] (Contents/6. HienThuc.tex)
+ [28]
+
+Package hyperref Warning: bookmark level for unknown subsubsubsection defaults 
+to 0.
+
+<Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio.png, id=840, 989.6975
+pt x 790.955pt>
+File: Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio.png Graphic file
+ (type png)
+<use Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio.png>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/KTPM-Module View.draw
+io.png  used on input line 220.
+(pdftex.def)             Requested size: 364.19667pt x 291.05566pt.
+
+Underfull \hbox (badness 3803) in paragraph at lines 261--261
+\T5/ptm/m/n/10 tªp v  ti¸n tr¼nh cõa
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 262--262
+[]|\T5/ptm/m/n/10 Qu£n lþ váng ^^_íi cõa
+ []
+
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 354.
+Package pdftex.def Info: Images/hcmut.png  used on input line 264.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [28] (Contents/7. TrienKhai.tex)
+[29 <./Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio.png>]
+<Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio (1).png, id=852, 1548
+.78625pt x 1214.5375pt>
+File: Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio (1).png Graphic 
+file (type png)
+<use Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio (1).png>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/KTPM-Module View.draw
+io (1).png  used on input line 281.
+(pdftex.def)             Requested size: 364.19667pt x 285.58315pt.
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 356.
+Package pdftex.def Info: Images/hcmut.png  used on input line 291.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [29]
-(Contents/8. TongKet.tex) (Outro/1. TaiLieuThamKhao.tex)
+ [30 <./Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio (1).png>]
+<Images/5. PhanTichThietKeHeThong/KTPM-Component & Connector View.drawio.png, i
+d=864, 1242.6425pt x 1105.12875pt>
+File: Images/5. PhanTichThietKeHeThong/KTPM-Component & Connector View.drawio.p
+ng Graphic file (type png)
+<use Images/5. PhanTichThietKeHeThong/KTPM-Component & Connector View.drawio.pn
+g>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/KTPM-Component & Conn
+ector View.drawio.png  used on input line 317.
+(pdftex.def)             Requested size: 364.19667pt x 323.88544pt.
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 360.
-(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [30]
-(Outro/2. PhuLuc.tex)
-File: Images/hcmut.png Graphic file (type png)
-<use Images/hcmut.png>
-Package pdftex.def Info: Images/hcmut.png  used on input line 362.
+Package pdftex.def Info: Images/hcmut.png  used on input line 322.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [31]
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 351.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [32 <./Images/5. PhanTichThietKeHeThong/KTPM-Component & Connector View.drawio
+.png>]
+<Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.drawio.png, id=884, 1439
+.3775pt x 728.7225pt>
+File: Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.drawio.png Graphic 
+file (type png)
+<use Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.drawio.png>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.
+drawio.png  used on input line 383.
+(pdftex.def)             Requested size: 364.19667pt x 184.3818pt.
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 397.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+
+[33 <./Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.drawio.png>])
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 376.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+
+[34] (Contents/6. HienThuc.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 378.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [35] (Contents/7. TrienKhai.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 380.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [36]
+(Contents/8. TongKet.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 382.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [37] (Contents/9. PhuLuc.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 385.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [38]
+(Outro/1. TaiLieuThamKhao.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 387.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [39] (Outro/2. PhuLuc.tex)
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 389.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [40]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
@@ -2533,22 +2711,23 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 606F2CC90F149CDCE729200F1EA14E64;8116.
+(rerunfilecheck)             Checksum: 5C348C3B9CEE2BC98BCA0461D8F3155B;10415.
  ) 
 Here is how much of TeX's memory you used:
- 31764 strings out of 467871
- 584968 string characters out of 5435214
- 1166631 words of memory out of 5000000
- 59663 multiletter control sequences out of 15000+600000
- 687185 words of font info for 107 fonts, out of 8000000 for 9000
+ 31905 strings out of 467871
+ 588681 string characters out of 5435214
+ 1172631 words of memory out of 5000000
+ 59721 multiletter control sequences out of 15000+600000
+ 687680 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,24n,126p,894b,805s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/MikTex/fonts/type1/vntex/urwvn/utmb8v.pfb><D:/MikTex/fonts/type1/urw/time
-s/utmr8a.pfb><D:/MikTex/fonts/type1/vntex/urwvn/utmr8v.pfb><D:/MikTex/fonts/typ
-e1/vntex/urwvn/utmri8v.pfb><D:/MikTex/fonts/type1/vntex/vnr/vntt10.pfb>
-Output written on main.pdf (35 pages, 1782588 bytes).
+ 104i,25n,126p,1057b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/v
+ntex/urwvn/utmb8v.pfb><D:/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/MikTex/fo
+nts/type1/vntex/urwvn/utmr8v.pfb><D:/MikTex/fonts/type1/vntex/urwvn/utmri8v.pfb
+><D:/MikTex/fonts/type1/vntex/vnr/vntt10.pfb>
+Output written on main.pdf (45 pages, 2052584 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 308 named destinations out of 1000 (max. 500000)
- 464 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1091 PDF objects out of 1200 (max. 8388607)
+ 386 named destinations out of 1000 (max. 500000)
+ 556 words of extra memory for PDF output out of 10000 (max. 10000000)
 
