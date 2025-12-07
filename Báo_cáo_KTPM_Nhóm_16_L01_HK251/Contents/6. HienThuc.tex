@@ -1,6 +1,8 @@
 \section{Hiện thực}
-\subsection{Class diagram}
-\subsubsection{API Gateway}
+Đường dẫn xem các diagram: \url{https://drive.google.com/file/d/1uBsjoXb8VRKfoT2vgGVCYIc1MjsF7qjq/view?usp=sharing}
+
+Đường dẫn repo Github: \url{https://github.com/SpyBurner/KTPM_HK251.git}
+\subsection{API Gateway}
 
 Ba lớp CustomJwtDecoder, JwtAuthenticationEntryPoint và SecurityConfig hợp tác với nhau để xây dựng pipeline xác thực JWT trong API Gateway. Mỗi lớp đảm nhiệm một vai trò riêng biệt nhưng phối hợp chặt chẽ để tạo thành cơ chế bảo mật thống nhất. 
 
@@ -30,7 +32,7 @@ Ba lớp CustomJwtDecoder, JwtAuthenticationEntryPoint và SecurityConfig hợp 
 	SecurityConfig có mối quan hệ aggregation với hai interface ReactiveJwtDecoder và ServerAuthenticationEntryPoint bởi vì nó sử dụng hai interface này như một phần của nó để thực hiện các tác vụ bảo mật của nó và vòng đời của hai interface này sẽ không phụ thuộc vào Security Config. CustomJwtDecoder hiện thực ReactiveJwtDecoder và sử dụng. JwtAuthenticationEntryPoint hiện thực. 
 \end{enumerate}
 
-\subsubsection{Class diagram cho Media Service}
+\subsection{Class diagram cho Media Service}
 
 \begin{figure}[H]
 	\centering
@@ -186,7 +188,7 @@ Media Service được thiết kế theo mô hình nhiều lớp (layered archit
 	\end{itemize}
 \end{enumerate}
 
-\subsubsection{Class diagram cho Module quản lý tài khoản}
+\subsection{Class diagram cho Module quản lý tài khoản}
 
 \begin{figure}[H]
 	\centering
@@ -323,7 +325,7 @@ Identity Access Management (IAM) Service được thiết kế theo mô hình nh
 	Lưu ý: Giữa Controller và Service (AuthController -> AuthenticationService). Để đáp ứng tuyệt đối DIP, AuthenticationService và UserService cũng nên là Interface, và có các class AuthenticationServiceImpl, UserServiceImpl thực thi chúng. Tuy nhiên, trong thực tế với quy mô vừa phải, việc Controller gọi trực tiếp Service Class là chấp nhận được để giảm độ phức tạp không cần thiết (Pragmatic Architecture). 
 \end{enumerate}
 
-\subsubsection{Class diagram cho Module quản lý khóa học}
+\subsection{Class diagram cho Module quản lý khóa học}
 
 \begin{figure}[H]
 	\centering
@@ -408,7 +410,7 @@ Course Service được thiết kế theo mô hình kiến trúc nhiều lớp (
 
 \end{enumerate}
 
-\subsubsection{Class diagram cho Module học tập}
+\subsection{Class diagram cho Module học tập}
 
 \begin{figure}[H]
 	\centering
@@ -476,7 +478,7 @@ Course Service được thiết kế theo mô hình kiến trúc nhiều lớp (
 	Controller trong sơ đồ luôn phụ thuộc vào abstraction là ILearningService, chứ không phụ thuộc trực tiếp vào LearningService. Điều này tạo nên một thiết kế ổn định, không bị phụ thuộc cứng vào bất kỳ implementation cụ thể nào. LearningService lại phụ thuộc vào abstraction của repository (EnrollmentRepository và ProgressRepository), giúp toàn bộ tầng nghiệp vụ tách biệt khỏi tầng dữ liệu. 
 \end{enumerate}
 
-\subsubsection{Class diagram cho Module quiz}
+\subsection{Class diagram cho Module quiz}
 
 \begin{figure}[H]
 	\centering
@@ -548,5 +550,191 @@ Course Service được thiết kế theo mô hình kiến trúc nhiều lớp (
 	Service layer lại phụ thuộc vào abstraction của repository (QuizRepository, QuestionRepository, AnswerRepository, QuizAttemptRepository, QuizAttemptAnswerRepository), giúp toàn bộ tầng nghiệp vụ tách biệt khỏi tầng dữ liệu. 
 	
 	Việc áp dụng DIP này đặc biệt quan trọng trong môi trường microservices hoặc khi cần viết integration test. Các abstraction cho phép dễ dàng mock hoặc stub các dependency, giúp test từng layer độc lập mà không cần khởi động toàn bộ hệ thống.  
+
+\end{enumerate}
+
+\subsection{Class diagram cho Module AI}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Images/6. HienThuc/Class(5).png"}
+	\caption{Class diagram cho Module AI}
+	\label{fig:class5}
+\end{figure}
+\begin{enumerate}
+	
+	\item  AgentController – Tầng giao tiếp xử lý yêu cầu AI 
+	
+	AgentController đóng vai trò là cổng giao tiếp duy nhất (Entry Point) cho các yêu cầu phân tích và tư vấn từ phía người dùng (Client). Khi người dùng yêu cầu phân tích lộ trình học hoặc đề xuất khóa học, Controller tiếp nhận request (thường chứa userId), xác thực cơ bản, và chuyển tiếp yêu cầu đó xuống tầng Agent để xử lý.  Lớp này tuân thủ nguyên tắc "thin controller", không chứa logic suy luận AI hay logic gọi API bên thứ 3, đảm bảo đầu mối giao tiếp RESTful API luôn gọn nhẹ và dễ bảo trì. 
+	
+	\item  OrchestratorAgent – Tầng điều phối thông minh (Supervisor) 
+	
+	OrchestratorAgent đóng vai trò là "nhạc trưởng" hay bộ não trung tâm của AI Service. Thay vì trực tiếp thực hiện mọi tác vụ, nó chịu trách nhiệm phân tích ý định của người dùng và điều phối công việc cho các Agent chuyên biệt (Worker) hoặc quyết định luồng xử lý chính. Ví dụ, khi nhận yêu cầu phức tạp, Orchestrator sẽ xác định xem cần gọi LearningAnalysisAgent để phân tích dữ liệu hay gọi một Agent khác để tư vấn tâm lý. Việc tách tầng điều phối này giúp hệ thống dễ dàng mở rộng sang mô hình Multi-Agent trong tương lai mà không làm rối luồng xử lý chính. 
+	
+	\item  LearningAnalysisAgent – Tầng nghiệp vụ phân tích chuyên sâu (Worker) 
+	
+	LearningAnalysisAgent là thành phần cốt lõi thực hiện các nghiệp vụ cụ thể như phân tích hành vi học tập và gợi ý lộ trình. Agent này được cấu hình với các System Prompt chuyên biệt để đóng vai trò như một chuyên gia giáo dục. Điểm đặc biệt là Agent này không hoạt động độc lập; nó được trang bị các "Tools" (công cụ) để có thể tương tác với thế giới bên ngoài. Khi cần dữ liệu để suy luận, Agent sẽ tự động quyết định việc gọi các Function (Tools) để lấy lịch sử học tập hoặc điểm thi, sau đó tổng hợp thông tin để đưa ra câu trả lời cuối cùng dưới dạng JSON hoặc văn bản tự nhiên. 
+	
+	\item  AnalysisPromptManager – Tầng quản lý ngữ cảnh và chỉ thị (Prompt Engineering) 
+	
+	AnalysisPromptManager chịu trách nhiệm quản lý toàn bộ các câu lệnh chỉ dẫn (System Prompt) và mẫu câu hỏi (User Prompt) cho AI. Việc tách biệt quản lý Prompt ra khỏi logic code Java giúp lập trình viên dễ dàng tinh chỉnh "tính cách" và "luật chơi" của AI mà không cần biên dịch lại mã nguồn. Interface IAnalysisPromptManager đảm bảo rằng các Agent khác nhau có thể sử dụng các chiến lược Prompt khác nhau nhưng vẫn tuân thủ cùng một chuẩn giao tiếp. 
+	
+	\item  Tools \& Functions Layer – Tầng công cụ mở rộng (Function Calling) 
+	
+	Đây là các lớp chức năng (FetchLearningHistoryFunction, FetchQuizResultsFunction, FetchCourseCatalogFunction) đóng vai trò là "cánh tay nối dài" của AI. Mỗi Function được đăng ký như một java.util.function.Function trong Spring AI Context. Chúng đóng gói logic nghiệp vụ để chuyển đổi yêu cầu từ ngôn ngữ tự nhiên của AI thành các lệnh gọi hàm Java cụ thể. Tầng này giúp AI có khả năng hành động thực tế (lấy dữ liệu, tra cứu) thay vì chỉ là một chatbot trả lời văn bản tĩnh. 
+	
+	\item  Infrastructure \& Gateway Layer – Tầng kết nối  (Anti-Corruption Layer) 
+	
+	Tầng này bao gồm các Interface Gateway (ILearningService, IQuizService, ICourseService) và các Implementation (Remote...Adapter). Nhiệm vụ của chúng là thực hiện các giao tiếp mạng (thông qua RestClient hoặc WebClient) sang các  khác như Learning Service, Quiz Service hay Course Service. Việc sử dụng Adapter Pattern ở đây giúp cách ly AI Service khỏi sự thay đổi của các service bên ngoài. Nếu API của Quiz Service thay đổi, ta chỉ cần sửa RemoteQuizServiceAdapter, logic của AI Agent hoàn toàn không bị ảnh hưởng. 
+
+\end{enumerate}
+
+\textbf{Giải thích tuân theo nguyên tắc SOLID:}
+\begin{enumerate}
+	\item Nguyên lý Đơn nhiệm (Single Responsibility Principle – SRP) 
+	
+	\begin{itemize}
+		\item 	AgentController: Chỉ lo việc nhận/trả HTTP request. 
+		\item 	OrchestratorAgent: Chỉ lo điều phối luồng hội thoại. 
+		\item 	LearningAnalysisAgent: Chỉ tập trung vào nghiệp vụ phân tích giáo dục. 
+		\item 	Fetch...Function: Chỉ làm nhiệm vụ chuyển đổi dữ liệu để AI hiểu. 
+		\item 	Remote...Adapter: Chỉ lo việc gọi API sang service khác. Sự phân chia này giúp code rõ ràng, mỗi class chỉ thay đổi vì một lý do duy nhất. 
+	\end{itemize}
+
+	
+	\item Nguyên lý Đóng/Mở (Open–Closed Principle – OCP) 
+	Hệ thống được thiết kế để mở rộng khả năng của AI mà không cần sửa đổi code lõi. 
+	\begin{itemize}
+		\item 	Nếu muốn AI có thêm khả năng mới (ví dụ: xem thời khóa biểu), ta chỉ cần tạo thêm FetchScheduleFunction và đăng ký nó vào Agent. Không cần sửa logic suy luận bên trong LearningAnalysisAgent. 
+		\item 	Nếu muốn thay đổi model từ OpenAI sang Gemini, chỉ cần thay đổi cấu hình trong ChatModel, code logic trong Agent giữ nguyên. 
+		\item 	Việc có một lớp Orchestrator giữa lớp xử lý yêu cầu người dùng và lớp chính của nó. Điều này cho phép mở rộng ra hệ thống multi-agent khi chỉ cần hiện thực thêm agent và đăng ký nó đến Orchestrator 
+	\end{itemize}
+	
+	\item Nguyên lý Thay thế Liskov (Liskov Substitution Principle – LSP) 
+	
+	Các Gateway Interface (ILearningService, IQuizService) đóng vai trò hợp đồng. 
+	
+	\begin{itemize}
+		\item 	RemoteLearningServiceAdapter có thể được thay thế bằng MockLearningServiceAdapter (dữ liệu giả lập) trong môi trường kiểm thử (Unit Test) mà không làm hỏng logic của FetchLearningHistoryFunction. Hệ thống hoạt động đúng đắn bất kể implementation nào được inject vào. 
+	\end{itemize}
+
+	
+	\item Nguyên lý Phân tách Interface (Interface Segregation Principle – ISP) 
+	
+	Thay vì tạo một IGlobalServiceGateway khổng lồ chứa tất cả các hàm gọi API, hệ thống chia nhỏ thành ILearningService, IQuizService, ICourseService. 
+	
+	\begin{itemize}
+		\item 	FetchQuizResultsFunction chỉ cần biết đến IQuizService, nó không cần phụ thuộc vào các phương thức liên quan đến Course hay Learning. Điều này giảm sự phụ thuộc chéo không cần thiết giữa các module. 
+	\end{itemize}
+
+	
+	\item Nguyên lý Đảo ngược Phụ thuộc (Dependency Inversion Principle – DIP) 
+	
+	\begin{itemize}
+		\item 	Agent (High-level Module) không phụ thuộc trực tiếp vào RemoteServiceAdapter (Low-level Module). 
+		\item 	Cả hai đều phụ thuộc vào Abstraction (Interface). 
+		\begin{itemize}
+			\item 	LearningAnalysisAgent phụ thuộc vào Function (Tool). 
+			\item 	FetchLearningHistoryFunction phụ thuộc vào ILearningService. 
+			\item 	Việc khởi tạo cụ thể (Dependency Injection) do Spring Container đảm nhận. Điều này giúp kiến trúc lỏng lẻo (loose coupling), dễ dàng bảo trì và kiểm thử độc lập. 
+		\end{itemize}
+	\end{itemize}
+
+\end{enumerate}
+
+\subsection{Class diagram cho Module Logging}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Images/6. HienThuc/Class(6).png"}
+	\caption{Class diagram cho Module Logging}
+	\label{fig:class6}
+\end{figure}
+
+\begin{enumerate}
+	\item LoggingController – Tầng giao tiếp tiếp nhận yêu cầu ghi Log 
+	
+	LoggingController đóng vai trò là cổng giao tiếp duy nhất (Entry Point) cho các yêu cầu liên quan đến nhật ký hệ thống (System Logs) và nhật ký hoạt động AI (AI Logs). Khi các service khác hoặc client gửi yêu cầu ghi log hoặc truy xuất lịch sử, Controller tiếp nhận request, thực hiện các validate cơ bản và điều hướng đến service tương ứng (SystemLogService hoặc AILogService). Lớp này tuân thủ nguyên tắc "thin controller", chỉ làm nhiệm vụ điều phối luồng dữ liệu thông qua các Interface, đảm bảo tính tách biệt giữa giao diện API và logic xử lý nghiệp vụ bên dưới. 
+	
+	\item Service Layer (ISystemLogService \& IAILogService) – Tầng trừu tượng hóa nghiệp vụ 
+	
+	Đây là các Interface định nghĩa "hợp đồng" (Contract) cho các nghiệp vụ xử lý log. Việc tách biệt thành hai interface riêng biệt (ISystemLogService và IAILogService) giúp hệ thống phân định rõ ràng trách nhiệm: một bên chuyên xử lý các log vận hành hệ thống (lỗi, cảnh báo), một bên chuyên xử lý log tương tác với AI (prompt, token usage). Điều này giúp Controller không cần biết chi tiết cách log được lưu hay xử lý như thế nào, mà chỉ cần biết các phương thức được cung cấp. 
+	
+	\item Implementation Layer (SystemLogServiceImpl \& AILogServiceImpl) – Tầng thực thi nghiệp vụ (Worker) 
+	
+	Đây là nơi chứa logic nghiệp vụ cốt lõi: 
+	
+	\begin{itemize}
+		\item 	SystemLogServiceImpl: Chịu trách nhiệm xử lý các log hệ thống. Điểm đặc biệt là nó có sự tương tác với AlertService. Khi một log có mức độ nghiêm trọng (Severity) cao được ghi nhận, Service này có thể tự động kích hoạt gửi cảnh báo. Nó cũng gọi xuống Repository để lưu trữ dữ liệu. 
+		\item 	AILogServiceImpl: Chuyên xử lý việc lưu trữ và truy xuất các tương tác AI (câu hỏi, câu trả lời, số token). Logic ở đây tập trung vào việc đảm bảo dữ liệu tương tác AI được ghi nhận chính xác để phục vụ việc audit hoặc tính phí (token usage). 
+	\end{itemize}
+
+	
+	\item AlertService – Tầng tích hợp thông báo (Integration) 
+	
+	AlertService đóng vai trò là một service bổ trợ, được sử dụng bởi SystemLogServiceImpl. Chức năng duy nhất của nó là sendAlert(message), giúp gửi cảnh báo ra bên ngoài (có thể là Email, Slack, hoặc SMS) khi hệ thống gặp sự cố nghiêm trọng. Việc tách Alert thành một service riêng giúp logic ghi log không bị trộn lẫn với logic gửi thông báo. 
+	
+	\item Repository Layer – Tầng truy xuất dữ liệu (Data Access) 
+	
+	SystemLogRepository và AILogRepository đóng vai trò là lớp trừu tượng để tương tác với cơ sở dữ liệu. Các Interface này cung cấp các phương thức chuẩn như save(entity) và findByFilters(filters). Tầng này đảm bảo rằng các Service ở tầng trên không phụ thuộc vào công nghệ lưu trữ cụ thể (SQL hay NoSQL), giúp việc thay đổi database sau này trở nên dễ dàng mà không ảnh hưởng đến logic nghiệp vụ. 
+	
+	\item Entity Layer (BaseLog, SystemLog, AILog) – Tầng mô hình dữ liệu (Data Model) 
+	
+	Hệ thống sử dụng mô hình thừa kế để quản lý dữ liệu log một cách hiệu quả: 
+	
+	BaseLog (Abstract): Chứa các trường thông tin chung nhất mà mọi loại log đều có (id, createdAt, trackedUserId), giúp tránh lặp lại code (DRY - Don't Repeat Yourself). 
+	
+	SystemLog: Mở rộng từ BaseLog, bổ sung các trường đặc thù cho vận hành như message và severity (Mức độ nghiêm trọng). 
+	
+	AILog: Mở rộng từ BaseLog, bổ sung các trường đặc thù cho AI như prompt (câu lệnh), response (phản hồi), và tokenUsage. 
+\end{enumerate}
+
+\textbf{Giải thích tuân theo nguyên tắc SOLID:}
+\begin{enumerate}
+	\item Nguyên lý Đơn nhiệm (Single Responsibility Principle – SRP) 
+	
+	\begin{itemize}
+		\item 	LoggingController: Chỉ chịu trách nhiệm nhận và trả kết quả HTTP, không chứa logic xử lý log. 
+		\item 	AlertService: Chỉ có duy nhất một nhiệm vụ là gửi cảnh báo, không quan tâm log được lưu như thế nào. 
+		\item 	SystemLogServiceImpl: Tập trung vào logic nghiệp vụ của log hệ thống. 
+		\item 	AILog: Chỉ chứa dữ liệu liên quan đến AI, không chứa dữ liệu về mức độ nghiêm trọng của hệ thống. 
+		\item 	Mỗi class trong sơ đồ đều có một trách nhiệm duy nhất và rõ ràng, giúp code dễ đọc và dễ bảo trì. 
+	\end{itemize}
+	
+	\item Nguyên lý Đóng/Mở (Open–Closed Principle – OCP) 
+	
+	Hệ thống được thiết kế để dễ dàng mở rộng: 
+	
+	\begin{itemize}
+		\item 	Mở rộng loại Log: Nếu cần thêm loại log mới (ví dụ: AuditLog cho giao dịch tài chính), ta chỉ cần tạo class AuditLog kế thừa từ BaseLog và tạo thêm Service/Repository tương ứng mà không cần sửa đổi class BaseLog hay các Service hiện có. 
+		\item 	Mở rộng logic Alert: Nếu muốn thay đổi cách gửi thông báo (từ Email sang Slack), ta chỉ cần sửa hoặc mở rộng implementation của AlertService mà không ảnh hưởng đến SystemLogServiceImpl. 
+	\end{itemize}
+
+	
+	\item Nguyên lý Thay thế Liskov (Liskov Substitution Principle – LSP) 
+	
+	\begin{itemize}
+		\item 	Entity: SystemLog và AILog đều kế thừa từ BaseLog. Ở bất kỳ đâu trong hệ thống cần xử lý thông tin cơ bản (như lấy createdAt), ta có thể truyền vào instance của SystemLog hoặc AILog mà chương trình vẫn hoạt động đúng đắn. 
+		\item 	Service: SystemLogServiceImpl thực thi ISystemLogService. Trong controller, ta tham chiếu đến Interface. Nếu ta tạo một MockSystemLogService để chạy Unit Test, controller vẫn hoạt động bình thường mà không cần biết đó là đồ giả hay đồ thật. 
+	\end{itemize}
+
+	
+	\item Nguyên lý Phân tách Interface (Interface Segregation Principle – ISP) 
+	
+	Thay vì tạo một IGeneralLogService khổng lồ chứa cả hàm logSystemActivity và logAIActivity, hệ thống đã tách thành hai interface nhỏ: 
+	
+	\begin{itemize}
+		\item 	ISystemLogService: Chỉ chứa các hàm liên quan log hệ thống. 
+		\item 	IAILogService: Chỉ chứa các hàm liên quan log AI. 
+		\item 	Điều này đảm bảo rằng nếu một client chỉ quan tâm đến AI Logs, họ không bị buộc phải phụ thuộc vào các phương thức của System Logs mà họ không dùng đến. 
+	\end{itemize}
+
+	\item Nguyên lý Đảo ngược Phụ thuộc (Dependency Inversion Principle – DIP) 
+	
+	\begin{itemize}
+		\item 	High-level Module (LoggingController): Không phụ thuộc trực tiếp vào Low-level Module (SystemLogServiceImpl, AILogServiceImpl). Thay vào đó, nó phụ thuộc vào Abstraction (ISystemLogService, IAILogService). 
+		\item 	Service Layer: Các Service implementation không phụ thuộc trực tiếp vào Database connection cụ thể, mà phụ thuộc vào Repository Interface (SystemLogRepository, AILogRepository). 
+		\item 	Nhờ DIP, việc thay đổi implementation bên dưới (ví dụ đổi logic lưu log từ MySQL sang MongoDB) sẽ không làm ảnh hưởng đến code của Controller hay Service. 
+	\end{itemize}
 
 \end{enumerate}

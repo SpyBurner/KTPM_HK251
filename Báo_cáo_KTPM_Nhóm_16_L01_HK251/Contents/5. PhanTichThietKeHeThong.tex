@@ -174,6 +174,23 @@ Các đặc tính sau đây mô tả các yêu cầu hiệu năng và khả năn
 	\item \textbf{Elasticity (Đàn hồi/Co giãn):} Đảm bảo hệ thống có khả năng mở rộng hoặc thu hẹp tài nguyên để đối phó với \textit{thời gian sử dụng không đều}, đặc biệt là khi tải trọng hệ thống \textit{tập trung cao vào mùa thi}. Tương ứng với: \ref{nfr:23}, \ref{nfr:24}, \ref{nfr:25}.
 \end{itemize}
 
+\subsubsection{Đánh giá sự đánh đổi}
+\textbf{Performance và Security }
+
+Giữa hiệu năng và bảo mật luôn tồn tại sự đánh đổi rõ rệt. Các cơ chế bảo mật như mã hóa dữ liệu, xác thực token, phân quyền theo vai trò hay ghi nhận audit log đều đảm bảo an toàn cho thông tin học viên, nhưng đồng thời tạo thêm chi phí xử lý cho mỗi request. Điều này có thể ảnh hưởng trực tiếp đến yêu cầu phản hồi dưới 300ms theo NFR-01.  
+
+\textbf{Scalability và Consistency }
+
+Khi hệ thống cần phục vụ lượng lớn học viên trong các khung giờ cao điểm, việc mở rộng theo chiều ngang là điều bắt buộc. Tuy nhiên, sự phân tán này khiến dữ liệu khó giữ được tính nhất quán tuyệt đối. Trong môi trường có nhiều instance dịch vụ và nhiều replica cơ sở dữ liệu, các thao tác cập nhật thường dẫn đến eventual consistency. Điều này không gây vấn đề lớn với các tác vụ như truy cập nội dung bài học, nhưng lại nguy hiểm đối với các thao tác quan trọng như nộp bài quiz, chấm điểm hoặc cập nhật tiến độ học tập, nơi yêu cầu strong consistency gần như bắt buộc.  
+
+\textbf{Scalability và Performance }
+
+Khả năng mở rộng cũng tạo ra xung đột trực tiếp với hiệu năng. Khi hệ thống scale-out, mỗi request phải đi qua nhiều tầng hơn như load balancer, service mesh hoặc gateway; đồng thời dữ liệu được phân tán khiến việc truy cập trở nên tốn thời gian hơn. Điều này có thể làm tăng đáng kể độ trễ, đặc biệt với các thao tác được gọi thường xuyên như tải quiz hoặc lấy gợi ý từ AI engine.  
+
+\textbf{Extensibility và Performance }
+
+Cuối cùng, khả năng mở rộng chức năng cũng tạo ra sự đánh đổi với hiệu năng. Khi hệ thống được chia nhỏ thành nhiều module hoặc microservices, các boundary tăng lên, kéo theo chi phí giao tiếp giữa các module — cả về network, serialization và kiểm soát phiên bản. Điều này khiến performance tổng thể có thể giảm so với kiến trúc monolithic.  
+
 \subsubsection{Đề Xuất Các Phong Cách Kiến Trúc}
 
 Dựa trên việc phân tích các đặc tính kiến trúc cốt lõi (\textbf{Configurability}, \textbf{Availability}, \textbf{Data Consistency + Integrity}) và các đặc tính phụ (\textbf{Performance}, \textbf{Concurrency}, \textbf{Elasticity}), có thể đề xuất ba phong cách kiến trúc phù hợp để triển khai hệ thống ITS: \textbf{Modular Monolith}, \textbf{Microservices Architecture} và \textbf{Service-Based Architecture}. Mỗi phong cách đều có thế mạnh riêng trong việc đáp ứng các yêu cầu phi chức năng (NFRs), đồng thời cũng có những đánh đổi cần cân nhắc.
@@ -226,6 +243,8 @@ Tuy \textbf{Data Consistency + Integrity} (Bảo mật) không phải đặc tí
 Cuối cùng, Service-Based cũng đáp ứng tốt yêu cầu \textbf{Configurability}. Khi cần bổ sung module nội dung, thêm thuật toán gợi ý mới hoặc tích hợp với hệ thống LMS/Payment Gateway bên ngoài, đội ngũ chỉ cần mở rộng hoặc thêm mới các \textit{service} mà không ảnh hưởng đến cấu trúc tổng thể.
 
 \textbf{Tóm lại}, Service-Based Architecture cung cấp sự cân bằng tối ưu giữa hiệu năng, khả năng mở rộng, độ sẵn sàng và khả năng tiến hóa hệ thống, đồng thời có độ phức tạp phù hợp với năng lực triển khai. Vì vậy, đây là phong cách kiến trúc phù hợp nhất với các NFR và đặc tính đã phân tích, và được nhóm lựa chọn làm nền tảng cho thiết kế kiến trúc của hệ thống ITS.
+
+Chi tiết xem mục \ref{adr:01}.
 
 \subsection{Thiết kế kiến trúc}
 \subsubsection{Module view}
@@ -432,3 +451,4 @@ Sau khi image được lưu trữ trên ECR, quá trình triển khai hạ tần
 \indent Luồng xử lý tổng thể của hệ thống diễn ra theo trình tự: người dùng thao tác trên giao diện web được host trên AWS Amplify, request được gửi qua Internet tới API Gateway trong ECS Cluster. API Gateway tiến hành xác thực thông qua IAM Service, sau đó dựa trên Service Registry để định tuyến request tới Course Service, Learning Service, Quiz Service, AI Service hoặc Media Service tùy theo nghiệp vụ. Các service này xử lý logic chuyên biệt và truy cập trực tiếp vào PostgreSQL Database để lấy hoặc cập nhật dữ liệu. Trong trường hợp xử lý file, Media Service sẽ thực hiện lưu trữ và truy xuất nội dung từ S3. Toàn bộ hoạt động của hệ thống được Logging Service ghi nhận và lưu trữ phục vụ công tác giám sát, theo dõi và phân tích hệ thống. 
 
 \end{enumerate}
+
