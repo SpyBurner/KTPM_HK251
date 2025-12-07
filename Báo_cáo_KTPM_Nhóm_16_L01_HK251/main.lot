@@ -1,4 +1,19 @@
 \thispagestyle {empty}
-\contentsline {table}{\numberline {1}{\ignorespaces Bảng User Stories}}{7}{table.caption.12}%
-\contentsline {table}{\numberline {2}{\ignorespaces Danh sách yêu cầu phi chức năng (NFR)}}{8}{table.caption.13}%
-\contentsline {table}{\numberline {3}{\ignorespaces Usecase <<Tải file lên hệ thống>>}}{9}{table.3}%
+\contentsline {table}{\numberline {1}{\ignorespaces Bảng User Stories}}{8}{table.caption.12}%
+\contentsline {table}{\numberline {2}{\ignorespaces Danh sách yêu cầu phi chức năng (NFR)}}{9}{table.caption.13}%
+\contentsline {table}{\numberline {3}{\ignorespaces Usecase <<Cấu hình hệ thống>>}}{10}{table.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces Usecase <<Xem nhật ký hoạt động AI>>}}{11}{table.4}%
+\contentsline {table}{\numberline {5}{\ignorespaces Usecase <<Xem nhật ký kiểm toán (Audit log)>>}}{11}{table.5}%
+\contentsline {table}{\numberline {6}{\ignorespaces Usecase <<Tạo hoặc Xóa tài khoản>>}}{12}{table.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces Usecase <<Đặt lại mật khẩu (Reset password)>>}}{13}{table.7}%
+\contentsline {table}{\numberline {8}{\ignorespaces Usecase <<Đăng ký tài khoản>>}}{13}{table.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces Usecase <<Đăng nhập>>}}{14}{table.9}%
+\contentsline {table}{\numberline {10}{\ignorespaces Usecase <<Yêu cầu đặt lại mật khẩu>>}}{14}{table.10}%
+\contentsline {table}{\numberline {11}{\ignorespaces Usecase <<Cấp và thu hồi quyền Trưởng khoa>>}}{15}{table.11}%
+\contentsline {table}{\numberline {12}{\ignorespaces Usecase <<Phê duyệt yêu cầu quyền truy cập>>}}{16}{table.12}%
+\contentsline {table}{\numberline {13}{\ignorespaces Usecase <<Thu hồi quyền truy cập>>}}{16}{table.13}%
+\contentsline {table}{\numberline {14}{\ignorespaces Usecase <<Yêu cầu quyền truy cập>>}}{17}{table.14}%
+\contentsline {table}{\numberline {15}{\ignorespaces Usecase <<Đề xuất chỉnh sửa khóa học>>}}{18}{table.15}%
+\contentsline {table}{\numberline {16}{\ignorespaces Usecase <<Tạo khóa học>>}}{18}{table.16}%
+\contentsline {table}{\numberline {17}{\ignorespaces Usecase <<Sửa nội dung khóa học>>}}{19}{table.17}%
+\contentsline {table}{\numberline {18}{\ignorespaces Usecase <<Ghi danh khóa học>>}}{19}{table.18}%

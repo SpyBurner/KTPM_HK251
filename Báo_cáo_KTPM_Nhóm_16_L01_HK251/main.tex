@@ -139,19 +139,22 @@ morekeywords={}
 \usepackage{enumitem}
 \usepackage{adjustbox} % Or just use the standard geometry/layout packages
 \newcommand\tabularhead[1]{
-\begin{longtable}{|p{0.1\linewidth}|p{0.7\linewidth}|}
-  \caption{Usecase <<#1>>} \\
-    \hline
-    \textbf{Usecase} & \textbf{#1} \\
-    \hline
-    \endfirsthead
-    \hline
-    \textbf{Usecase} & \textbf{#1} \\
-    \hline
-    \endhead
-    \hline
-    \endfoot
-}
+	\begingroup
+	\setlength{\tabcolsep}{8pt}        % horizontal padding inside cells (default 6pt)
+	\renewcommand{\arraystretch}{1.5}  % vertical padding (1.0 default)
+	\begin{longtable}{|p{0.12\linewidth}|p{0.7\linewidth}|}
+		\caption{Usecase <<#1>>} \\
+		\hline
+		\textbf{Usecase} & \textbf{#1} \\
+		\hline
+		\endfirsthead
+		\hline
+		\textbf{Usecase} & \textbf{#1} \\
+		\hline
+		\endhead
+		\hline
+		\endfoot
+	}
 
 \newcommand\addrow[2]{#1 &#2\\ \hline}
 
@@ -185,7 +188,40 @@ morekeywords={}
         \end{minipage}\\ \hline
 }
     
-\newenvironment{usecase}{\tabularhead}{\hline\end{longtable}}
+\newenvironment{usecase}{
+	\tabularhead
+}{
+	\end{longtable}
+	\endgroup
+}
+
+%%%%%%Req counter
+% ==== Counter chung cho toàn bộ yêu cầu ====
+\newcounter{req}
+
+\makeatletter
+
+% ==== Use Case (US) ====
+% #1 = ID thật (A-US03)
+% #2 = tên use case
+\newcommand{\us}[2]{%
+	\refstepcounter{req}% tăng counter req
+	\def\@currentlabel{#1}% ép \ref hiển thị ID thật
+	\label{us:#1}% ghi label us:A-US03
+	\textbf{#1}%
+}
+
+% ==== Non-functional Requirement (NFR) ====
+% #1 = mã (01)
+% #2 = tên
+\newcommand{\nfr}[2]{%
+	\refstepcounter{req}%
+	\def\@currentlabel{NFR#1}% ép \ref hiển thị NFR01
+	\label{nfr:#1}%
+	\textbf{NRF#1}%
+}
+
+\makeatother
 
 
 %%%

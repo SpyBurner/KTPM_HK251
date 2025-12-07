@@ -1,12 +1,12 @@
 \section{Đặc tả chi tiết các use-case}
+Để thiết kế kiến trúc của hệ thống, nhóm đã họp và triển khai các User story thành các use-case cụ thể.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio"}
 	\caption{Tổng quan các Use-case}
 	\label{fig:ktpm-usecase}
 \end{figure}
-
-%-------------------------------------------------------------
+%---------------
 \subsection{Quản lý hệ thống}
 \subsubsection{Tổng quan}
 \begin{figure}[H]
@@ -15,10 +15,84 @@
 	\caption{Các use-case về Quản lý hệ thống}
 	\label{fig:usecase-system}
 \end{figure}
-\subsubsection{Đặc tả chi tiết}
-% --- bạn sẽ thêm các use-case ---
 
+\subsubsection{Đặc tả chi tiết}
+
+\begin{usecase}{Cấu hình hệ thống} 
+	\addrow{Nguồn}{\ref{us:A-US03}, \ref{nfr:01}} 
+	\addrow{Use-case ID}{UC-SM-01} 
+	\addrow{Tổng quan}{Admin chỉnh sửa các tham số hệ thống để tinh chỉnh hoạt động} 
+	\addrow{Actor}{Admin} 
+	\addcondition{Tiền điều kiện}{ 
+		\item Hệ thống đang hoạt động ổn định. 
+		\item Admin đã đăng nhập và có quyền. 
+	} 
+	\addcondition{Điều kiện kích hoạt}{\item Admin truy cập vào trang cấu hình hệ thống.} 
+	\addmulrow{Các bước}{ 
+		\item Hiển thị giao diện cấu hình tham số hệ thống. 
+		\item Admin thay đổi các tham số cấu hình (lập lịch trích xuất, quản lý phạm vi trích xuất, mức hoạt động tối thiểu, hệ số đa dạng đề xuất). 
+		\item Admin lưu thay đổi và xác nhận. 
+		\item Hệ thống cập nhật và áp dụng cấu hình mới. 
+	} 
+	\addcondition{Hậu điều kiện}{ 
+		\item Các tham số hệ thống được cập nhật thành công. 
+		\item Dịch vụ liên quan áp dụng tham số mới. 
+	} 
+	\addexception{Xử lý ngoại lệ}{ 
+		\item Không có thay đổi khi lưu, hệ thống hỏi xác nhận. 
+		\item Lỗi lưu trữ, hiển thị thông báo lỗi. 
+	} 
+\end{usecase}
+
+\begin{usecase}{Xem nhật ký hoạt động AI}
+	\addrow{Nguồn}{\ref{us:A-US04}, \ref{nfr:18}}
+	\addrow{Use-case ID}{UC-SM-02}
+	\addrow{Tổng quan}{Admin xem nhật ký hoạt động (logs) của hệ thống AI để giám sát và phát hiện sự cố.}
+	\addrow{Actor}{Admin}
+	\addcondition{Tiền điều kiện}{
+		\item Admin đã đăng nhập với quyền xem nhật ký.
+	}
+	\addcondition{Điều kiện kích hoạt}{
+		\item Admin truy cập trang nhật ký hoạt động AI.
+	}
+	\addmulrow{Các bước}{
+		\item Hệ thống hiển thị danh sách các bản ghi nhật ký AI, hỗ trợ lọc theo thời gian và mức độ nghiêm trọng. (Message, Warning, Error)
+		\item Admin lựa chọn bản ghi hoặc khoảng thời gian cần xem.
+		\item Hệ thống hiển thị chi tiết nhật ký theo yêu cầu.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Admin có thể nắm bắt được thông tin hoạt động, cảnh báo hoặc lỗi của hệ thống AI.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu không có dữ liệu nhật ký trong khoảng thời gian yêu cầu, hệ thống hiển thị thông báo "Không có dữ liệu".
+		\item Nếu xảy ra lỗi truy xuất dữ liệu nhật ký (ví dụ: mất kết nối), hệ thống thông báo lỗi và gợi ý tải lại trang.
+	}
+\end{usecase}
+
+\begin{usecase}{Xem nhật ký kiểm toán (Audit log)}
+	\addrow{Nguồn}{\ref{us:A-US04}}
+	\addrow{Use-case ID}{UC-SM-03}
+	\addrow{Tổng quan}{Admin xem nhật ký kiểm toán để giám sát các hành động hệ thống, đảm bảo an toàn và phát hiện hành vi bất thường.}
+	\addrow{Actor}{Admin}
+	\addcondition{Tiền điều kiện}{
+		\item Admin đã đăng nhập với quyền xem audit log.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Admin truy cập trang nhật ký kiểm toán.}
+	\addmulrow{Các bước}{
+		\item Hệ thống hiển thị danh sách các sự kiện audit log, hỗ trợ lọc theo người dùng, loại sự kiện, thời gian.
+		\item Admin chọn bộ lọc hoặc tìm kiếm cụ thể.
+		\item Hệ thống hiển thị chi tiết các sự kiện phù hợp.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Admin có thể kiểm tra và truy vết các thao tác hệ thống quan trọng.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu không có sự kiện nào phù hợp bộ lọc, hệ thống hiển thị thông báo "Không tìm thấy sự kiện".
+		\item Nếu lỗi truy xuất dữ liệu audit log, hệ thống thông báo lỗi và yêu cầu tải lại.
+	}
+\end{usecase}
 \subsection{Quản lý tài khoản}
+
 \subsubsection{Tổng quan}
 \begin{figure}[H]
 	\centering
@@ -26,10 +100,134 @@
 	\caption{Các use-case về Quản lý tài khoản}
 	\label{fig:usecase-account}
 \end{figure}
+
 \subsubsection{Đặc tả chi tiết}
 
-%-------------------------------------------------------------
-\subsection{Quản lý quyền chỉnh sửa khóa học}
+\begin{usecase}{Tạo hoặc Xóa tài khoản}
+	\addrow{Nguồn}{\ref{us:A-US01}}
+	\addrow{Use-case ID}{UC-AM-01}
+	\addrow{Tổng quan}{Admin quản lý tài khoản người dùng: tạo mới hoặc xóa tài khoản khi cần thiết.}
+	\addrow{Actor}{Admin}
+	\addcondition{Tiền điều kiện}{
+		\item Admin đã đăng nhập với quyền quản lý tài khoản.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Admin truy cập vào trang quản lý tài khoản.}
+	\addmulrow{Các bước}{
+		\item Admin chọn thao tác tạo tài khoản mới hoặc xóa tài khoản hiện có.
+		\item Nếu tạo, Admin nhập các thông tin cần thiết (tên, email, quyền hạn,...).
+		\item Hệ thống kiểm tra dữ liệu hợp lệ và tạo tài khoản.
+		\item Nếu xóa, Admin chọn tài khoản cần xóa và xác nhận.
+		\item Hệ thống xóa tài khoản và thông báo thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Tài khoản được tạo mới hoặc xóa khỏi hệ thống thành công.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu dữ liệu nhập không hợp lệ (ví dụ: email trùng, thiếu thông tin bắt buộc), hệ thống thông báo lỗi.
+		\item Nếu tài khoản cần xóa đang liên kết với dữ liệu quan trọng (ví dụ: đang quản lý khóa học), hệ thống cảnh báo và yêu cầu xác nhận thêm hoặc từ chối xóa.
+		\item Nếu lỗi hệ thống khi lưu hoặc xóa, thông báo lỗi và gợi ý thử lại.
+	}
+\end{usecase}
+
+\begin{usecase}{Đặt lại mật khẩu (Reset password)}
+	\addrow{Nguồn}{\ref{us:A-US01}}
+	\addrow{Use-case ID}{UC-AM-02}
+	\addrow{Tổng quan}{Admin có thể đặt lại mật khẩu cho tài khoản người dùng khi cần thiết.}
+	\addrow{Actor}{Admin}
+	\addcondition{Tiền điều kiện}{
+		\item Admin đã đăng nhập .
+		\item Admin có quyền đặt lại mật khẩu.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Admin truy cập trang quản lý tài khoản và chọn đặt lại mật khẩu.}
+	\addmulrow{Các bước}{
+		\item Admin chọn tài khoản người dùng cần đặt lại mật khẩu.
+		\item Nhập mật khẩu mới hoặc hệ thống sinh mật khẩu ngẫu nhiên.
+		\item Xác nhận thao tác đặt lại mật khẩu.
+		\item Hệ thống cập nhật mật khẩu và thông báo thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Mật khẩu của tài khoản được thay đổi và có hiệu lực ngay lập tức.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu tài khoản không tồn tại hoặc không hợp lệ, hệ thống thông báo lỗi.
+		\item Nếu lỗi hệ thống khi cập nhật, thông báo lỗi và yêu cầu thử lại.
+	}
+\end{usecase}
+
+\begin{usecase}{Đăng ký tài khoản}
+	\addrow{Nguồn}{}
+	\addrow{Use-case ID}{UC-AM-03}
+	\addrow{Tổng quan}{Người dùng mới có thể đăng ký tài khoản để sử dụng hệ thống.}
+	\addrow{Actor}{User}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng chưa có tài khoản trong hệ thống.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người dùng truy cập trang đăng ký tài khoản.}
+	\addmulrow{Các bước}{
+		\item Người dùng nhập thông tin cá nhân và tài khoản (email, mật khẩu, tên,...).
+		\item Hệ thống kiểm tra tính hợp lệ của dữ liệu.
+		\item Hệ thống tạo tài khoản mới và gửi email xác nhận (nếu có).
+		\item Người dùng kích hoạt tài khoản qua email (nếu áp dụng).
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Người dùng có thể đăng nhập và sử dụng hệ thống.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu email đã được đăng ký, hệ thống báo lỗi.
+		\item Nếu dữ liệu không hợp lệ, yêu cầu nhập lại.
+		\item Nếu lỗi gửi email xác nhận, cảnh báo và hướng dẫn liên hệ quản trị.
+	}
+\end{usecase}
+
+\begin{usecase}{Đăng nhập}
+	\addrow{Nguồn}{\ref{us:A-US01}}
+	\addrow{Use-case ID}{UC-AM-04}
+	\addrow{Tổng quan}{Người dùng đăng nhập vào hệ thống để sử dụng các chức năng.}
+	\addrow{Actor}{User}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng đã có tài khoản hợp lệ.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người dùng truy cập trang đăng nhập.}
+	\addmulrow{Các bước}{
+		\item Người dùng nhập thông tin đăng nhập (tên đăng nhập và mật khẩu).
+		\item Hệ thống xác thực thông tin.
+		\item Nếu thành công, hệ thống cho phép truy cập vào hệ thống.
+		\item Nếu thất bại, hiển thị thông báo lỗi và hướng dẫn thử lại.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Người dùng có phiên làm việc hợp lệ.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu tài khoản bị khóa hoặc chưa kích hoạt, hệ thống thông báo trạng thái.
+		\item Nếu lỗi hệ thống khi xác thực, thông báo lỗi và yêu cầu thử lại.
+	}
+\end{usecase}
+
+\begin{usecase}{Yêu cầu đặt lại mật khẩu}
+	\addrow{Nguồn}{}
+	\addrow{Use-case ID}{UC-AM-05}
+	\addrow{Tổng quan}{Người dùng yêu cầu hệ thống gửi hướng dẫn đặt lại mật khẩu khi quên mật khẩu.}
+	\addrow{Actor}{User}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng có tài khoản đã đăng ký.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người dùng truy cập trang "Quên mật khẩu" và nhập email đăng ký.}
+	\addmulrow{Các bước}{
+		\item Người dùng nhập địa chỉ email đã đăng ký.
+		\item Hệ thống kiểm tra email có tồn tại trong hệ thống.
+		\item Nếu có, hệ thống gửi tạo yêu cầu đặt lại mật khẩu cho Admin
+		\item Hệ thống hiển thị thông báo gửi yêu cầu thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Yêu cầu đặt lại mật khẩu được tạo.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu email không tồn tại, hệ thống thông báo không tìm thấy tài khoản.
+	}
+\end{usecase}
+
+\subsection{Quản lý quyền truy cập}
+
 \subsubsection{Tổng quan}
 \begin{figure}[H]
 	\centering
@@ -37,12 +235,118 @@
 	\caption{Các use-case về Quản lý quyền chỉnh sửa khóa học}
 	\label{fig:usecase-edit-privilege}
 \end{figure}
+
 \subsubsection{Đặc tả chi tiết}
-% --- bạn sẽ thêm các use-case vào đây ---
 
+\begin{usecase}{Cấp và thu hồi quyền Trưởng khoa}
+	\addrow{Nguồn}{\ref{us:A-US02}}
+	\addrow{Use-case ID}{UC-PM-01}
+	\addrow{Tổng quan}{Admin thực hiện cấp hoặc thu hồi quyền Trưởng khoa cho người dùng phù hợp để đảm bảo phân quyền đúng đối tượng.}
+	\addrow{Actor}{Admin}
+	\addcondition{Tiền điều kiện}{
+		\item Admin đã đăng nhập.
+		\item Admin có quyền quản lý quyền truy cập.
+		\item Người dùng cần cấp/thu hồi quyền tồn tại trong hệ thống.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Admin truy cập trang quản lý quyền và chọn chức năng cấp hoặc thu hồi quyền Trưởng khoa.}
+	\addmulrow{Các bước}{
+		\item Admin tìm kiếm hoặc chọn người dùng cần thay đổi quyền.
+		\item Admin chọn cấp quyền Trưởng khoa hoặc thu hồi quyền.
+		\item Xác nhận thao tác cấp hoặc thu hồi.
+		\item Hệ thống cập nhật quyền truy cập cho người dùng.
+		\item Hệ thống hiển thị thông báo thực hiện thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Quyền Trưởng khoa được cập nhật chính xác theo yêu cầu.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu người dùng không tồn tại hoặc đã có quyền tương ứng, hệ thống thông báo lỗi và ngăn thao tác.
+		\item Nếu lỗi hệ thống khi cập nhật quyền, hệ thống hiển thị lỗi và yêu cầu thử lại.
+		\item Nếu Admin không có quyền thực hiện thao tác, hệ thống từ chối truy cập.
+	}
+\end{usecase}
 
-%-------------------------------------------------------------
+\begin{usecase}{Phê duyệt yêu cầu quyền truy cập}
+	\addrow{Nguồn}{\ref{us:A-US02}, \ref{us:D-US01}}
+	\addrow{Use-case ID}{UC-PM-02}
+	\addrow{Tổng quan}{Admin hoặc Trưởng khoa xem và phê duyệt các yêu cầu cấp quyền truy cập của giảng viên hoặc trợ giảng.}
+	\addrow{Actor}{Admin / Dean (Trưởng khoa)}
+	\addcondition{Tiền điều kiện}{
+		\item Admin hoặc Trưởng khoa đã đăng nhập với quyền phê duyệt.
+		\item Có các yêu cầu quyền truy cập đang chờ xử lý.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người có quyền truy cập vào trang phê duyệt yêu cầu quyền.}
+	\addmulrow{Các bước}{
+		\item Xem danh sách các yêu cầu cấp quyền đang chờ.
+		\item Chọn từng yêu cầu để xem chi tiết.
+		\item Phê duyệt hoặc từ chối yêu cầu.
+		\item Hệ thống cập nhật trạng thái và thông báo kết quả cho người yêu cầu.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Quyền truy cập được cấp hoặc yêu cầu bị từ chối chính xác.
+		\item Người yêu cầu được thông báo kết quả kịp thời.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu yêu cầu không tồn tại hoặc đã được xử lý, hệ thống thông báo và không thực hiện thao tác.
+		\item Nếu lỗi cập nhật quyền truy cập, hệ thống báo lỗi và cho phép thử lại.
+		\item Nếu người phê duyệt không có quyền hợp lệ, hệ thống từ chối thao tác.
+	}
+\end{usecase}
+
+\begin{usecase}{Thu hồi quyền truy cập}
+	\addrow{Nguồn}{\ref{us:A-US02}, \ref{us:D-US01}}
+	\addrow{Use-case ID}{UC-PM-03}
+	\addrow{Tổng quan}{Admin hoặc Trưởng khoa thu hồi quyền truy cập của giảng viên hoặc trợ giảng khi không còn phù hợp.}
+	\addrow{Actor}{Admin / Dean (Trưởng khoa)}
+	\addcondition{Tiền điều kiện}{
+		\item Người thực hiện đã đăng nhập với quyền thu hồi quyền.
+		\item Người dùng bị thu hồi quyền đang có quyền hợp lệ trong hệ thống.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người thực hiện truy cập trang quản lý quyền và chọn thu hồi quyền.}
+	\addmulrow{Các bước}{
+		\item Tìm hoặc chọn người dùng cần thu hồi quyền.
+		\item Chọn quyền cần thu hồi.
+		\item Xác nhận thao tác thu hồi.
+		\item Hệ thống cập nhật và ghi nhận thay đổi.
+		\item Hiển thị thông báo thu hồi quyền thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Quyền truy cập bị thu hồi có hiệu lực ngay lập tức.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu người dùng không tồn tại hoặc không có quyền được thu hồi, thông báo lỗi.
+		\item Nếu lỗi hệ thống khi cập nhật, hiển thị thông báo và đề nghị thử lại.
+		\item Nếu người thực hiện không đủ quyền, hệ thống từ chối thao tác.
+	}
+\end{usecase}
+
+\begin{usecase}{Yêu cầu quyền truy cập}
+	\addrow{Nguồn}{\ref{us:L-US01}, \ref{us:T-US01}}
+	\addrow{Use-case ID}{UC-PM-04}
+	\addrow{Tổng quan}{Giảng viên hoặc trợ giảng gửi yêu cầu xin cấp quyền truy cập để thực hiện các chức năng nâng cao.}
+	\addrow{Actor}{Lecturer / TA (Giảng viên / Trợ giảng)}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng đã đăng nhập và chưa có quyền cần xin cấp.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Người dùng truy cập trang yêu cầu quyền truy cập.}
+	\addmulrow{Các bước}{
+		\item Người dùng chọn loại quyền cần xin cấp.
+		\item Nhập lý do hoặc mô tả nhu cầu sử dụng quyền.
+		\item Gửi yêu cầu lên hệ thống.
+		\item Hệ thống lưu yêu cầu và thông báo đã gửi thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Yêu cầu quyền được ghi nhận và chờ phê duyệt.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu người dùng đã có quyền tương ứng, hệ thống báo không cần gửi yêu cầu.
+		\item Nếu dữ liệu gửi lên không hợp lệ (ví dụ: thiếu lý do), hệ thống thông báo lỗi.
+		\item Nếu lỗi hệ thống khi lưu yêu cầu, hệ thống báo lỗi và đề nghị thử lại.
+	}
+\end{usecase}
+
 \subsection{Quản lý khóa học}
+
 \subsubsection{Tổng quan}
 \begin{figure}[H]
 	\centering
@@ -50,20 +354,105 @@
 	\caption{Các use-case về Quản lý khóa học}
 	\label{fig:usecase-course}
 \end{figure}
+
 \subsubsection{Đặc tả chi tiết}
 
+\begin{usecase}{Đề xuất chỉnh sửa khóa học}
+	\addrow{Nguồn}{\ref{us:T-US02}}
+	\addrow{Use-case ID}{UC-CM-01}
+	\addrow{Tổng quan}{Trợ giảng đề xuất chỉnh sửa nội dung khóa học để nâng cao chất lượng.}
+	\addrow{Actor}{TA (Trợ giảng)}
+	\addcondition{Tiền điều kiện}{
+		\item Trợ giảng đã đăng nhập và có quyền truy cập vào khóa học được phân công.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Trợ giảng truy cập trang khóa học và chọn chức năng đề xuất chỉnh sửa.}
+	\addmulrow{Các bước}{
+		\item Trợ giảng xem nội dung khóa học hiện tại.
+		\item Trợ giảng chỉnh sửa hoặc nhập đề xuất thay đổi.
+		\item Gửi đề xuất cho trưởng khoa hoặc giảng viên xem xét.
+		\item Hệ thống lưu và thông báo trạng thái đề xuất.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Đề xuất được ghi nhận và chờ phê duyệt.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu dữ liệu đề xuất không hợp lệ, hệ thống thông báo lỗi.
+		\item Nếu lỗi lưu trữ, thông báo lỗi và yêu cầu thử lại.
+	}
+\end{usecase}
 
+\begin{usecase}{Tạo khóa học}
+	\addrow{Nguồn}{\ref{us:D-US02}}
+	\addrow{Use-case ID}{UC-CM-02}
+	\addrow{Tổng quan}{Trưởng khoa tạo mới khóa học thuộc khoa mình quản lý.}
+	\addrow{Actor}{Dean (Trưởng khoa)}
+	\addcondition{Tiền điều kiện}{
+		\item Trưởng khoa đã đăng nhập và có quyền tạo khóa học.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Trưởng khoa truy cập trang quản lý khóa học và chọn tạo mới.}
+	\addmulrow{Các bước}{
+		\item Nhập các thông tin khóa học (tên, mã, mô tả,...).
+		\item Xác nhận thông tin và lưu khóa học mới.
+		\item Hệ thống tạo khóa học và hiển thị thông báo thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Khóa học được thêm mới trong hệ thống và sẵn sàng cho giảng viên quản lý.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu thông tin không hợp lệ hoặc trùng mã khóa học, thông báo lỗi.
+		\item Nếu lỗi hệ thống khi lưu, thông báo lỗi và yêu cầu thử lại.
+	}
+\end{usecase}
 
-%-------------------------------------------------------------
-\subsection{Học khóa học}
-\subsubsection{Tổng quan}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{"Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5)"}
-	\caption{Các use-case về Học khóa học}
-	\label{fig:usecase-learning}
-\end{figure}
-\subsubsection{Đặc tả chi tiết}
+\begin{usecase}{Sửa nội dung khóa học}
+	\addrow{Nguồn}{\ref{us:L-US01}}
+	\addrow{Use-case ID}{UC-CM-03}
+	\addrow{Tổng quan}{Giảng viên sửa đổi nội dung khóa học để cập nhật bài giảng, bài tập, quiz,...}
+	\addrow{Actor}{Lecturer (Giảng viên)}
+	\addcondition{Tiền điều kiện}{
+		\item Giảng viên đã đăng nhập và được phân quyền chỉnh sửa khóa học.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Giảng viên truy cập trang quản lý khóa học và chọn chỉnh sửa.}
+	\addmulrow{Các bước}{
+		\item Hiển thị nội dung khóa học hiện tại (các chương, phần trong chương, chủ đề của phần, tài liệu, quiz,...)	
+		\item Giảng viên thực hiện chỉnh sửa các phần nội dung.
+		\item Lưu thay đổi và hệ thống cập nhật nội dung.
+		\item Hệ thống ghi lại lịch sử chỉnh sửa để truy vết.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Nội dung khóa học được cập nhật và hiển thị cho sinh viên.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu dữ liệu nhập không hợp lệ, cảnh báo và yêu cầu chỉnh sửa.
+		\item Nếu lỗi lưu dữ liệu, hệ thống thông báo và cho phép thử lại.
+	}
+\end{usecase}
+
+\begin{usecase}{Ghi danh khóa học}
+	\addrow{Nguồn}{\ref{us:S-US01}}
+	\addrow{Use-case ID}{UC-CM-04}
+	\addrow{Tổng quan}{Sinh viên ghi danh tham gia khóa học.}
+	\addrow{Actor}{Student (Sinh viên)}
+	\addcondition{Tiền điều kiện}{
+		\item Sinh viên đã đăng nhập.
+		\item Khóa học đang mở ghi danh.
+	}
+	\addcondition{Điều kiện kích hoạt}{\item Sinh viên chọn khóa học và chọn ghi danh.}
+	\addmulrow{Các bước}{
+		\item Hiển thị thông tin khóa học.
+		\item Sinh viên nhấn ghi danh.
+		\item Hệ thống kiểm tra điều kiện và ghi nhận đăng ký.
+		\item Hiển thị xác nhận ghi danh thành công.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Sinh viên được ghi danh và có thể truy cập nội dung khóa học.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Nếu khóa học không cho phép ghi danh, thông báo lỗi.
+		\item Nếu sinh viên đã ghi danh trước đó, thông báo không thể ghi danh lại.
+		\item Nếu lỗi hệ thống khi ghi danh, cảnh báo và đề nghị thử
+	}
+\end{usecase}
 
 
 
