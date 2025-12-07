@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.3)  7 DEC 2025 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.3)  7 DEC 2025 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1527,7 +1527,7 @@ Package hyperref Info: Link coloring ON on input line 253.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count403
-<Images/hcmut.png, id=170, 514.3215pt x 491.9178pt>
+<Images/hcmut.png, id=190, 514.3215pt x 491.9178pt>
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 276.
@@ -1602,7 +1602,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
-<Images/1. GioiThieu/Learning triangle.png, id=296, 718.685pt x 529.98pt>
+<Images/1. GioiThieu/Learning triangle.png, id=339, 718.685pt x 529.98pt>
 File: Images/1. GioiThieu/Learning triangle.png Graphic file (type png)
 <use Images/1. GioiThieu/Learning triangle.png>
 Package pdftex.def Info: Images/1. GioiThieu/Learning triangle.png  used on inp
@@ -1632,12 +1632,12 @@ been already used, duplicate ignored
                    \relax 
 l.344 \newpage
                [2] (Contents/2. CoSoLyThuyet.tex
-<Images/2. CoSoLyThuyet/BE.png, id=310, 322.20375pt x 184.69pt>
+<Images/2. CoSoLyThuyet/BE.png, id=353, 322.20375pt x 184.69pt>
 File: Images/2. CoSoLyThuyet/BE.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/BE.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/BE.png  used on input line 18.
 (pdftex.def)             Requested size: 136.57462pt x 78.28789pt.
-<Images/2. CoSoLyThuyet/React.png, id=311, 303.1325pt x 167.62625pt>
+<Images/2. CoSoLyThuyet/React.png, id=354, 303.1325pt x 167.62625pt>
 File: Images/2. CoSoLyThuyet/React.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/React.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/React.png  used on input line 3
@@ -1655,13 +1655,13 @@ been already used, duplicate ignored
 l.45 
       [3 <./Images/2. CoSoLyThuyet/BE.png> <./Images/2. CoSoLyThuyet/React.png>
 ]
-<Images/2. CoSoLyThuyet/AWS.png, id=319, 276.03125pt x 183.68625pt>
+<Images/2. CoSoLyThuyet/AWS.png, id=362, 276.03125pt x 183.68625pt>
 File: Images/2. CoSoLyThuyet/AWS.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/AWS.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/AWS.png  used on input line 52.
 
 (pdftex.def)             Requested size: 91.04742pt x 60.58861pt.
-<Images/2. CoSoLyThuyet/Docker_ECS.png, id=320, 656.4525pt x 225.84375pt>
+<Images/2. CoSoLyThuyet/Docker_ECS.png, id=363, 656.4525pt x 225.84375pt>
 File: Images/2. CoSoLyThuyet/Docker_ECS.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/Docker_ECS.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/Docker_ECS.png  used on input l
@@ -1683,7 +1683,7 @@ LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
  (D:\MikTex\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-<Images/2. CoSoLyThuyet/Amplify.png, id=333, 225.84375pt x 225.84375pt>
+<Images/2. CoSoLyThuyet/Amplify.png, id=376, 225.84375pt x 225.84375pt>
 File: Images/2. CoSoLyThuyet/Amplify.png Graphic file (type png)
 <use Images/2. CoSoLyThuyet/Amplify.png>
 Package pdftex.def Info: Images/2. CoSoLyThuyet/Amplify.png  used on input line
@@ -1749,7 +1749,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 348.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [9] (Contents/4. DacTaChiTietCacUseCase.tex
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png, id=400, 4275.975pt x
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png, id=443, 4275.975pt x
  3300.33pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.png Graphic file (ty
 pe png)
@@ -1757,7 +1757,7 @@ pe png)
 Package pdftex.def Info: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio.p
 ng  used on input line 5.
 (pdftex.def)             Requested size: 318.66948pt x 245.95294pt.
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png, id=401, 1718.42pt
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png, id=444, 1718.42pt
  x 931.48pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(1).png Graphic file 
 (type png)
@@ -1837,7 +1837,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 93.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [11]
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png, id=430, 2019.545p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png, id=473, 2019.545p
 t x 1047.915pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(2).png Graphic file 
 (type png)
@@ -1961,7 +1961,7 @@ File: Images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: Images/hcmut.png  used on input line 227.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
  [14]
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png, id=482, 2083.785p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png, id=525, 2083.785p
 t x 1252.68pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(3).png Graphic file 
 (type png)
@@ -2059,7 +2059,7 @@ Underfull \hbox (badness 1762) in paragraph at lines 345--345
 []|\T5/ptm/m/n/10 Xû lþ ngo¤i
  []
 
-<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png, id=522, 2059.695p
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png, id=565, 2059.695p
 t x 1172.38pt>
 File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(4).png Graphic file 
 (type png)
@@ -2161,40 +2161,365 @@ File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 455.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [19])
+ [19]
+<Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png, id=618, 2123.935p
+t x 1610.015pt>
+File: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png Graphic file 
+(type png)
+<use Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png>
+Package pdftex.def Info: Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5
+).png  used on input line 462.
+(pdftex.def)             Requested size: 318.66948pt x 241.54097pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--477
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 491--491
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 492.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [20 <./Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5).png>]
+Underfull \hbox (badness 10000) in paragraph at lines 502--502
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--511
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 516--516
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--535
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 539--539
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 540.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [21]
+Underfull \hbox (badness 10000) in paragraph at lines 550--550
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 565--565
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 576--576
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 577--577
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--586
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 591--591
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 592.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [22]
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
+[]|\T5/ptm/m/n/10 Ti·n ^^_i·u
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]|\T5/ptm/m/n/10 ^^^i·u ki»n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--611
+[]|\T5/ptm/m/n/10 Hªu ^^_i·u
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 616--616
+[]|\T5/ptm/m/n/10 Xû lþ ngo¤i
+ []
+
+)
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 350.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [20]
-(Contents/5. PhanTichThietKeHeThong.tex)
+ [23] (Contents/5. PhanTichThietKeHeThong.tex
+<Images/5. PhanTichThietKeHeThong/ERD.png, id=702, 4312.11pt x 3505.095pt>
+File: Images/5. PhanTichThietKeHeThong/ERD.png Graphic file (type png)
+<use Images/5. PhanTichThietKeHeThong/ERD.png>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/ERD.png  used on inpu
+t line 7.
+(pdftex.def)             Requested size: 364.19667pt x 296.03047pt.
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 47.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [24 <./Images/5. PhanTichThietKeHeThong/ERD.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Overfull \hbox (5.43726pt too wide) in paragraph at lines 59--59
+[]|\T5/ptm/b/n/10 Domain| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T5/ptm/b/n/10 T¶n Mèi
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 70--70
+\T5/ptm/m/n/10 / Lec-turer /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--73
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 83--83
+\T5/ptm/m/n/10 / Lec-turer /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 85--85
+\T5/ptm/m/n/10 / Lec-turer /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 87--87
+\T5/ptm/m/n/10 / Lec-turer /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]|\T5/ptm/m/n/10 Forum mes-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+[]|\T5/ptm/m/n/10 Forum mes-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+[]|\T5/ptm/m/n/10 Course
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+[]|\T5/ptm/m/n/10 Forum mes-
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 101--101
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 103--103
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 105--105
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+
+Underfull \hbox (badness 4156) in paragraph at lines 105--105
+[]|\T5/ptm/m/n/10 Grant ac-
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 107--107
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 109--109
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 109--109
+\T5/ptm/m/n/10 / Lec-turer /
+ []
+
+
+Overfull \hbox (0.58723pt too wide) in paragraph at lines 111--111
+[]|\T5/ptm/m/n/10 System| 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 113.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [25]
+<Images/5. PhanTichThietKeHeThong/ERD(1).png, id=715, 3617.515pt x 3577.365pt>
+File: Images/5. PhanTichThietKeHeThong/ERD(1).png Graphic file (type png)
+<use Images/5. PhanTichThietKeHeThong/ERD(1).png>
+Package pdftex.def Info: Images/5. PhanTichThietKeHeThong/ERD(1).png  used on i
+nput line 122.
+(pdftex.def)             Requested size: 364.19667pt x 360.10466pt.
+File: Images/hcmut.png Graphic file (type png)
+<use Images/hcmut.png>
+Package pdftex.def Info: Images/hcmut.png  used on input line 133.
+(pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
+ [26 <./Images/5. PhanTichThietKeHeThong/ERD(1).png>])
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 352.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [21] (Contents/6. HienThuc.tex)
+ [27] (Contents/6. HienThuc.tex)
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 354.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
 
-[22] (Contents/7. TrienKhai.tex)
+[28] (Contents/7. TrienKhai.tex)
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 356.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [23] (Contents/8. TongKet.tex)
+ [29] (Contents/8. TongKet.tex)
 (Outro/1. TaiLieuThamKhao.tex)
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 360.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [24] (Outro/2. PhuLuc.tex)
+ [30] (Outro/2. PhuLuc.tex)
 File: Images/hcmut.png Graphic file (type png)
 <use Images/hcmut.png>
 Package pdftex.def Info: Images/hcmut.png  used on input line 362.
 (pdftex.def)             Requested size: 28.44864pt x 28.44792pt.
- [25]
+ [31]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
@@ -2203,22 +2528,22 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0BC8B54905724684832F92A4C1A54BD3;7129.
+(rerunfilecheck)             Checksum: 3135A9B910E93722DD6AED090061C271;7767.
  ) 
 Here is how much of TeX's memory you used:
- 31658 strings out of 467871
- 582602 string characters out of 5435214
- 1157631 words of memory out of 5000000
- 59618 multiletter control sequences out of 15000+600000
- 684957 words of font info for 106 fonts, out of 8000000 for 9000
+ 31759 strings out of 467871
+ 584904 string characters out of 5435214
+ 1166631 words of memory out of 5000000
+ 59662 multiletter control sequences out of 15000+600000
+ 687185 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,24n,126p,894b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,24n,126p,894b,805s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/MikTex/fonts/type1/vntex/urwvn/utmb8v.pfb><D:/MikTex/fonts/type1/urw/time
 s/utmr8a.pfb><D:/MikTex/fonts/type1/vntex/urwvn/utmr8v.pfb><D:/MikTex/fonts/typ
 e1/vntex/urwvn/utmri8v.pfb><D:/MikTex/fonts/type1/vntex/vnr/vntt10.pfb>
-Output written on main.pdf (29 pages, 839866 bytes).
+Output written on main.pdf (35 pages, 1772264 bytes).
 PDF statistics:
- 690 PDF objects out of 1000 (max. 8388607)
- 247 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 304 named destinations out of 1000 (max. 500000)
+ 456 words of extra memory for PDF output out of 10000 (max. 10000000)
 
