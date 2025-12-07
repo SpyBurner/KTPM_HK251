@@ -54,61 +54,61 @@ Course Modification, Quiz và Course Learning chia hệ thống thành 2 mảng 
 \end{itemize}
 
 \textbf{Các mối quan hệ giữa các thực thể}\\
-\begin{longtable}{|p{1cm} |p{2cm} | p{1.5cm} | p{2cm} | p{6cm} |}
+\begin{longtable}{|p{1cm} |p{2cm} | p{1.5cm} | p{2cm} | p{4cm} | p{2cm} |}
 	\hline
-	\textbf{Domain} & \textbf{Thực thể 1} & \textbf{Tên Mối Quan hệ} & \textbf{Thực thể 2} & \textbf{Kiểu Mối Quan hệ (Cardinality)} \\
-	\hline
-	
-	Quiz & Quiz & Contain & Question & 1:N - Một Quiz có nhiều Question \\
-	\hline
-	Quiz & Question & Contain & Answer & 1:N - Một Question có nhiều Answer \\
-	\hline
-	Quiz & Quiz Attempt & Of & Quiz  & N:1 - Nhiều QuizAttempt thuộc về một Quiz \\
-	\hline
-	Quiz & Student & Take & Quiz Attempt & 1:N - Một Student thực hiện nhiều bài Quiz \\
-	\hline
-	Quiz & Admin / Dean / Lecturer / TA & Change & Quiz & 1:N - Một người dùng có quyền hạn có thể chỉnh sửa nhiều bài quiz \\
+	\textbf{Domain} & \textbf{Thực thể 1} & \textbf{Tên Mối Quan hệ} & \textbf{Thực thể 2} & \textbf{Kiểu Mối Quan hệ (Cardinality)} & Yêu cầu liên quan \\
 	\hline
 	
-	Course Mod. & Course & Contain & Chapter & 1:N - Một Course có nhiều Chapter \\
+	Quiz & Quiz & Contain & Question & 1:N - Một Quiz có nhiều Question & \ref{us:L-US02}, \ref{us:T-US02}, \ref{nfr:07}, \ref{nfr:15}\\
 	\hline
-	Course Mod. & Chapter & Contain & Section & 1:N - Một Chapter có nhiều Section \\
+	Quiz & Question & Contain & Answer & 1:N - Một Question có nhiều Answer & \\
 	\hline
-	Course Mod. & Chapter & Contain & Topic & 1:N - Một Chapter có nhiều Topic \\
+	Quiz & Quiz Attempt & Of & Quiz  & N:1 - Nhiều QuizAttempt thuộc về một Quiz & \\
 	\hline
-	Course Mod. & Section & Contain & File  & 1:N - Một Section có nhiều file (tài liệu, video,...) \\
+	Quiz & Student & Take & Quiz Attempt & 1:N - Một Student thực hiện nhiều bài Quiz & \\
 	\hline
-	Course Mod. & Section & Contain & Quiz  & 1:N - Một Section có nhiều Quiz \\
-	\hline
-	Course Mod. & Admin / Dean / Lecturer / TA & Change & Course  & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Course\\
-	\hline
-	Course Mod. & Admin / Dean / Lecturer / TA & Change & Chapter  & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Chapter\\
-	\hline
-	Course Mod. & Admin / Dean / Lecturer / TA & Change & Section & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Section\\
+	Quiz & Admin / Dean / Lecturer / TA & Change & Quiz & 1:N - Một người dùng có quyền hạn có thể chỉnh sửa nhiều bài quiz & \\
 	\hline
 	
-	Course Learn. & Student & Finish & Chapter & N:N - Nhiều Student hoàn thành nhiều Chapter \\
+	Course Mod. & Course & Contain & Chapter & 1:N - Một Course có nhiều Chapter & \\
 	\hline
-	Course Learn. & Student & Enroll & Course & N:N - Nhiều Student đăng ký nhiều Course \\
+	Course Mod. & Chapter & Contain & Section & 1:N - Một Chapter có nhiều Section & \\
 	\hline
-	Course Learn. & User & Post & Forum message & 1:N - Một User đăng tải nhiều Forum message \\
+	Course Mod. & Chapter & Contain & Topic & 1:N - Một Chapter có nhiều Topic & \\
 	\hline
-	Course Learn. & User & Post & Forum message & 1:N - Một User đăng tải nhiều Forum message \\
+	Course Mod. & Section & Contain & File  & 1:N - Một Section có nhiều file (tài liệu, video,...) & \\
 	\hline
-	Course Learn. & Course & Contain & Forum message & 1:N - Một Course có nhiều Forum message \\
+	Course Mod. & Section & Contain & Quiz  & 1:N - Một Section có nhiều Quiz & \\
+	\hline
+	Course Mod. & Admin / Dean / Lecturer / TA & Change & Course  & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Course& \\
+	\hline
+	Course Mod. & Admin / Dean / Lecturer / TA & Change & Chapter  & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Chapter& \\
+	\hline
+	Course Mod. & Admin / Dean / Lecturer / TA & Change & Section & 1:N - Một người dùng có quyền hạn chỉnh sửa nhiều Section& \\
 	\hline
 	
-	System & User & Upload & File & 1:1 - Một User đăng tải một File (ảnh đại diện) \\
+	Course Learn. & Student & Finish & Chapter & N:N - Nhiều Student hoàn thành nhiều Chapter & \\
 	\hline
-	System & User & Has & Privilege & N:N - Nhiều User có nhiều Privilege \\
+	Course Learn. & Student & Enroll & Course & N:N - Nhiều Student đăng ký nhiều Course & \\
 	\hline
-	System & Privilege & Grant access to & Course & N:1 - Nhiều Privilege cho phép truy cập một Course (2 dạng chỉ xem hoặc chỉnh sửa)\\
+	Course Learn. & User & Post & Forum message & 1:N - Một User đăng tải nhiều Forum message & \\
 	\hline
-	System & Log & Track & User & N:1 - Nhiều Log theo dõi một User - để truy vấn trách nhiệm khi có sửa đổi \\
+	Course Learn. & User & Post & Forum message & 1:N - Một User đăng tải nhiều Forum message & \\
 	\hline
-	System & Admin / Dean / Lecturer / TA & Change & System config & N:N - Nhiều người dùng có quyền hạn thay đổi nhiều System config \\
+	Course Learn. & Course & Contain & Forum message & 1:N - Một Course có nhiều Forum message & \\
 	\hline
-	System & System config & Exclude & Course & 1:N - Một System config chứa thông tin về bỏ qua nhiều Course (hỗ trợ AI Service - use-case UC-SM-01)\\
+	
+	System & User & Upload & File & 1:1 - Một User đăng tải một File (ảnh đại diện) & \\
+	\hline
+	System & User & Has & Privilege & N:N - Nhiều User có nhiều Privilege & \\
+	\hline
+	System & Privilege & Grant access to & Course & N:1 - Nhiều Privilege cho phép truy cập một Course (2 dạng chỉ xem hoặc chỉnh sửa)& \\
+	\hline
+	System & Log & Track & User & N:1 - Nhiều Log theo dõi một User - để truy vấn trách nhiệm khi có sửa đổi & \\
+	\hline
+	System & Admin / Dean / Lecturer / TA & Change & System config & N:N - Nhiều người dùng có quyền hạn thay đổi nhiều System config & \\
+	\hline
+	System & System config & Exclude & Course & 1:N - Một System config chứa thông tin về bỏ qua nhiều Course (hỗ trợ AI Service - use-case UC-SM-01)& \\
 	\hline
 \end{longtable}
 
@@ -139,7 +139,7 @@ Triển khai từ ERD ở phần trước, sơ đồ mapping bổ sung thêm cá
 Ứng dụng phương pháp \textbf{Architecture Katas} lên các yêu cầu hệ thống ở bảng \ref{tab:user_stories} và \ref{tab:nfr_list_ref}, nhóm đề xuất ra 3 đặc tính chính của hệ thống:
 
 \begin{enumerate}
-	\item \textbf{Configurability}, vì:
+	\item \textbf{Configurability} \label{ac:01}, vì:
 	
 	\begin{itemize}
 		\item \textbf{Quản lý hệ thống:} Cho phép thay đổi cách thức vận hành của hệ thống mà không cần can thiệp hoặc chỉnh sửa trực tiếp vào mã nguồn. Đặc tính này bao gồm việc \textit{Đối với mô hình Trí tuệ nhân tạo (AI)} thì có khả năng thiết lập \textit{chu kỳ tự động bảo trì}. Tương ứng với: \ref{nfr:01}, \ref{nfr:02}.
@@ -155,9 +155,9 @@ Triển khai từ ERD ở phần trước, sơ đồ mapping bổ sung thêm cá
 		\item \textbf{Đề xuất chủ đề liên quan:} Cho phép người dùng \textit{thêm} các chủ đề quan tâm hoặc \textit{bỏ} các chủ đề không quan tâm ra khỏi danh sách đề xuất.Tương ứng với: \ref{nfr:09}.
 	\end{itemize}
 	
-	\item \textbf{Availability}: Đặc tính này tập trung vào việc đảm bảo hệ thống luôn có thể được truy cập và sử dụng, đặc biệt là trong các tình huống \textit{thời gian sinh viên truy cập không ổn định} hoặc có sự tập trung người dùng lớn. Việc mất khả năng truy cập hệ thống sẽ ảnh hưởng đến chất lượng học tập của sinh viên - lớp người dùng luôn phải cân đối thời gian cho mọi việc, cũng như ảnh hưởng tiến độ xây dựng bài học của các giảng viên, trợ giảng,... Tương ứng với: \ref{nfr:10}, \ref{nfr:11}, \ref{nfr:12}.
+	\item \textbf{Availability} \label{ac:02}: Đặc tính này tập trung vào việc đảm bảo hệ thống luôn có thể được truy cập và sử dụng, đặc biệt là trong các tình huống \textit{thời gian sinh viên truy cập không ổn định} hoặc có sự tập trung người dùng lớn. Việc mất khả năng truy cập hệ thống sẽ ảnh hưởng đến chất lượng học tập của sinh viên - lớp người dùng luôn phải cân đối thời gian cho mọi việc, cũng như ảnh hưởng tiến độ xây dựng bài học của các giảng viên, trợ giảng,... Tương ứng với: \ref{nfr:10}, \ref{nfr:11}, \ref{nfr:12}.
 	
-	\item \textbf{Data consistency + integrity}, vì:
+	\item \textbf{Data consistency + integrity} \label{ac:03}, vì:
 	\begin{itemize}
 		\item Yêu cầu hệ thống phải \textit{đảm bảo tính đúng đắn} của các tài liệu bài giảng được đăng tải. Tương ứng với: \ref{nfr:13}.
 		\item Yêu cầu \textit{dữ liệu đăng tải phải được giữ an toàn} khỏi các truy cập trái phép hoặc mất mát. Tương ứng với: \ref{nfr:14}.
@@ -175,3 +175,246 @@ Các đặc tính sau đây mô tả các yêu cầu hiệu năng và khả năn
 	\item \textbf{Concurrency (Đồng thời):} Đảm bảo hệ thống có khả năng xử lý và phục vụ cho \textit{nhiều người dùng cùng lúc} mà không gặp lỗi hoặc giảm chất lượng dịch vụ. Tương ứng với: \ref{nfr:21}, \ref{nfr:22}.
 	\item \textbf{Elasticity (Đàn hồi/Co giãn):} Đảm bảo hệ thống có khả năng mở rộng hoặc thu hẹp tài nguyên để đối phó với \textit{thời gian sử dụng không đều}, đặc biệt là khi tải trọng hệ thống \textit{tập trung cao vào mùa thi}. Tương ứng với: \ref{nfr:23}, \ref{nfr:24}, \ref{nfr:25}.
 \end{itemize}
+
+\subsubsection{So sánh các phong cách kiến trúc khả thi}
+
+\begin{longtable}{|p{4.5cm}|p{5cm}|p{5cm}|}
+	\caption{So sánh giữa Service-Based Architecture (SBA) và Microservices Architecture (MSA)}\label{tab:comparison} \\
+	\hline
+	\textbf{Tính chất} & \textbf{Service-Based Architecture (SBA)} & \textbf{Microservices Architecture (MSA)} \\
+	\hline
+	\endfirsthead
+	
+	\textbf{Định nghĩa Dịch vụ} & Các dịch vụ lớn, phân tách theo lĩnh vực nghiệp vụ (Domain). & Các dịch vụ rất nhỏ, phân tách theo chức năng hoặc thực thể (Entity). \\
+	\hline
+	\textbf{Độc lập Triển khai} & Có thể độc lập triển khai, nhưng thường liên quan nhau. & Hoàn toàn độc lập triển khai. \\
+	\hline
+	\textbf{Quản lý Dữ liệu} & Dễ dàng hơn; có thể chia sẻ CSDL vật lý (tách schema). & Phức tạp hơn; mỗi dịch vụ có CSDL riêng (Data isolation). \\
+	\hline
+	\textbf{Tính nhất quán Dữ liệu (\ref{nfr:15}, \ref{nfr:16})} & Dễ đạt được (Giao dịch cục bộ). & Khó khăn (Cần giao dịch phân tán/Saga). \\
+	\hline
+	\textbf{Khả năng Mở rộng} & Tốt ở cấp độ dịch vụ (Service Level). & Tốt nhất ở cấp độ chức năng (Function Level). \\
+	\hline
+	\textbf{Đơn giản Vận hành} & Cao hơn (ít dịch vụ hơn). & Thấp hơn (phức tạp về mạng, giám sát). \\
+	\hline
+	\textbf{Chi phí Vận hành} & Thấp hơn. & Cao hơn (Do cần nhiều tài nguyên và công cụ). \\
+	\hline
+	\textbf{Tính phù hợp} & Hệ thống phức tạp trung bình, cần cân bằng giữa phân tách và quản lý. & Hệ thống quy mô lớn, cần mở rộng tối đa và đa dạng công nghệ. \\
+	\hline
+\end{longtable}
+
+\textbf{Quyết định:} \textbf{Service-Based Architecture (SBA)} được chọn làm phong cách kiến trúc hiện tại.
+
+\textbf{Lý do:}
+\begin{itemize}
+	\item SBA cung cấp sự phân tách nghiệp vụ cần thiết để đáp ứng tốt các yêu cầu về \textbf{Configurability} (\ref{nfr:01}--\ref{nfr:09}) và \textbf{Elasticity} (\ref{nfr:23}).
+	\item SBA giảm thiểu rủi ro phức tạp trong việc quản lý \textbf{Tính nhất quán dữ liệu} (\ref{nfr:15}, \ref{nfr:16}) so với MSA, nơi mà việc này đòi hỏi giao dịch phân tán phức tạp.
+	\item Theo nguyên tắc \textbf{YAGNI} và \textbf{DRY}, độ phức tạp của MSA là không cần thiết cho quy mô hiện tại của hệ thống.
+	\item Chi tiết xem tại mục \textbf{\ref{adr:01}}
+\end{itemize}
+
+\subsubsection{Thiết kế kiến trúc}
+\subsubsubsection{Module view}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio.png"}
+	\caption{Module view - Nguyên tắc tổ chức}
+	\label{fig:module-view-Overview}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Nguyên tắc Tổ chức Module}
+	\begin{enumerate}
+		\item Hệ thống được thiết kế dựa trên \textbf{Service-Based Architecture (SBA)} nhằm tối ưu hóa tính module hóa và đảm bảo \textbf{phân tách mối quan tâm (separation of concerns)}.
+		\item Cấu trúc Module View chi tiết hóa cách thức mã nguồn hệ thống được tổ chức thành 9 module, tuân thủ \textbf{Nguyên tắc Trách nhiệm Đơn nhất (Single Responsibility Principle)}.
+	\end{enumerate}
+	
+	\item \textbf{Mô tả Tổng quát các Module}
+	
+	Các module được phân loại thành hai nhóm chính: Dịch vụ Nghiệp vụ Miền (Domain Services) và Dịch vụ Hỗ trợ Hạ tầng và Truy cập (Infrastructure \& Access Services).
+	
+	\begin{enumerate}
+		\item \textbf{Dịch vụ Nghiệp vụ Miền (Domain Services)}
+		
+		Gồm 6 module cốt lõi, mỗi module tập trung quản lý một miền nghiệp vụ chuyên biệt:
+		
+		\begin{longtable}{|p{3cm}|p{3.5cm}|p{8cm}|}
+			\hline
+			\textbf{Module} & \textbf{Mục đích} & \textbf{Trách nhiệm chính} \\
+			\hline
+			\endfirsthead
+			\multicolumn{3}{c}%
+			{{\bfseries Bảng Domain Services tiếp theo}} \\
+			\hline
+			\textbf{Module} & \textbf{Mục đích} & \textbf{Trách nhiệm chính} \\
+			\hline
+			\endhead
+			\hline
+			\multicolumn{3}{|r|}{{Tiếp theo trên trang sau}} \\
+			\hline
+			\endfoot
+			\hline
+			\endlastfoot
+			IAM Service & Quản lý Danh tính, Truy cập và Thông tin người dùng. & Thực hiện xác thực và phân quyền; quản lý hồ sơ, quyền hạn, vai trò và vòng đời người dùng. \\ \hline
+			Quiz Service & Quản lý mọi hoạt động liên quan tới bài kiểm tra. & Tạo, chỉnh sửa, lưu trữ cấu trúc câu hỏi và bài quiz; chấm điểm và lưu trữ phiên làm bài. \\ \hline
+			System Service & Cung cấp các chức năng hỗ trợ chung mang tính nền tảng. & Cung cấp cơ chế logging cho các thao tác bảo mật; quản lý các tài nguyên media (video, document, ảnh). \\ \hline
+			Learning Service & Quản lý hành trình học tập và tiến trình của người dùng. & Theo dõi tiến trình học (completion, progress); quản lý các forum/thảo luận của mỗi khóa học. \\ \hline
+			Course Service & Quản lý vòng đời của khóa học. & Quản lý metadata, trạng thái khóa học; xử lý quy trình đăng ký học viên và các quy tắc truy cập. \\ \hline
+			AI Service & Hỗ trợ học viên thông qua việc áp dụng Trí tuệ Nhân tạo. & Phân tích hành vi và tiến trình học; đề xuất nội dung, tài liệu, hoặc lộ trình học tập phù hợp. \\ \hline
+		\end{longtable}
+		
+		\item \textbf{Dịch vụ Hỗ trợ Hạ tầng và Truy cập (Infrastructure \& Access Services)}
+		
+		Các module thiết yếu trong việc quản lý kết nối, giao tiếp và cấu hình:
+		
+		\begin{itemize}
+			\item \textbf{API Gateway:} Đóng vai trò là Điểm truy cập duy nhất (Single Entry Point) cho client. Trách nhiệm chính là Định tuyến yêu cầu tới dịch vụ tương ứng.
+			\item \textbf{Service Registry:} Cung cấp cơ chế Tìm kiếm Dịch vụ (Service Discovery). Trách nhiệm chính là Lưu trữ metadata và danh sách các instance đang chạy của các dịch vụ.
+			\item \textbf{User Interface (UI):} Là điểm tương tác cuối cùng với người dùng. Trách nhiệm chính là Hiển thị nội dung, thu thập input, gọi các API qua API Gateway và xử lý kết quả.
+		\end{itemize}
+	\end{enumerate}
+	
+	\item \textbf{Tổ chức, phân lớp, phụ thuộc giữa các Module}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{"Images/5. PhanTichThietKeHeThong/KTPM-Module View.drawio (1).png"}
+		\caption{Module view - Package diagram}
+		\label{fig:module-view-pkg}
+	\end{figure}
+	
+	\begin{enumerate}
+		\item \textbf{Nguyên tắc Phân lớp Nội bộ:} Mỗi module dịch vụ đều tuân theo \textbf{Layered Architecture} nội bộ thống nhất (Controller $\to$ Service $\to$ Repository $\to$ Entity) để phân tách rõ ràng trách nhiệm.
+		\item \textbf{Luồng Truy cập:} UI $\to$ API Gateway $\to$ Domain Services. Gateway đóng vai trò là \textbf{Facade}, bảo vệ các dịch vụ nghiệp vụ.
+		\item \textbf{Phụ Thuộc giữa các Module (Inter-Module Dependencies):} Các module giao tiếp qua REST API theo hai kiểu:
+		\begin{itemize}
+			\item \textbf{Phụ thuộc qua API Gateway (<<use>>):} Tất cả Domain Services đều có mối quan hệ <<use>> với API Gateway (Gateway là thành phần duy nhất được phép gọi các dịch vụ này).
+			\item \textbf{Phụ thuộc giữa các Domain Services (S2S):}
+			\begin{itemize}
+				\item IAM Service và Course Service đều <<use>> \textbf{Media Service} và \textbf{Logging Service} (trong System Service).
+				\item AI Service <<use>> \textbf{Learning Service, Course Service, Quiz Service} để lấy dữ liệu tiến trình học và điểm số.
+			\end{itemize}
+		\end{itemize}
+		\item \textbf{Phụ thuộc vào Service Registry:} Tất cả Domain Service và API Gateway phụ thuộc vào Service Registry theo hai chiều:
+		\begin{itemize}
+			\item \textbf{Đăng ký (Registration):}
+			\begin{itemize}
+				\item Mỗi Domain Service (IAM, Learning, Quiz, Course, System, AI) khi khởi động sẽ tự động đăng ký các instance của mình bao gồm địa chỉ IP, cổng và các metadata cần thiết. 
+				\item Service Registry duy trì danh sách các instance hợp lệ dựa trên cơ chế Heartbeat/Healthcheck, TTL (Time-To-Live), và thực hiện deregister khi một service không còn hoạt động. Việc đăng ký là bắt buộc, vì nếu một service không được đăng ký, các service khác sẽ không thể phát hiện và gọi đến nó. 
+			\end{itemize}
+			\item \textbf{Tra cứu (Discovery):}
+			\begin{itemize}
+				\item Các thành phần cần gọi tới dịch vụ khác sẽ thực hiện tra cứu thông qua Service Registry để lấy thông tin địa chỉ runtime của các service. Ví dụ, API Gateway khi nhận request từ client sẽ query Service Registry để xác định instance phù hợp của service tương ứng dựa trên tên logic.  
+				\item Tương tự, trong các kịch bản service-to-service, một service khi muốn gọi service khác (ví dụ AI tới Learning) cũng phải tham khảo Registry để lấy endpoint mới nhất. 
+			\end{itemize}
+		\end{itemize}
+		Cơ chế này cho phép giao tiếp giữa các service dựa trên tên service thay vì địa chỉ IP hoặc cổng cứng, từ đó đảm bảo loose coupling giữa các thành phần trong hệ thống. 
+	\end{enumerate}
+\end{enumerate}
+\subsubsubsection{Component \& Connector View }
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Images/5. PhanTichThietKeHeThong/KTPM-Component & Connector View.drawio.png"}
+	\caption{Component \& Connector view}
+	\label{fig:cnc-view}
+\end{figure}
+\begin{enumerate}
+	\item \textbf{Identity \& Access Management (IAM) Service}
+	\begin{itemize}
+		\item \textbf{User Component:} Xử lý toàn bộ tác vụ liên quan đến danh tính và truy cập người dùng: đăng ký, đăng nhập, xác thực (authentication), quản lý phiên, cấp token và quản lý hồ sơ người dùng.
+		\item \textbf{Interface:} \texttt{User Service} --- cung cấp cho \texttt{API Gateway} để thực hiện xác thực và truy vấn thông tin người dùng.
+	\end{itemize}
+	
+	\item \textbf{Quiz Service}
+	\begin{itemize}
+		\item \textbf{Quiz Component:} Quản lý toàn bộ nghiệp vụ về bài kiểm tra: tạo quiz, quản lý câu hỏi, thực hiện quiz, chấm điểm tự động và lưu kết quả. Tích hợp với Learning Service để cung cấp dữ liệu đánh giá.
+		\item \textbf{Manage Quiz Attempt (Interface):} Cung cấp cho \texttt{AI Service} để lấy thông tin về kết quả các lần làm quiz của học viên trong khóa học, từ đó đưa ra gợi ý lộ trình học.
+		\item \textbf{Interface:} \texttt{Quiz Service} --- cho phép \texttt{API Gateway} gửi request về quiz và kết quả đánh giá.
+	\end{itemize}
+	
+	\item \textbf{Course Service}
+	\begin{itemize}
+		\item \textbf{Course Component:} Quản lý nội dung khóa học: tạo khóa học, chương, bài học; quản lý nội dung đa phương tiện; thiết lập điều kiện tiên quyết và quyền truy cập. Tương tác với Media Component để lưu trữ tài nguyên.
+		\item \textbf{Manage Course Info (Interface):} Cung cấp cho \texttt{AI Service} để lấy thông tin về khóa học của học viên.
+		\item \textbf{Interface:} \texttt{Course Service} --- dùng bởi \texttt{API Gateway} để thao tác dữ liệu khóa học.
+	\end{itemize}
+	
+	\item \textbf{Learning Service}
+	\begin{itemize}
+		\item \textbf{Learning Component:} Theo dõi tiến độ học tập: ghi nhận trạng thái hoàn thành, thời gian học, điểm số, tính phần trăm tiến độ và lưu lịch sử học. Cung cấp dữ liệu cho AI Service để phân tích và gợi ý.
+		\item \textbf{Manage Learning Progress (Interface):} Cung cấp cho \texttt{AI Service} để lấy thông tin về quá trình học của học viên.
+		\item \textbf{Interface:} \texttt{Learning Service} --- cho \texttt{API Gateway} truy vấn tiến độ và lịch sử học tập.
+	\end{itemize}
+	
+	\item \textbf{AI Service}
+	\begin{itemize}
+		\item \textbf{AI Component:} Phân tích dữ liệu từ Learning, Course và Quiz để xây dựng mô hình học tập cá nhân hóa; đề xuất lộ trình học, khóa học phù hợp và gợi ý nội dung thông minh.
+		\item \textbf{Interface:} \texttt{AI Service} --- cung cấp cho \texttt{API Gateway} để lấy đề xuất cá nhân hóa.
+	\end{itemize}
+	
+	\item \textbf{System Service}
+	\begin{itemize}
+		\item \textbf{Logging Component:} Thu thập và lưu trữ log từ mọi service; phân loại log; hỗ trợ phân tích và giám sát hệ thống.
+		\begin{itemize}
+			\item \textbf{Write Log (Interface):} Cung cấp cho \texttt{IAM Service} và \texttt{Course Service} để ghi log lại các thao tác về xác thực, đăng ký người dùng và tạo, chỉnh sửa khóa học.
+			\item \textbf{Interface:} \texttt{Logging Service} --- cung cấp cho \texttt{API Gateway} để xem log.
+		\end{itemize}
+		\item \textbf{Media Component:} Xử lý tài nguyên đa phương tiện: upload, lưu trữ, tối ưu hóa và phân phối nội dung media. Hỗ trợ Course và IAM (ảnh đại diện).
+		\begin{itemize}
+			\item \textbf{Manage media file, Manage image file (Interfaces):} Cung cấp cho \texttt{IAM Service} và \texttt{Course Service} để thao tác với các file media như ảnh đại diện, video bài giảng.
+			\item \textbf{Interface:} \texttt{File Service} --- cho \texttt{API Gateway} thao tác với file media.
+		\end{itemize}
+	\end{itemize}
+	
+	\item \textbf{API Gateway Component}
+	\begin{itemize}
+		\item \textbf{Chức năng:} Thực hiện định tuyến request tới đúng service, xác thực/ủy quyền dựa trên IAM, cân bằng tải và áp dụng chính sách bảo mật tập trung.
+	\end{itemize}
+	
+	\item \textbf{User Interface Component}
+	\begin{itemize}
+		\item \textbf{Chức năng:} Tầng giao diện người dùng: hiển thị nội dung khóa học, làm quiz, xem tiến độ, nhận gợi ý từ AI và quản lý hồ sơ cá nhân.
+		\item \textbf{Giao tiếp:} Giao tiếp với backend thông qua \texttt{API Gateway}.
+	\end{itemize}
+\end{enumerate}
+\subsubsubsection{Allocation view}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Images/5. PhanTichThietKeHeThong/KTPM-Allocation View.drawio.png"}
+	\caption{Component \& Connector view}
+	\label{fig:alloc-view}
+\end{figure}
+
+\begin{enumerate}
+
+	\item Tổng quan mô hình triển khai hệ thống 
+	
+		Hệ thống được triển khai theo mô hình service-based architecture trên nền tảng container hóa, trong đó toàn bộ các service backend được triển khai tập trung trong một ECS Cluster thuộc Amazon Web Services. Người dùng truy cập hệ thống từ máy cá nhân thông qua Internet, giao diện người dùng được host độc lập trên AWS Amplify. Tất cả các yêu cầu từ phía frontend đều được chuyển tiếp về backend thông qua API Gateway, đóng vai trò là điểm vào duy nhất của hệ thống. Mô hình này giúp tách biệt rõ ràng giữa tầng giao diện và tầng xử lý nghiệp vụ, đồng thời tăng cường tính bảo mật và khả năng kiểm soát truy cập. 
+	
+	\item Kiến trúc service-based trong ECS Cluster 
+	
+		Trong ECS Cluster, mỗi service được triển khai dưới dạng một container độc lập, tương ứng với một Docker image (artifact). Hệ thống không sử dụng kiến trúc microservices mà áp dụng mô hình service-based, trong đó các service vẫn tách biệt về mặt triển khai, chức năng và vòng đời, nhưng chia sẻ cùng một cơ sở dữ liệu trung tâm. Các service chính bao gồm: API Gateway, Service Registry, IAM Service, AI Service, Course Service, Learning Service, Quiz Service, Media Service và Logging Service. Mỗi service tồn tại như một môi trường thực thi riêng biệt (execution environment) và giao tiếp với các service khác thông qua REST API trên mạng nội bộ của ECS. 
+	
+	\item Cơ chế định tuyến và cân bằng tải với Spring Cloud Gateway và Eureka 
+	
+		API Gateway trong mô hình này được hiện thực bằng Spring Cloud Gateway và tích hợp với Eureka từ Service Registry. Thông qua cơ chế service discovery, API Gateway có khả năng tự động phát hiện các instance của service, thực hiện cân bằng tải (load balancing), kiểm tra trạng thái (health check) và định tuyến request đến đúng service còn hoạt động. Điều này giúp hệ thống đạt được tính chịu lỗi cao (fault tolerance) và khả năng mở rộng động (dynamic scalability) khi số lượng instance của từng service thay đổi. 
+	
+	\item Service Registry và cơ chế phát hiện dịch vụ 
+		
+		Service Registry được triển khai như một container riêng trong ECS Cluster và đóng vai trò trung tâm trong việc đăng ký và tra cứu service. Khi mỗi service khởi động, nó sẽ tự động đăng ký thông tin (tên service, địa chỉ, cổng, trạng thái) với Registry. API Gateway dựa trên thông tin này để định tuyến request một cách linh hoạt mà không cần cấu hình cứng địa chỉ từng service. Kiến trúc này giúp hệ thống tránh phụ thuộc tĩnh, đồng thời đặc biệt phù hợp với môi trường container có khả năng scale linh động theo tải. 
+	
+	\item Kiến trúc tầng dữ liệu và lưu trữ 
+		
+		Về tầng dữ liệu, hệ thống sử dụng một PostgreSQL Database dùng chung được triển khai dưới dạng dịch vụ managed của Amazon RDS for PostgreSQL. Tất cả các service nghiệp vụ, bao gồm IAM Service, AI Service, Course Service, Learning Service, Quiz Service và Logging Service, đều kết nối trực tiếp tới cơ sở dữ liệu này để đọc và ghi dữ liệu. Riêng Media Service không lưu trữ dữ liệu file trong database mà chỉ sử dụng database để quản lý metadata, còn toàn bộ dữ liệu media vật lý được lưu trữ trên Amazon S3. Việc tách riêng dữ liệu quan hệ và dữ liệu file giúp tối ưu hiệu năng truy xuất, chi phí lưu trữ và khả năng mở rộng hệ thống. 
+	
+	\item Quy trình triển khai hệ thống và CI/CD với GitHub Actions và CloudFormation 
+	
+		Quy trình triển khai của hệ thống được tự động hóa theo mô hình CI/CD. Mỗi service được build từ mã nguồn và đóng gói thành một Docker image với phiên bản tương ứng, chẳng hạn như api-gateway:v1.0, course-service:v1.0, media-service:v1.0. Khi push source code lên repository trên GitHub, GitHub Actions sẽ tự động kích hoạt pipeline CI để thực hiện các bước: kiểm tra mã nguồn, build Docker image và đẩy image lên Amazon Elastic Container Registry (ECR). 
+		
+		Sau khi image được lưu trữ trên ECR, quá trình triển khai hạ tầng và cập nhật service được thực hiện thông qua AWS CloudFormation. CloudFormation chịu trách nhiệm khởi tạo và cập nhật các tài nguyên như ECS Cluster, Task Definition, Service, Load Balancer và các cấu hình mạng liên quan. ECS sẽ tự động pull các image mới nhất từ ECR để khởi tạo hoặc cập nhật container. Khi container khởi động, các service sẽ kết nối tới Service Registry để đăng ký, đồng thời thiết lập kết nối tới PostgreSQL Database, riêng Media Service thiết lập thêm kết nối tới S3. Sau khi toàn bộ service sẵn sàng, API Gateway bắt đầu tiếp nhận request từ frontend và điều phối xử lý trong nội bộ hệ thống. Quy trình này cho phép triển khai tự động, lặp lại, giảm sai sót thủ công và rút ngắn thời gian release. 
+		
+	\item Luồng xử lý tổng thể trong môi trường triển khai 
+	
+		Luồng xử lý tổng thể của hệ thống diễn ra theo trình tự: người dùng thao tác trên giao diện web được host trên AWS Amplify, request được gửi qua Internet tới API Gateway trong ECS Cluster. API Gateway tiến hành xác thực thông qua IAM Service, sau đó dựa trên Service Registry để định tuyến request tới Course Service, Learning Service, Quiz Service, AI Service hoặc Media Service tùy theo nghiệp vụ. Các service này xử lý logic chuyên biệt và truy cập trực tiếp vào PostgreSQL Database để lấy hoặc cập nhật dữ liệu. Trong trường hợp xử lý file, Media Service sẽ thực hiện lưu trữ và truy xuất nội dung từ S3. Toàn bộ hoạt động của hệ thống được Logging Service ghi nhận và lưu trữ phục vụ công tác giám sát, theo dõi và phân tích hệ thống. 
+
+\end{enumerate}

@@ -223,6 +223,30 @@ morekeywords={}
 
 \makeatother
 
+% ADR
+\newcommand{\ADRTable}[4]{
+\begin{longtable}{|p{4cm}|p{11cm}|}
+	\caption{Architecture Decision Record (ADR) cho: #1}\label{tab:adr:#4} \\
+	\hline
+	\textbf{Trường} & \textbf{Nội dung} \\
+	\hline
+	\endfirsthead
+	
+	\multicolumn{2}{c}%
+	{{\bfseries Bảng \thetable\ tiếp theo từ trang trước}} \\
+	\hline
+	\textbf{Trường} & \textbf{Nội dung} \\
+	\hline
+	\endhead
+	
+	\hline \hline
+	\endlastfoot
+	
+	\textbf{Tiêu đề} & #1 \\ \hline
+	\textbf{Status (Trạng thái)} & #2 \\ \hline
+	\textbf{Context (Bối cảnh)} & #3 \\ \hline
+}
+
 
 %%%
 \setcounter{secnumdepth}{4}
@@ -355,7 +379,10 @@ morekeywords={}
 \input{Contents/7. TrienKhai.tex}
 \newpage
 \input{Contents/8. TongKet.tex}
+\newpage
+\input{Contents/9. PhuLuc.tex}
 %%%%%%%%%%%%%%%%%OUTRO%%%%%%%%%%%%%%%%%%%
+\newpage
 \input{Outro/1. TaiLieuThamKhao.tex}
 \newpage
 \input{Outro/2. PhuLuc.tex}
