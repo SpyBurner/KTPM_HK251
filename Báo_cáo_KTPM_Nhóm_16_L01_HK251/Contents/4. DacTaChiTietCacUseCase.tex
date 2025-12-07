@@ -414,7 +414,7 @@
 	}
 	\addcondition{Điều kiện kích hoạt}{\item Giảng viên truy cập trang quản lý khóa học và chọn chỉnh sửa.}
 	\addmulrow{Các bước}{
-		\item Hiển thị nội dung khóa học hiện tại (các chương, phần trong chương, chủ đề của phần, tài liệu, quiz,...)	
+		\item Hiển thị nội dung khóa học hiện tại (các chương, phần trong chương, chủ đề của phần, tài li)	
 		\item Giảng viên thực hiện chỉnh sửa các phần nội dung.
 		\item Lưu thay đổi và hệ thống cập nhật nội dung.
 		\item Hệ thống ghi lại lịch sử chỉnh sửa để truy vết.
@@ -454,5 +454,166 @@
 	}
 \end{usecase}
 
+\subsection{Học khóa học}
+
+\subsubsection{Tổng quan}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"Images/4. DacTaChiTietCacUseCase/KTPM-UseCase.drawio(5)"}
+	\caption{Các use-case về Học khóa học}
+	\label{fig:usecase-learning}
+\end{figure}
+
+\subsubsection{Đặc tả chi tiết}
+
+\begin{usecase}{Xem đề cương khóa học}
+	\addrow{Nguồn}{\ref{us:S-US01}, \ref{nfr:19}}
+	\addrow{Use-case ID}{UC-CL-01}
+	\addrow{Tổng quan}{Sinh viên xem đề cương chi tiết của khóa học để nắm được nội dung và kế hoạch học tập.}
+	\addrow{Actor}{Student}
+	\addcondition{Tiền điều kiện}{
+		\item Sinh viên đã đăng nhập và đã ghi danh khóa học.
+		\item Đề cương khóa học đã được cập nhật trên hệ thống.
+	}
+	\addrow{Điều kiện kích hoạt}{Sinh viên chọn khóa học và yêu cầu xem đề cương.}
+	\addmulrow{Các bước}{
+		\item Hệ thống hiển thị danh sách khóa học mà sinh viên đã đăng ký.
+		\item Sinh viên chọn khóa học muốn xem đề cương.
+		\item Hệ thống tải và hiển thị đề cương khóa học.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Sinh viên nhận được đề cương đầy đủ, rõ ràng.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Sinh viên chưa đăng ký khóa học, hệ thống thông báo không có quyền truy cập.
+		\item Đề cương chưa được cập nhật hoặc lỗi tải, hệ thống thông báo lỗi và hướng dẫn liên hệ quản trị.
+		\item Lỗi kết nối mạng hoặc hệ thống, hệ thống yêu cầu tải lại trang hoặc thử lại sau.
+	}
+\end{usecase}
+
+\begin{usecase}{Xem tài liệu học tập}
+	\addrow{Nguồn}{\ref{us:S-US01}, \ref{nfr:19}, \ref{nfr:20}}
+	\addrow{Use-case ID}{UC-CL-02}
+	\addrow{Tổng quan}{Sinh viên truy cập và sử dụng tài liệu học tập được cung cấp trong khóa học.}
+	\addrow{Actor}{Student}
+	\addcondition{Tiền điều kiện}{
+		\item Sinh viên đã đăng nhập và ghi danh khóa học.
+		\item Tài liệu học tập đã được giảng viên hoặc trợ giảng đăng tải hợp lệ.
+	}
+	\addrow{Điều kiện kích hoạt}{Sinh viên chọn mục tài liệu học tập trong khóa học.}
+	\addmulrow{Các bước}{
+		\item Hệ thống liệt kê tài liệu học tập hiện có trong khóa học.
+		\item Sinh viên chọn tài liệu cần xem hoặc tải về.
+		\item Hệ thống hiển thị hoặc cung cấp file tải cho sinh viên.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Sinh viên tiếp cận tài liệu học tập đầy đủ, thuận tiện.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Tài liệu bị thiếu hoặc lỗi tải, hệ thống thông báo và đề nghị liên hệ quản trị.
+		\item Sinh viên không có quyền truy cập do chưa đăng ký khóa học, hệ thống thông báo rõ.
+		\item Lỗi mạng hoặc lỗi hệ thống, hệ thống hỗ trợ tải lại hoặc báo lỗi tạm thời.
+	}
+\end{usecase}
+
+\begin{usecase}{Xem phản hồi thống kê}
+	\addrow{Nguồn}{\ref{us:S-US04}, \ref{nfr:19}}
+	\addrow{Use-case ID}{UC-CL-03}
+	\addrow{Tổng quan}{Sinh viên xem các thống kê về tiến độ học tập và kết quả để theo dõi sự tiến bộ của bản thân.}
+	\addrow{Actor}{Student}
+	\addcondition{Tiền điều kiện}{
+		\item Sinh viên đã ghi danh và có dữ liệu học tập trên hệ thống.
+		\item Hệ thống đã tổng hợp dữ liệu thống kê tiến độ học tập.
+	}
+	\addrow{Điều kiện kích hoạt}{Sinh viên truy cập trang thống kê học tập.}
+	\addmulrow{Các bước}{
+		\item Hệ thống hiển thị các số liệu thống kê (điểm quiz, bài tập, tiến độ khóa học).
+		\item Sinh viên xem và phân tích kết quả.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Sinh viên có thông tin đầy đủ để điều chỉnh kế hoạch học tập.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Dữ liệu thống kê chưa đủ hoặc bị lỗi, hệ thống thông báo.
+		\item Lỗi hệ thống khi tải dữ liệu, hiển thị thông báo lỗi.
+	}
+\end{usecase}
+
+\begin{usecase}{Làm bài kiểm tra (quiz)}
+	\addrow{Nguồn}{\ref{us:S-US02}, \ref{nfr:07}, \ref{nfr:18}}
+	\addrow{Use-case ID}{UC-CL-04}
+	\addrow{Tổng quan}{Sinh viên làm các bài kiểm tra để đánh giá kiến thức đã học.}
+	\addrow{Actor}{Student}
+	\addcondition{Tiền điều kiện}{
+		\item Sinh viên đã đăng ký khóa học và được phép làm quiz.
+		\item Quiz đã được tạo và kích hoạt.
+	}
+	\addrow{Điều kiện kích hoạt}{Sinh viên chọn làm bài kiểm tra trong khóa học.}
+	\addmulrow{Các bước}{
+		\item Hệ thống hiển thị danh sách bài quiz có thể làm.
+		\item Sinh viên bắt đầu làm bài, trả lời các câu hỏi.
+		\item Hệ thống ghi nhận và đánh giá câu trả lời.
+		\item Kết thúc bài kiểm tra, hệ thống hiển thị kết quả và phản hồi.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Điểm số và kết quả được lưu trữ để theo dõi và đánh giá.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Quiz hết hạn hoặc không tồn tại, hệ thống thông báo không thể làm bài.
+		\item Lỗi khi lưu kết quả, hệ thống báo lỗi và cho phép thử lại.
+		\item Sự cố kết nối hoặc gián đoạn trong quá trình làm bài, hệ thống có cơ chế lưu tạm thời hoặc hướng dẫn xử lý.
+	}
+\end{usecase}
+
+\begin{usecase}{Tạo báo cáo thống kê}
+	\addrow{Nguồn}{\ref{us:L-US03}, \ref{us:T-US04}, \ref{nfr:05}, \ref{nfr:06}, \ref{nfr:18}}
+	\addrow{Use-case ID}{UC-CL-05}
+	\addrow{Tổng quan}{Trưởng khoa, giảng viên hoặc trợ giảng tạo báo cáo thống kê tiến độ và kết quả học tập sinh viên.}
+	\addrow{Actor}{Dean / Lecturer / TA}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng có quyền truy cập chức năng tạo báo cáo.
+		\item Dữ liệu học tập đã được tổng hợp đầy đủ.
+	}
+	\addrow{Điều kiện kích hoạt}{Người dùng chọn tạo báo cáo thống kê trong khóa học.}
+	\addmulrow{Các bước}{
+		\item Chọn phạm vi dữ liệu và khoảng thời gian cần báo cáo.
+		\item Chọn mẫu báo cáo (layout) nếu có.
+		\item Hệ thống sinh báo cáo thống kê theo cấu hình.
+		\item Người dùng xem, tải hoặc xuất báo cáo.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Báo cáo được tạo đúng định dạng, dữ liệu chính xác.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Không có dữ liệu phù hợp để tạo báo cáo, hệ thống thông báo.
+		\item Lỗi khi sinh báo cáo, hệ thống thông báo lỗi.
+		\item Người dùng không có quyền truy cập chức năng, hệ thống từ chối.
+	}
+\end{usecase}
+
+\begin{usecase}{Tham gia diễn đàn khóa học}
+	\addrow{Nguồn}{\ref{us:S-US03}, \ref{us:T-US03}, \ref{us:L-US04}}
+	\addrow{Use-case ID}{UC-CL-06}
+	\addrow{Tổng quan}{Người dùng (sinh viên, giảng viên, trợ giảng) tham gia trao đổi thảo luận trên diễn đàn khóa học.}
+	\addrow{Actor}{User}
+	\addcondition{Tiền điều kiện}{
+		\item Người dùng đã đăng nhập.
+		\item Có quyền truy cập diễn đàn của khóa học.
+	}
+	\addrow{Điều kiện kích hoạt}{Người dùng truy cập và tham gia diễn đàn khóa học.}
+	\addmulrow{Các bước}{
+		\item Xem các chủ đề và bài viết hiện có.
+		\item Đăng bài mới hoặc trả lời các bài viết.
+		\item Hệ thống lưu bài viết và cập nhật diễn đàn.
+	}
+	\addcondition{Hậu điều kiện}{
+		\item Nội dung thảo luận được cập nhật, hỗ trợ trao đổi hiệu quả.
+	}
+	\addexception{Xử lý ngoại lệ}{
+		\item Lỗi khi lưu bài viết, hệ thống thông báo và đề nghị thử lại.
+		\item Người dùng không có quyền truy cập, hệ thống từ chối và thông báo.
+		\item Nội dung vi phạm quy định, hệ thống cảnh báo hoặc khóa bài.
+	}
+\end{usecase}
 
 
