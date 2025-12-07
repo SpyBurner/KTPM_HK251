@@ -37,21 +37,31 @@
 \contentsline {subsection}{\numberline {5.1}Entity Relationship Diagram (ERD)}{24}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Tổng quan}{24}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Mapping}{27}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Kiến trúc hệ thống}{27}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Lựa chọn kiến trúc hệ thống}{27}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Đặc tính kiến trúc (Architecture characteristics)}{27}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}So sánh các phong cách kiến trúc khả thi}{28}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Thiết kế kiến trúc}{29}{subsubsection.5.2.3}%
-\contentsline {subsubsubsection}{\numberline {5.2.3.a}Module view}{29}{subsubsubsection.5.2.3.1}%
-\contentsline {subsubsubsection}{\numberline {5.2.3.b}Component \& Connector View }{32}{subsubsubsection.5.2.3.2}%
-\contentsline {subsubsubsection}{\numberline {5.2.3.c}Allocation view}{33}{subsubsubsection.5.2.3.3}%
-\contentsline {section}{\numberline {6}Hiện thực}{35}{section.6}%
-\contentsline {section}{\numberline {7}Triển khai}{36}{section.7}%
-\contentsline {section}{\numberline {8}Tổng kết}{37}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Nhận xét}{37}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Hướng phát triển}{37}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Phụ lục}{38}{section.9}%
-\contentsline {subsection}{\numberline {9.1}ADR}{38}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}ADR 00: Lựa chọn kiến trúc ban đầu: Microservices Architecture (MSA)}{38}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}ADR 01: Chuyển đổi kiến trúc từ Microservices (MSA) sang Service-Based Architecture (SBA)}{38}{subsubsection.9.1.2}%
-\contentsline {section}{\numberline {10}Tài liệu tham khảo}{39}{section.10}%
-\contentsline {section}{\numberline {11}Phụ lục}{40}{section.11}%
+\contentsline {subsubsection}{\numberline {5.2.2}Đề Xuất Các Phong Cách Kiến Trúc}{28}{subsubsection.5.2.2}%
+\contentsline {subsubsubsection}{\numberline {5.2.2.a}Kiến trúc Modular Monolith}{28}{subsubsubsection.5.2.2.1}%
+\contentsline {subsubsubsection}{\numberline {5.2.2.b}Kiến trúc Microservices}{29}{subsubsubsection.5.2.2.2}%
+\contentsline {subsubsubsection}{\numberline {5.2.2.c}Kiến trúc Service-Based}{29}{subsubsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3}Lựa Chọn Phong Cách Kiến Trúc}{29}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Thiết kế kiến trúc}{30}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Module view}{30}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Component \& Connector View }{32}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Allocation view}{34}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {6}Hiện thực}{36}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Class diagram}{36}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}API Gateway}{36}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Class diagram cho Media Service}{37}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Class diagram cho Module quản lý tài khoản}{41}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Class diagram cho Module quản lý khóa học}{44}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Class diagram cho Module học tập}{46}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Class diagram cho Module quiz}{48}{subsubsection.6.1.6}%
+\contentsline {section}{\numberline {7}Tổng kết}{51}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Nhận xét về Thiết kế và Hiện thực}{51}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Ưu điểm của Thiết kế}{51}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Hạn chế và Rủi ro}{51}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Hướng phát triển và Chiến lược Tối ưu hóa Kiến trúc (SBA)}{51}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Phụ lục}{53}{section.8}%
+\contentsline {subsection}{\numberline {8.1}ADR}{53}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}ADR 00: Lựa chọn kiến trúc ban đầu: Microservices Architecture (MSA)}{53}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}ADR 01: Chuyển đổi kiến trúc từ Microservices (MSA) sang Service-Based Architecture (SBA)}{53}{subsubsection.8.1.2}%
