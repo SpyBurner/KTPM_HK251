@@ -35,9 +35,9 @@
 
  :: Spring Boot ::                (v4.0.0)
 
-2025-11-28T17:10:15.711+07:00  INFO 42773 --- [user-service] [  restartedMain] com.its.iam.IamServiceApplication      : Starting UserServiceApplication using Java 23.0.2 with PID 42773 (/Users/doanngochoangson/KTPM_HK251/BE/user-service/target/classes started by doanngochoangson in /Users/doanngochoangson/KTPM_HK251/BE/user-service)
-2025-11-28T17:10:15.712+07:00 DEBUG 42773 --- [user-service] [  restartedMain] com.its.iam.IamServiceApplication      : Running with Spring Boot v4.0.0, Spring v7.0.1
-2025-11-28T17:10:15.712+07:00  INFO 42773 --- [user-service] [  restartedMain] com.its.iam.IamServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-11-28T17:10:15.711+07:00  INFO 42773 --- [user-service] [  restartedMain] com.its.course.IamServiceApplication      : Starting UserServiceApplication using Java 23.0.2 with PID 42773 (/Users/doanngochoangson/KTPM_HK251/BE/user-service/target/classes started by doanngochoangson in /Users/doanngochoangson/KTPM_HK251/BE/user-service)
+2025-11-28T17:10:15.712+07:00 DEBUG 42773 --- [user-service] [  restartedMain] com.its.course.IamServiceApplication      : Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-28T17:10:15.712+07:00  INFO 42773 --- [user-service] [  restartedMain] com.its.course.IamServiceApplication      : No active profile set, falling back to 1 default profile: "default"
 2025-11-28T17:10:15.738+07:00  INFO 42773 --- [user-service] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 2025-11-28T17:10:15.738+07:00  INFO 42773 --- [user-service] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 2025-11-28T17:10:16.068+07:00  WARN 42773 --- [user-service] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Failed to generate bean name for imported class 'org.springframework.cloud.autoconfigure.LifecycleMvcEndpointAutoConfiguration'
@@ -62,7 +62,7 @@ java.lang.IllegalStateException: Failed to generate bean name for imported class
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.0.jar:4.0.0]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1374) ~[spring-boot-4.0.0.jar:4.0.0]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-4.0.0.jar:4.0.0]
-	at com.its.iam.IamServiceApplication.main(UserServiceApplication.java:14) ~[classes/:na]
+	at com.its.course.IamServiceApplication.main(UserServiceApplication.java:14) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.0.jar:4.0.0]

@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": 5, "username": "john_student","password": "123456", "displayName": "John Student", "roleId": 4, "email": "john_student@example.com" },
+    { "id": 3, "username": "dr_smith","password": "123456", "displayName": "Dr. Smith", "roleId": 2, "email": "dr_smith@example.com" },
+    { "id": 1, "username": "admin","password": "123456", "displayName": "ABC", "roleId": 1, "email": "ABC@example.com" },
+    { "id": 2, "username": "anhkhoa","password": "123456", "displayName": "Khoa", "roleId": 3, "email": "Khoa@example.com" }
+  ]
+}
+
