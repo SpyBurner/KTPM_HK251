@@ -1,0 +1,45 @@
+\section{Tổng kết}
+
+\subsection{Nhận xét về Thiết kế và Hiện thực}
+
+Thiết kế kiến trúc cho Hệ thống Gia sư Thông minh (ITS) đã được xây dựng trên nền tảng \textbf{Service-Based Architecture (SBA)} , với sự hỗ trợ mạnh mẽ từ bộ công nghệ \textbf{Spring Cloud} và nền tảng \textbf{Amazon Web Services (AWS)}.
+
+\subsubsection{Ưu điểm của Thiết kế}
+\begin{itemize}
+	\item \textbf{Cân bằng Tối ưu giữa các Đặc tính (Trade-offs):} SBA đã giải quyết được mâu thuẫn giữa \textbf{Performance} (yêu cầu $< 300ms$ ) và \textbf{Elasticity} (khả năng co giãn khi tải cao ). Kiến trúc này đảm bảo \textit{độ trễ thấp} hơn Microservices và \textit{khả năng mở rộng độc lập} cho các dịch vụ trọng yếu như $Quiz Service$ và $AI Service$.
+	\item \textbf{Đảm bảo Tính nhất quán Dữ liệu (Data Consistency + Integrity):} Bằng việc sử dụng CSDL tập trung (\textit{managed PostgreSQL Database} trên AWS RDS)  thay vì giao dịch phân tán (Saga) của MSA, hệ thống dễ dàng đảm bảo \textbf{tính toàn vẹn giao dịch} (\textit{transactional integrity}, NFR16) và \textbf{tính nhất quán} (NFR15).
+	\item \textbf{Tuân thủ SOLID và Tách biệt Mối quan tâm:} Các \textit{Class Diagram} (cho \textit{Media Service}, \textit{IAM Service}, \textit{Course Service}) đều thể hiện sự tuân thủ nghiêm ngặt \textbf{Nguyên tắc SOLID}. Các lớp được tách biệt rõ ràng trách nhiệm (SRP) và sử dụng \textit{interface} để đảo ngược sự phụ thuộc (DIP), tạo ra một mã nguồn dễ bảo trì và mở rộng.
+\end{itemize}
+
+\subsubsection{Hạn chế và Rủi ro}
+\begin{itemize}
+	\item \textbf{CSDL dùng chung (Shared Database):} Việc sử dụng một CSDL dùng chung cho tất cả các \textit{service} (IAM, Quiz, Course, Learning, AI, Logging)  mặc dù đơn giản hóa \textit{Data Consistency} nhưng có thể gây tắc nghẽn ở tầng dữ liệu khi hệ thống \textit{scale} lên quy mô lớn hơn nữa.
+	\item \textbf{Tính mô đun không tối đa:} So với kiến trúc Microservices, SBA vẫn có nguy cơ các \textit{service} trở nên "quá lớn" nếu không quản lý module hợp lý , và khả năng \textit{scale} mịn (\textit{fine-grained scalability}) không bằng.
+\end{itemize}
+
+\subsection{Hướng phát triển và Chiến lược Tối ưu hóa Kiến trúc (SBA)}
+
+Hướng phát triển chiến lược của hệ thống ITS sẽ tập trung vào việc củng cố cấu trúc \textbf{Service-Based Architecture (SBA)} hiện tại, cải thiện các đặc tính kiến trúc (Architecture Characteristics) và mở rộng phạm vi nghiệp vụ, duy trì sự ổn định và dễ quản lý của mô hình CSDL dùng chung.
+
+\begin{itemize}
+	\item \textbf{Tối ưu hóa Hiệu năng và Khả năng Co giãn cho Dịch vụ AI (Performance \& Elasticity):}
+	\begin{itemize}
+		\item \textbf{Cải thiện Thời gian Phản hồi API:} Tiếp tục tinh chỉnh các API liên quan đến AI để đảm bảo thời gian phản hồi trung bình không vượt quá $2$ giây (NFR18). Điều này đặc biệt quan trọng cho các tính năng gợi ý theo thời gian thực.
+		\item \textbf{Tăng cường Cơ chế Caching:} Triển khai và tối ưu hóa việc sử dụng cơ chế caching (NFR20) cho các kết quả tính toán của AI Service, đặc biệt là các kết quả đề xuất đã ổn định, nhằm cải thiện tốc độ truy xuất dữ liệu.
+		\item \textbf{Tận dụng Autoscaling chuyên biệt:} Thiết lập và tinh chỉnh cấu hình \textit{autoscaling} (NFR25) cho các dịch vụ $AI Service$ và $Quiz Service$, đảm bảo chúng có khả năng tự động mở rộng dựa trên tải trọng CPU/GPU hoặc số lượng yêu cầu mỗi giây, tối ưu hóa chi phí vận hành (NFR24).
+	\end{itemize}
+	
+	\item \textbf{Củng cố Tính nhất quán và An toàn Dữ liệu (Data Consistency + Integrity):}
+	\begin{itemize}
+		\item \textbf{Tăng cường Kiểm soát Giao dịch:} Triển khai các lớp dịch vụ và \textit{transactional boundaries} rõ ràng hơn trong các $service$ để đảm bảo \textbf{tính toàn vẹn giao dịch} (\textit{transactional integrity}, NFR16) cho các thao tác quan trọng (ví dụ: nộp bài quiz, cập nhật tiến độ học tập).
+		\item \textbf{Mô hình hóa Dữ liệu không quan hệ (NoSQL):} Đối với các dữ liệu có lưu lượng ghi cao và ít yêu cầu về \textit{transactional integrity} như $AI Log$ và $Logging Service$, nên cân nhắc sử dụng các cơ sở dữ liệu phi quan hệ (ví dụ: DynamoDB hoặc MongoDB) thay vì PostgreSQL để giảm áp lực lên CSDL chính, tối ưu hóa \textbf{Elasticity}.
+		\item \textbf{Tăng cường Bảo mật Dữ liệu:} Áp dụng các biện pháp mã hóa dữ liệu nghiêm ngặt hơn khi lưu trữ và truyền tải (NFR14) để bảo vệ dữ liệu PII và nội dung bài giảng.
+	\end{itemize}
+	
+	\item \textbf{Mở rộng Tính năng Nghiệp vụ Cốt lõi (Configurability \& Course Learning):}
+	\begin{itemize}
+		\item \textbf{Tăng cường Học tập Chủ động:} Tập trung phát triển các tính năng hỗ trợ thảo luận nhóm và \textit{diễn đàn khóa học} (S-US03, T-US03, L-US04) để khuyến khích sinh viên tham gia vào các hoạt động học tập chủ động, buộc họ phải trở thành "người dạy" để củng cố khả năng tự điều chỉnh, từ đó đạt được tỷ lệ lưu giữ kiến thức cao hơn theo \textit{Tam giác Học tập}.
+		\item \textbf{Mở rộng Tính Cấu hình (Configurability):} Mở rộng module cấu hình hệ thống (UC-SM-01) để cho phép Admin dễ dàng bật/tắt tính năng, điều chỉnh các tham số hoạt động (NFR01) và cấu hình các tham số tạo câu đố bằng AI (NFR07). Đảm bảo việc cấu hình loại tài liệu được phép đăng tải (NFR03) và layout khóa học (NFR04) được thực hiện linh hoạt.
+		\item \textbf{Tích hợp Thanh toán và LMS:} Chuẩn bị các \textit{interface} và \textit{adapter} trong $Course Service$ để tích hợp liền mạch với các hệ thống bên ngoài như Payment Gateway và Hệ thống Quản lý Học tập (LMS) trong tương lai.
+	\end{itemize}
+\end{itemize}

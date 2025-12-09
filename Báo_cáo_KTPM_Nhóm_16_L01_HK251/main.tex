@@ -1,0 +1,407 @@
+\documentclass[a4paper]{article}
+\usepackage{vntex}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}[ptm]
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage[normalem]{ulem}
+%\usepackage{soul}
+
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{float}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+
+\usepackage{indentfirst} % Always indent paragraph
+
+\usetikzlibrary{arrows,snakes,backgrounds,calc}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+\usepackage{listings}
+
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\usepackage[normalem]{ulem}
+
+\newtheorem{theorem}{{\bf Định lý}}
+\newtheorem{property}{{\bf Tính chất}}
+\newtheorem{proposition}{{\bf Mệnh đề}}
+\newtheorem{corollary}[proposition]{{\bf Hệ quả}}
+\newtheorem{lemma}[proposition]{{\bf Bổ đề}}
+\theoremstyle{definition}
+\newtheorem{exer}{Bài toán}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+% Remove page number in contents page. 
+\addtocontents{lof}{\protect\thispagestyle{empty}}
+% Remove page number in list of figure page. 
+\addtocontents{lot}{\protect\thispagestyle{empty}}
+% Remove page number in list of table page. 
+\def\thesislayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+		total={160mm,240mm},  % fix over page
+		left=30mm,
+		top=22mm,
+            right=20mm,
+            bottom=20mm,
+	}
+}
+\def\thesisheadlayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+		total={160mm,240mm},  % fix over page
+		left=30mm,
+		top=10mm,
+	}
+}
+\thesislayout
+\lstset{
+language=R,
+basicstyle=\footnotesize\sffamily,
+commentstyle=\ttfamily\color{black},
+numbers=left,
+numberstyle=\ttfamily\color{black}\footnotesize,
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=single,
+tabsize=2,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+title=\lstname,
+escapeinside={},
+keywordstyle={},
+morekeywords={}
+}
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\renewcommand{\footruleskip}{1mm}
+
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=10mm, height=10mm]{Images/hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{  Trường Đại Học Bách Khoa - Đại học Quốc gia TP.HCM }\\
+		\textbf{  Khoa Khoa Học \& Kỹ Thuật Máy Tính}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize  Báo cáo Đồ án chuyên ngành/Đồ án kỹ thuật máy tính/Đồ án môn học (CO4029/CO4041/...) - HK1 2023 - 2024}
+\fancyfoot[R]{\scriptsize  Trang {\thepage}/\pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+%Use case specification table
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{adjustbox} % Or just use the standard geometry/layout packages
+\newcommand\tabularhead[1]{
+	\begingroup
+	\setlength{\tabcolsep}{8pt}        % horizontal padding inside cells (default 6pt)
+	\renewcommand{\arraystretch}{1.5}  % vertical padding (1.0 default)
+	\begin{longtable}{|p{0.12\linewidth}|p{0.7\linewidth}|}
+		\caption{Usecase <<#1>>} \\
+		\hline
+		\textbf{Usecase} & \textbf{#1} \\
+		\hline
+		\endfirsthead
+		\hline
+		\textbf{Usecase} & \textbf{#1} \\
+		\hline
+		\endhead
+		\hline
+		\endfoot
+	}
+
+\newcommand\addrow[2]{#1 &#2\\ \hline}
+
+\newcommand\addmulrow[2]{ 
+    #1 & \begin{minipage}[t]{\linewidth}
+            \vspace{-\topsep} % Remove the space above the enumerate
+            \begin{enumerate}[nolistsep, leftmargin=*] 
+                #2 
+            \end{enumerate}
+            \vspace{\topsep}
+        \end{minipage}\\ \hline
+}
+
+\newcommand\addcondition[2]{ 
+    #1 & \begin{minipage}[t]{\linewidth}
+            \vspace{-\topsep} % Remove the space above the itemize
+            \begin{itemize}[nosep, leftmargin=*] 
+                #2 
+            \end{itemize}
+            \vspace{\topsep}
+        \end{minipage}\\ \hline
+}
+
+\newcommand\addexception[2]{ 
+    #1 & \begin{minipage}[t]{\linewidth}
+            \vspace{-\topsep} % Remove the space above the enumerate
+            \begin{enumerate}[nolistsep, leftmargin=*, label=ex\arabic*.] 
+                #2 
+            \end{enumerate}
+            \vspace{\topsep}
+        \end{minipage}\\ \hline
+}
+    
+\newenvironment{usecase}{
+	\tabularhead
+}{
+	\end{longtable}
+	\endgroup
+}
+
+%%%%%%Req counter
+% ==== Counter chung cho toàn bộ yêu cầu ====
+\newcounter{req}
+
+\makeatletter
+
+% ==== Use Case (US) ====
+% #1 = ID thật (A-US03)
+% #2 = tên use case
+\newcommand{\us}[2]{%
+	\refstepcounter{req}% tăng counter req
+	\def\@currentlabel{#1}% ép \ref hiển thị ID thật
+	\label{us:#1}% ghi label us:A-US03
+	\textbf{#1}%
+}
+
+% ==== Non-functional Requirement (NFR) ====
+% #1 = mã (01)
+% #2 = tên
+\newcommand{\nfr}[2]{%
+	\refstepcounter{req}%
+	\def\@currentlabel{NFR#1}% ép \ref hiển thị NFR01
+	\label{nfr:#1}%
+	\textbf{NRF#1}%
+}
+
+\makeatother
+
+% ADR
+\newcommand{\ADRTable}[4]{
+\begin{longtable}{|p{4cm}|p{11cm}|}
+	\caption{Architecture Decision Record (ADR) cho: #1}\label{tab:adr:#4} \\
+	\hline
+	\textbf{Trường} & \textbf{Nội dung} \\
+	\hline
+	\endfirsthead
+	
+	\multicolumn{2}{c}%
+	{{\bfseries Bảng \thetable\ tiếp theo từ trang trước}} \\
+	\hline
+	\textbf{Trường} & \textbf{Nội dung} \\
+	\hline
+	\endhead
+	
+	\hline \hline
+	\endlastfoot
+	
+	\textbf{Tiêu đề} & #1 \\ \hline
+	\textbf{Status (Trạng thái)} & #2 \\ \hline
+	\textbf{Context (Bối cảnh)} & #3 \\ \hline
+}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\everymath{\color{black}}%make in-line maths symbols blue to read/check easily
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=5pt}
+%space remove between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+\thesislayout
+
+\begin{document}
+
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[line width = 4pt] ($(current page.north west) + (0.4in,-0.5in)$) rectangle ($(current page.south east) + (-0.4in,0.5in)$);
+  \draw[line width=1.5pt]
+    ($ (current page.north west) + (0.45in,-0.55in) $)
+    rectangle
+    ($ (current page.south east) + (-0.45in,0.55in) $);
+\end{tikzpicture}
+
+\begin{center}
+\LARGE \textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH} \\
+\vspace{0.2cm}
+\LARGE \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA} \\
+\vspace{0.2cm}
+\LARGE \textbf{KHOA KHOA HỌC VÀ KĨ THUẬT MÁY TÍNH}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=4cm]{Images/hcmut.png}
+\end{center}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{c}{\textbf{{\LARGE BÁO CÁO BÀI TẬP LỚN}}}\\
+\\{\textbf{{\LARGE KIẾN TRÚC PHẦN MỀM}}}
+\\
+\\
+\textbf{\LARGE ĐỀ TÀI:}\\
+\textbf{\LARGE HỆ THỐNG GIA SƯ THÔNG MINH (ITS)}
+
+\end{tabular}
+\end{center}
+\vspace{0.5cm}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lll} % Using 'c' for the first column (for better alignment of the empty cell)
+		\multicolumn{3}{l}{\textbf{\Large Giảng viên hướng dẫn:} {\Large Trần Trương Tuấn Phát}} % Center GVHD across 3 columns
+		\\
+		\\
+		\multicolumn{3}{l}{\textbf{\Large Sinh viên thực hiện:}} 
+		\\
+		\\
+		& {\Large Nguyễn Anh Khoa} & {\Large 2211614} % Removed parentheses
+		\\
+		\\
+		& {\Large Phạm Quang Minh} & {\Large 2212075} % Removed parentheses
+		\\
+		\\
+		& {\Large Đoàn Ngọc Hoàng Sơn} & {\Large 2212935} % Removed parentheses
+		\\
+		\\
+		& {\Large Nguyễn Văn Sơn} & {\Large 2212949} % Removed parentheses
+		\\
+		\\
+		& {\Large Trần Nam Sơn} & {\Large 2212956} % Removed parentheses
+		\\
+		\\
+		& {\Large Nguyễn Hiệp Tài} & {\Large 2212985} % Removed parentheses
+		\\
+		\\
+		& {\Large Huỳnh Cảnh Thịnh} & {\Large 2213272} % Removed parentheses
+	\end{tabular}
+\end{table}
+\vspace{0.5cm}
+\begin{center}
+{\Large TP. HỒ CHÍ MINH, THÁNG 12 NĂM 2025 }
+\end{center}
+\end{titlepage}
+%\thispagestyle{empty}
+\newpage
+%%%%%%%%%%%%%%%%%INTRO%%%%%%%%%%%%%%%%%%%
+%\input{Intro/2. LoiCamOn.tex}
+%\input{Intro/1. LoiCamDoan.tex}
+%\input{Intro/3. TomTat.tex}
+
+\section*{Danh sách thành viên \& đóng góp}
+\begin{center}
+	\begin{tabular}{c c c c c}
+		\toprule
+		\textbf{STT} & \textbf{Họ và Tên} & \textbf{MSSV} & \textbf{Công việc được giao} & \textbf{Mức độ hoàn thành} \\
+		\midrule
+		1 & Nguyễn Anh Khoa & 2211614 & BE & 100\% \\
+		2 & Phạm Quang Minh & 2212075 & Deploy \& demo & 100\% \\
+		3 & Đoàn Ngọc Hoàng Sơn & 2212935 & BE, thiết kế kiến trúc & 100\% \\
+		4 & Nguyễn Văn Sơn & 2212949 & FE & 100\% \\
+		5 & Trần Nam Sơn & 2212956 & API Gateway, thiết kế kiến trúc & 100\% \\
+		6 & Nguyễn Hiệp Tài & 2212985 & ERD, use-case, requirement & 100\% \\
+		7 & Huỳnh Cảnh Thịnh & 2213272 & FE & 100\% \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%CONTENTS%%%%%%%%%%%%%%%%%%%
+\input{Contents/1. GioiThieu.tex}
+\newpage
+\input{Contents/2. CoSoLyThuyet.tex}
+\newpage
+\input{Contents/3. YeuCauHeThong.tex}
+\newpage
+\input{Contents/4. DacTaChiTietCacUseCase.tex}
+\newpage
+\input{Contents/5. PhanTichThietKeHeThong.tex}
+\newpage
+\input{Contents/6. HienThuc.tex}
+%\newpage
+%\input{Contents/7. TrienKhai.tex}
+\newpage
+\input{Contents/8. TongKet.tex}
+%%%%%%%%%%%%%%%%%OUTRO%%%%%%%%%%%%%%%%%%%
+%\newpage
+%\input{Outro/1. TaiLieuThamKhao.tex}
+\newpage
+\input{Outro/2. PhuLuc.tex}
+\end{document}
+
+
