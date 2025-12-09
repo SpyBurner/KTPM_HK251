@@ -50,3 +50,6 @@ logging:
 
 jwt:
   secret: ${JWT_SECRET}
+
+gateway:
+  secret-key: super-secret-key-change-in-production-12345

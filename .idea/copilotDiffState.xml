@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/BE/course-service/src/main/java/com/its/course/dto/response/ChapterDto.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/BE/course-service/src/main/java/com/its/course/dto/response/ChapterDto.java" />
+              <option name="originalContent" value="package com.its.course.dto.response;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;&#10;import java.util.List;&#10;&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class ChapterDto {&#10;    private Long id;&#10;    private String title;&#10;    private String summary;&#10;    private Integer orderIndex;&#10;    private List&lt;SectionDto&gt; sections;&#10;}&#10;" />
+              <option name="updatedContent" value="package com.its.course.dto.response;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;&#10;import java.util.List;&#10;&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class ChapterDto {&#10;    private Long id;&#10;    private String title;&#10;    private String summary;&#10;    private Integer orderIndex;&#10;    private List&lt;SectionDto&gt; sections;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
