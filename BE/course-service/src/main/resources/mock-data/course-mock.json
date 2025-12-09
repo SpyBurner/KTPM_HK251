@@ -1,0 +1,64 @@
+{
+  "users": [
+    { "id": 5, "username": "john_student", "displayName": "John Student", "roleId": 4, "email": "john_student@example.com" },
+    { "id": 3, "username": "dr_smith", "displayName": "Dr. Smith", "roleId": 2, "email": "dr_smith@example.com"}
+  ],
+  "topics": [
+    { "code": "T1", "name": "OOP" },
+    { "code": "T2", "name": "Spring Boot" },
+    { "code": "T3", "name": "Database" },
+    { "code": "T4", "name": "REST API" },
+    { "code": "T5", "name": "Eureka" }
+  ],
+  "courses": [
+    {
+      "code": "C1",
+      "title": "Java Core Basics",
+      "description": "Khóa học giới thiệu về lập trình Java cơ bản, tập trung vào cú pháp và OOP.",
+      "changeUserId": 3,
+      "instructorId": 3,
+      "thumbnailFile": { "fileName": "java-core.png", "filePath": "/files/java-core.png", "contentType": "image/png", "sizeBytes": 1024 },
+      "chapters": [
+        {
+          "code": "CH1",
+          "title": "Introduction to Java",
+          "summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+          "orderIndex": 1,
+          "topicCodes": ["T1", "T4"],
+          "sections": [
+            { "code": "S1", "name": "Setup & Hello World", "text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.", "orderIndex": 1 },
+            { "code": "S2", "name": "Data Types and Variables", "text": "Giải thích các kiểu dữ liệu và biến.", "orderIndex": 2 },
+            { "code": "S3", "name": "Section Quiz", "text": null, "orderIndex": 3 }
+          ]
+        },
+        {
+          "code": "CH2",
+          "title": "Object-Oriented Programming",
+          "summary": "Khái niệm Class, Object, Inheritance, Polymorphism.",
+          "orderIndex": 2,
+          "topicCodes": ["T1", "T5"],
+          "sections": []
+        },
+        {
+          "code": "CH3",
+          "title": "Collections and IO",
+          "summary": "Làm việc với Collections Framework và Input/Output.",
+          "orderIndex": 3,
+          "topicCodes": ["T3"],
+          "sections": []
+        }
+      ]
+    },
+    { "code": "C2", "title": "Microservices with Spring Boot", "description": "Xây dựng kiến trúc Microservices sử dụng Spring Boot, Spring Cloud và Eureka.", "changeUserId": 3, "instructorId": 3 },
+    { "code": "C3", "title": "PostgreSQL Database Fundamentals", "description": "Kiến thức cơ bản về quản trị và truy vấn cơ sở dữ liệu PostgreSQL.", "changeUserId": 3, "instructorId": 3 }
+  ],
+  "enrollments": [
+    { "studentId": 5, "courseCode": "C1", "isStarred": true, "isSaved": false },
+    { "studentId": 5, "courseCode": "C2", "isStarred": false, "isSaved": true },
+    { "studentId": 5, "courseCode": "C3", "isStarred": false, "isSaved": false }
+  ],
+  "finishedChapters": [
+    { "studentId": 5, "chapterCode": "CH1" }
+  ]
+}
+
