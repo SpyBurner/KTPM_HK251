@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,14 +36,16 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public CourseDto getCourseById(Long id) {
-        Course c = courseRepository.findById(id).orElseThrow(() -> new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION, "Course not found"));
+        Course c = courseRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION, "Course not found"));
         return courseMapper.toDto(c);
     }
 
     @Override
     @Transactional
     public CourseDto updateCourse(Long id, UpdateCourseRequest request) {
-        Course entity = courseRepository.findById(id).orElseThrow(() -> new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION, "Course not found"));
+        Course entity = courseRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION, "Course not found"));
         courseMapper.updateEntity(request, entity);
         Course saved = courseRepository.save(entity);
         return courseMapper.toDto(saved);
@@ -67,5 +70,19 @@ public class CourseServiceImpl implements ICourseService {
         }
         return list.stream().map(courseMapper::toDto).collect(Collectors.toList());
     }
-}
 
+    // ===== IMPLEMENTATION MỚI =====
+    @Override
+    public List<CourseDto> getCoursesByIds(List<Long> ids) {
+        if (ids == null || ids.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<Course> courses = courseRepository.findAllById(ids);
+        return courses.stream()
+                .map(courseMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+
+}

@@ -49,4 +49,14 @@ public class FileController {
             @PathVariable("username") String username) {
         return ApiResponse.<MediaFileDetailResponse>builder().result(fileService.getUserProfilePicture(username)).build();
     }
+
+    @GetMapping("/download-url/{fileId}")
+    public ApiResponse<PreSignedUrlResponse> generateDownloadPresignedUrl(
+            @PathVariable("fileId") String fileId) {
+        log.info("Generating download presigned URL for file ID: {}", fileId);
+        PreSignedUrlResponse response = fileService.generateDownloadPresignedUrl(fileId);
+        return ApiResponse.<PreSignedUrlResponse>builder()
+                .result(response)
+                .build();
+    }
 }

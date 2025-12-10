@@ -1,13 +1,11 @@
-package com.its.course.service;
+package com.its.learning.service;
 
-import com.its.course.dto.response.CourseDto;
-import com.its.course.entity.Course;
-import com.its.course.entity.StudentEnrollCourse;
-import com.its.course.exception.AppException;
-import com.its.course.exception.ErrorCode;
-import com.its.course.mapper.CourseMapper;
-import com.its.course.repository.CourseRepository;
-import com.its.course.repository.StudentEnrollCourseRepository;
+import com.its.learning.dto.request.BatchCourseRequest;
+import com.its.learning.dto.response.CourseDto;
+import com.its.learning.entity.StudentEnrollCourse;
+import com.its.learning.exception.AppException;
+import com.its.learning.exception.ErrorCode;
+import com.its.learning.repository.StudentEnrollCourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,30 +19,46 @@ import java.util.stream.Collectors;
 public class EnrollmentService {
 
     private final StudentEnrollCourseRepository enrollRepo;
-    private final CourseRepository courseRepository;
-    private final CourseMapper courseMapper;
+    private final ICourseService courseService;
+
 
     @Transactional
     public CourseDto enroll(Long studentId, Long courseId) {
-        if (!courseRepository.existsById(courseId)) {
+        CourseDto course = courseService
+                .getCourseById(courseId)
+                .getResult();
+
+        if (course == null) {
             throw new AppException(ErrorCode.COURSE_NOT_FOUND, "Course not found");
         }
-        if (!enrollRepo.existsByStudentIdAndCourseId(studentId, courseId)) {
+
+        boolean exists = enrollRepo.existsByStudentIdAndCourseId(studentId, courseId);
+        if (!exists) {
             StudentEnrollCourse enroll = new StudentEnrollCourse();
             enroll.setStudentId(studentId);
             enroll.setCourseId(courseId);
             enroll.setEnrolledAt(LocalDateTime.now());
             enrollRepo.save(enroll);
         }
-        Course c = courseRepository.findById(courseId).orElseThrow();
-        return courseMapper.toDto(c);
+
+        return course;
     }
 
     public List<CourseDto> getEnrolledCourses(Long studentId) {
-        List<StudentEnrollCourse> list = enrollRepo.findByStudentId(studentId);
-        List<Long> courseIds = list.stream().map(StudentEnrollCourse::getCourseId).collect(Collectors.toList());
-        List<Course> courses = courseRepository.findAllById(courseIds);
-        return courses.stream().map(courseMapper::toDto).collect(Collectors.toList());
+        List<StudentEnrollCourse> enrollments = enrollRepo.findByStudentId(studentId);
+        List<Long> courseIds = enrollments.stream()
+                .map(StudentEnrollCourse::getCourseId)
+                .collect(Collectors.toList());
+
+        if (courseIds.isEmpty()) {
+            return List.of();
+        }
+
+        BatchCourseRequest request = BatchCourseRequest.builder()
+                .courseIds(courseIds)
+                .build();
+
+        return courseService.getBatchCourses(request).getResult();
     }
 
     @Transactional

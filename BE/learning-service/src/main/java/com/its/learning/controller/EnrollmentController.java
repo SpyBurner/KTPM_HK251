@@ -1,8 +1,8 @@
-package com.its.course.controller;
+package com.its.learning.controller;
 
-import com.its.course.dto.ApiResponse;
-import com.its.course.dto.response.CourseDto;
-import com.its.course.service.EnrollmentService;
+import com.its.learning.dto.ApiResponse;
+import com.its.learning.dto.response.CourseDto;
+import com.its.learning.service.EnrollmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

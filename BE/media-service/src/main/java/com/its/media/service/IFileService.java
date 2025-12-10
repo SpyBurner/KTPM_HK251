@@ -11,4 +11,5 @@ public interface IFileService {
     Void uploadMediaFile(MediaFileUploadRequest request, String username);
     Void deleteMediaFile(String fileName);
     MediaFileDetailResponse getUserProfilePicture(String username);
+    PreSignedUrlResponse generateDownloadPresignedUrl(String fileId);
 }

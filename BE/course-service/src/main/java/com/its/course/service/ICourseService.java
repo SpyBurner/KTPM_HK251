@@ -12,5 +12,6 @@ public interface ICourseService {
     CourseDto updateCourse(Long id, UpdateCourseRequest request);
     void deleteCourse(Long id);
     List<CourseDto> listCourses(String title);
+    List<CourseDto> getCoursesByIds(List<Long> ids);
 }
 

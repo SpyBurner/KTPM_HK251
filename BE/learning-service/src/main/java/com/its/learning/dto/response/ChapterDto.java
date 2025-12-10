@@ -1,7 +1,6 @@
-package com.its.course.dto.response;
+package com.its.learning.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +9,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class ChapterDto {
     private Long id;
     private String title;

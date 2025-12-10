@@ -27,6 +27,12 @@ spring:
                 - Path=/api/media-service/**
               filters:
                 - RewritePath=/api/media-service/(?<segment>.*), /${segment}
+            - id: learning-service
+              uri: lb://learning-service
+              predicates:
+                - Path=/api/learning-service/**
+              filters:
+                - RewritePath=/api/learning-service/(?<segment>.*), /${segment}
           discovery:
             locator:
               enabled: false

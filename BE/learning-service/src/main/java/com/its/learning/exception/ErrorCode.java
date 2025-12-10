@@ -1,4 +1,4 @@
-package com.its.course.exception;
+package com.its.learning.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -8,8 +8,7 @@ import lombok.Getter;
 public enum ErrorCode {
     UNCATEGORIZED_EXCEPTION(9999, "Uncategorized error", HttpStatus.INTERNAL_SERVER_ERROR),
     COURSE_NOT_FOUND(2001, "Course not found", HttpStatus.NOT_FOUND),
-    INVALID_INPUT(2002, "Invalid input", HttpStatus.BAD_REQUEST),
-    CHAPTER_NOT_FOUND(2003, "Chapter not found", HttpStatus.NOT_FOUND)
+    INVALID_INPUT(2002, "Invalid input", HttpStatus.BAD_REQUEST)
     ;
 
     ErrorCode(int code, String message, HttpStatusCode statusCode) {

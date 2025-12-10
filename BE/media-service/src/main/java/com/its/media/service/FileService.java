@@ -136,4 +136,32 @@ public class FileService implements IFileService {
             throw new AppException(ErrorCode.FILE_RETRIEVAL_FAILED);
         }
     }
+
+    @Override
+    public PreSignedUrlResponse generateDownloadPresignedUrl(String fileId) {
+        try {
+            log.info("Generating download presigned URL for file ID: {}", fileId);
+            UUID uuid = UUID.fromString(fileId);
+
+            File file = fileRepository.findById(uuid)
+                    .orElseThrow(() -> new AppException(ErrorCode.FILE_NOT_FOUND));
+
+            // Gọi cloud storage service để generate presigned URL cho download
+            PreSignedUrlResponse response = cloudStorageService.generateDownloadPresignedUrl(
+                    file.getBucketId(),
+                    file.getName()
+            );
+
+            log.info("Successfully generated download presigned URL for file: {}", file.getName());
+            return response;
+        } catch (IllegalArgumentException e) {
+            log.error("Invalid file ID format: {}", fileId, e);
+            throw new AppException(ErrorCode.INVALID_FILE_ID);
+        } catch (AppException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Failed to generate download presigned URL for file ID: {}", fileId, e);
+            throw new AppException(ErrorCode.PRESIGNED_URL_GENERATION_FAILED);
+        }
+    }
 }

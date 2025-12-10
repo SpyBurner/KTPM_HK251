@@ -1,6 +1,7 @@
 package com.its.course.controller;
 
 import com.its.course.dto.ApiResponse;
+import com.its.course.dto.request.BatchCourseRequest;
 import com.its.course.dto.request.CreateCourseRequest;
 import com.its.course.dto.request.UpdateCourseRequest;
 import com.its.course.dto.response.CourseDto;
@@ -11,9 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Course management REST controller
- */
 @RestController
 @RequestMapping("/courses")
 @RequiredArgsConstructor
@@ -29,6 +27,15 @@ public class CourseController {
     @GetMapping("/{id}")
     public ApiResponse<CourseDto> getCourseById(@PathVariable Long id) {
         return ApiResponse.success(courseService.getCourseById(id), "Course retrieved successfully");
+    }
+
+    // ===== API MỚI: Lấy nhiều courses theo list IDs =====
+    @PostMapping("/batch")
+    public ApiResponse<List<CourseDto>> getBatchCourses(@RequestBody BatchCourseRequest request) {
+        return ApiResponse.success(
+                courseService.getCoursesByIds(request.getCourseIds()),
+                "Courses retrieved successfully"
+        );
     }
 
     @PostMapping
@@ -47,8 +54,4 @@ public class CourseController {
         return ApiResponse.success("Course deleted", "Deleted");
     }
 
-    @GetMapping("/hehe")
-    public ApiResponse<String> healthCheck() {
-        return ApiResponse.success("Course service is running", "Health check passed");
-    }
 }
