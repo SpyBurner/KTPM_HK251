@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { MoreHorizontal } from "lucide-react";
 import { getAllCourses, getEnrolledCourses, getCourseProgress, Course, EnrolledCourse } from "../../services/authServices";
 
-const Home = (): JSX.Element => {
+interface YourCoursesProps {
+    onNavigate: (page: string, id?: number) => void;
+}
+
+const Home = ({ onNavigate }: YourCoursesProps): JSX.Element => {
   const [recentCourses, setRecentCourses] = useState<EnrolledCourse[]>([]);
   const [suggestedCourses, setSuggestedCourses] = useState<Course[]>([]);
   const [userName, setUserName] = useState("Student");
@@ -86,7 +90,10 @@ const Home = (): JSX.Element => {
                       ></div>
                     </div>
                     
-                    <button className="bg-[#2c2c2c] text-white text-sm px-6 py-1.5 rounded hover:bg-black transition-colors">
+                    <button 
+                      onClick={() => onNavigate("course-detail", course.id)}
+                      className="bg-[#2c2c2c] text-white text-sm px-6 py-1.5 rounded hover:bg-black transition-colors"
+                    >
                       Continue
                     </button>
                   </div>

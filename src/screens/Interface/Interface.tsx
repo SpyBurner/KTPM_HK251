@@ -49,7 +49,6 @@ import BrowseCourses from "./BrowseCourse";
 import Profile from "./Profile";
 import CourseDetail from "./CourseDetail";
 import CourseEnroll from "./CourseEnroll";
-import { LoginPage } from "../Login";
 
 export const Interface = () : JSX.Element => {
     const [activePage, setActivePage] = useState("home");
@@ -67,7 +66,7 @@ export const Interface = () : JSX.Element => {
     const renderContent = () => {
         switch(activePage) {
             case "home":
-                return <Home/>
+                return <Home onNavigate={handleNavigate} />
             case "your-courses":
                 return <YourCourses onNavigate={handleNavigate} />
             case "browse-courses":

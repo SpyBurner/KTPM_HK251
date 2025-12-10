@@ -70,7 +70,7 @@ export const getAllCourses = async () => {
 };
 export const getCourseById = async (courseId: number) => {
   const token = localStorage.getItem('accessToken');
-  const response = await api.get<{ result: Course[] }>(`/course-service/courses/${courseId}`, {
+  const response = await api.get<{ result: Course }>(`/course-service/courses/${courseId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
