@@ -1,0 +1,695 @@
+{
+	"info": {
+		"_postman_id": "388ec155-f615-4836-8734-f63533b0e36e",
+		"name": "Architecture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50548237",
+		"_collection_link": "https://hoangsondoanngoc3-1370533.postman.co/workspace/Ho%C3%A0ng-S%C6%A1n-%C4%90o%C3%A0n-Ng%E1%BB%8Dc's-Workspace~7bf73ae5-5d53-446b-8101-a43fb96ea51b/collection/50548237-388ec155-f615-4836-8734-f63533b0e36e?action=share&source=collection_link&creator=50548237"
+	},
+	"item": [
+		{
+			"name": "localhost:8765/api/iam-service/auth/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"anhkhoaoki4\", \"password\": \"123456\", \"email\": \"test4@example.com\", \"roleId\": 4 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8765/api/iam-service/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"iam-service",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"result": {
+					"accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjUyMTA2MjAsImV4cCI6MTc2NTI5NzAyMH0.BTDP6V0zSDaa1FvYx0Snmf04Guk6cMs-RKYHzucq7WM",
+					"refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjUyMTA2MjAsImV4cCI6MTc2NTgxNTQyMH0.4t9RVch_nHMqpVMb6QNvTx_qvcLE8nK3ySfZ0vX20Nc",
+					"userDto": {
+						"id": 5,
+						"username": "anhkhoaoki4",
+						"role": "STUDENT"
+					}
+				}
+			}
+		},
+		{
+			"name": "localhost:8765/api/iam-service/auth/authenticate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"anhkhoaoki4\", \"password\": \"123456\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8765/api/iam-service/auth/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"iam-service",
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"result": {
+					"accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjUyMTA5NzksImV4cCI6MTc2NTI5NzM3OX0.nnTJDegkLA5xMUc7xZ9flTFokvvU1uUMfcZfsuOWhdE",
+					"refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjUyMTA5NzksImV4cCI6MTc2NTgxNTc3OX0.sTAJ3Ye6jR9RPatVYcMiwSY4YUeZhyn73hAk7VTYAVo",
+					"userDto": {
+						"id": 5,
+						"username": "anhkhoaoki4",
+						"role": "STUDENT"
+					}
+				}
+			}
+		},
+		{
+			"name": "localhost:8765/api/iam-service/users/health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NDIwMDYsImV4cCI6MTc2NTAyODQwNn0.t8lCjGhzPGxpgyyOQsLVAyqoEyt9ox5m0g8VRK34Ef0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"anhkhoaoki4\", \"password\": \"123456\" }"
+				},
+				"url": {
+					"raw": "localhost:8765/api/iam-service/users/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"iam-service",
+						"users",
+						"health"
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"result": "IAM service is running"
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/courses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NDU5NzUsImV4cCI6MTc2NTAzMjM3NX0.llF5RwYxZQjYdYZutrKoVSroThgIHrwKtIB4B_galaY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"courses"
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Courses retrieved successfully",
+				"result": [
+					{
+						"id": 1,
+						"title": "Java Core Basics",
+						"description": "Khóa học giới thiệu về lập trình Java cơ bản, tập trung vào cú pháp và OOP.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:42.713419",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": 1,
+						"chapters": [
+							{
+								"id": 1,
+								"title": "Introduction to Java",
+								"summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+								"orderIndex": 1,
+								"sections": [
+									{
+										"id": 1,
+										"name": "Setup & Hello World",
+										"text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.",
+										"orderIndex": 1
+									},
+									{
+										"id": 2,
+										"name": "Data Types and Variables",
+										"text": "Giải thích các kiểu dữ liệu và biến.",
+										"orderIndex": 2
+									},
+									{
+										"id": 3,
+										"name": "Section Quiz",
+										"text": null,
+										"orderIndex": 3
+									}
+								]
+							},
+							{
+								"id": 2,
+								"title": "Object-Oriented Programming",
+								"summary": "Khái niệm Class, Object, Inheritance, Polymorphism.",
+								"orderIndex": 2,
+								"sections": []
+							},
+							{
+								"id": 3,
+								"title": "Collections and IO",
+								"summary": "Làm việc với Collections Framework và Input/Output.",
+								"orderIndex": 3,
+								"sections": []
+							}
+						]
+					},
+					{
+						"id": 2,
+						"title": "Microservices with Spring Boot",
+						"description": "Xây dựng kiến trúc Microservices sử dụng Spring Boot, Spring Cloud và Eureka.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:47.55421",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": null,
+						"chapters": []
+					},
+					{
+						"id": 3,
+						"title": "PostgreSQL Database Fundamentals",
+						"description": "Kiến thức cơ bản về quản trị và truy vấn cơ sở dữ liệu PostgreSQL.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:47.805066",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": null,
+						"chapters": []
+					}
+				]
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/courses/:courseId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NDU5NzUsImV4cCI6MTc2NTAzMjM3NX0.llF5RwYxZQjYdYZutrKoVSroThgIHrwKtIB4B_galaY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/courses/:courseId",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"courses",
+						":courseId"
+					],
+					"variable": [
+						{
+							"key": "courseId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Course retrieved successfully",
+				"result": {
+					"id": 1,
+					"title": "Java Core Basics",
+					"description": "Khóa học giới thiệu về lập trình Java cơ bản, tập trung vào cú pháp và OOP.",
+					"instructorId": 3,
+					"active": true,
+					"createdAt": "2025-12-07T20:45:42.713419",
+					"updatedAt": null,
+					"changeUserId": 3,
+					"thumbnailFileId": 1,
+					"chapters": [
+						{
+							"id": 1,
+							"title": "Introduction to Java",
+							"summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+							"orderIndex": 1,
+							"sections": [
+								{
+									"id": 1,
+									"name": "Setup & Hello World",
+									"text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.",
+									"orderIndex": 1
+								},
+								{
+									"id": 2,
+									"name": "Data Types and Variables",
+									"text": "Giải thích các kiểu dữ liệu và biến.",
+									"orderIndex": 2
+								},
+								{
+									"id": 3,
+									"name": "Section Quiz",
+									"text": null,
+									"orderIndex": 3
+								}
+							]
+						},
+						{
+							"id": 2,
+							"title": "Object-Oriented Programming",
+							"summary": "Khái niệm Class, Object, Inheritance, Polymorphism.",
+							"orderIndex": 2,
+							"sections": []
+						},
+						{
+							"id": 3,
+							"title": "Collections and IO",
+							"summary": "Làm việc với Collections Framework và Input/Output.",
+							"orderIndex": 3,
+							"sections": []
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/courses/:courseId/content/chapters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiam9obl9zdHVkZW50IiwiaWF0IjoxNzY0OTU1MzYxLCJleHAiOjE3NjUwNDE3NjF9.4Jdv9Ptfszn7pQaWywBePoWjvgtBGGHF6LhliRmud2c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/courses/:courseId/content/chapters",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"courses",
+						":courseId",
+						"content",
+						"chapters"
+					],
+					"variable": [
+						{
+							"key": "courseId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Chapters retrieved",
+				"result": [
+					{
+						"id": 1,
+						"title": "Introduction to Java",
+						"summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+						"orderIndex": 1,
+						"sections": [
+							{
+								"id": 1,
+								"name": "Setup & Hello World",
+								"text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.",
+								"orderIndex": 1
+							},
+							{
+								"id": 2,
+								"name": "Data Types and Variables",
+								"text": "Giải thích các kiểu dữ liệu và biến.",
+								"orderIndex": 2
+							},
+							{
+								"id": 3,
+								"name": "Section Quiz",
+								"text": null,
+								"orderIndex": 3
+							}
+						]
+					},
+					{
+						"id": 2,
+						"title": "Object-Oriented Programming",
+						"summary": "Khái niệm Class, Object, Inheritance, Polymorphism.",
+						"orderIndex": 2,
+						"sections": []
+					},
+					{
+						"id": 3,
+						"title": "Collections and IO",
+						"summary": "Làm việc với Collections Framework và Input/Output.",
+						"orderIndex": 3,
+						"sections": []
+					}
+				]
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/courses/:courseId/content/chapters/:chapterId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiam9obl9zdHVkZW50IiwiaWF0IjoxNzY0OTU1MzYxLCJleHAiOjE3NjUwNDE3NjF9.4Jdv9Ptfszn7pQaWywBePoWjvgtBGGHF6LhliRmud2c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/courses/:courseId/content/chapters/:chapterId",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"courses",
+						":courseId",
+						"content",
+						"chapters",
+						":chapterId"
+					],
+					"variable": [
+						{
+							"key": "courseId",
+							"value": "1"
+						},
+						{
+							"key": "chapterId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Chapter retrieved",
+				"result": {
+					"id": 1,
+					"title": "Introduction to Java",
+					"summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+					"orderIndex": 1,
+					"sections": [
+						{
+							"id": 1,
+							"name": "Setup & Hello World",
+							"text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.",
+							"orderIndex": 1
+						},
+						{
+							"id": 2,
+							"name": "Data Types and Variables",
+							"text": "Giải thích các kiểu dữ liệu và biến.",
+							"orderIndex": 2
+						},
+						{
+							"id": 3,
+							"name": "Section Quiz",
+							"text": null,
+							"orderIndex": 3
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/enroll/student/:studentId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NDU5NzUsImV4cCI6MTc2NTAzMjM3NX0.llF5RwYxZQjYdYZutrKoVSroThgIHrwKtIB4B_galaY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/enroll/student/:studentId",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"enroll",
+						"student",
+						":studentId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Enrolled courses",
+				"result": [
+					{
+						"id": 1,
+						"title": "Java Core Basics",
+						"description": "Khóa học giới thiệu về lập trình Java cơ bản, tập trung vào cú pháp và OOP.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:42.713419",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": 1,
+						"chapters": [
+							{
+								"id": 1,
+								"title": "Introduction to Java",
+								"summary": "Giới thiệu môi trường Java và cú pháp cơ bản.",
+								"orderIndex": 1,
+								"sections": [
+									{
+										"id": 1,
+										"name": "Setup & Hello World",
+										"text": "Hướng dẫn cài đặt JDK và viết chương trình đầu tiên.",
+										"orderIndex": 1
+									},
+									{
+										"id": 2,
+										"name": "Data Types and Variables",
+										"text": "Giải thích các kiểu dữ liệu và biến.",
+										"orderIndex": 2
+									},
+									{
+										"id": 3,
+										"name": "Section Quiz",
+										"text": null,
+										"orderIndex": 3
+									}
+								]
+							},
+							{
+								"id": 2,
+								"title": "Object-Oriented Programming",
+								"summary": "Khái niệm Class, Object, Inheritance, Polymorphism.",
+								"orderIndex": 2,
+								"sections": []
+							},
+							{
+								"id": 3,
+								"title": "Collections and IO",
+								"summary": "Làm việc với Collections Framework và Input/Output.",
+								"orderIndex": 3,
+								"sections": []
+							}
+						]
+					},
+					{
+						"id": 2,
+						"title": "Microservices with Spring Boot",
+						"description": "Xây dựng kiến trúc Microservices sử dụng Spring Boot, Spring Cloud và Eureka.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:47.55421",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": null,
+						"chapters": []
+					},
+					{
+						"id": 3,
+						"title": "PostgreSQL Database Fundamentals",
+						"description": "Kiến thức cơ bản về quản trị và truy vấn cơ sở dữ liệu PostgreSQL.",
+						"instructorId": 3,
+						"active": true,
+						"createdAt": "2025-12-07T20:45:47.805066",
+						"updatedAt": null,
+						"changeUserId": 3,
+						"thumbnailFileId": null,
+						"chapters": []
+					}
+				]
+			}
+		},
+		{
+			"name": "localhost:8765/api/course-service/progress/student/:studentId/course/:courseId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NTMwMjMsImV4cCI6MTc2NTAzOTQyM30.unPfWWa5Xs5WTtrjMgbd__kqqImaB7x04NbzqkwHvt4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8765/api/course-service/progress/student/:studentId/course/:courseId",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"api",
+						"course-service",
+						"progress",
+						"student",
+						":studentId",
+						"course",
+						":courseId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "5"
+						},
+						{
+							"key": "courseId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": {
+				"code": 1000,
+				"message": "Progress retrieved",
+				"result": 0.3333333333333333
+			}
+		},
+		{
+			"name": "http://localhost:8765/api/iam-service/users/profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzY29wZSI6WyJST0xFX1NUVURFTlQiXSwic3ViIjoiYW5oa2hvYW9raTQiLCJpYXQiOjE3NjQ5NTMwMjMsImV4cCI6MTc2NTAzOTQyM30.unPfWWa5Xs5WTtrjMgbd__kqqImaB7x04NbzqkwHvt4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": []
+			},
+			"response": {
+				"code": 1000,
+				"result": {
+					"id": 5,
+					"username": "anhkhoaoki4",
+					"role": "STUDENT"
+				}
+			}
+		}
+	]
+}
