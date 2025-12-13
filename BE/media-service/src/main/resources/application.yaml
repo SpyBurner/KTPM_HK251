@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: media-service
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: "postgres"
+    password: "TRAN NAM SON229"
+    driver-class-name: "org.postgresql.Driver"
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+aws:
+  s3:
+    region: ap-southeast-1
+    bucket-name: soft-architecture
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
+    expiration-minutes: 15
+
+security:
+  user:
+    name: admin
+    password: admin123
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.its.user: DEBUG
+    org.springframework.security: DEBUG
+
+jwt:
+  secret: ${JWT_SECRET}
+
+gateway:
+  secret-key: super-secret-key-change-in-production-12345

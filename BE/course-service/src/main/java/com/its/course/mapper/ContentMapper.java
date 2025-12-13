@@ -24,12 +24,16 @@ public class ContentMapper {
 
     public SectionDto toSectionDto(Section s) {
         if (s == null) return null;
+
         SectionDto dto = new SectionDto();
         dto.setId(s.getId());
         dto.setName(s.getName());
         dto.setText(s.getText());
         dto.setOrderIndex(s.getOrderIndex());
+
+        dto.setResourceIds(s.getResourceIds());
         return dto;
     }
+
 }
 

@@ -34,13 +34,11 @@ public class Section {
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 
-    // Resources attached to this section (e.g., pdf, video, thumbnail) - many-to-many
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(
             name = "section_file",
-            joinColumns = @JoinColumn(name = "section_id"),
-            inverseJoinColumns = @JoinColumn(name = "file_id")
+            joinColumns = @JoinColumn(name = "section_id")
     )
-    private Set<FileResource> resources = new HashSet<>();
-
+    @Column(name = "file_id", nullable = false)
+    private Set<String> resourceIds = new HashSet<>();
 }
